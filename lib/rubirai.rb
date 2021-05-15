@@ -8,15 +8,15 @@ module Rubirai
   require 'http'
 
   # The class for rubirai api.
-  class RubiraiAPI
-    attr_reader :base_url
+  class Bot
+    attr_reader :base_uri
 
     def initialize(host, port = nil)
-      @base_url = "http://#{host}#{":#{port}" if port}"
+      @base_uri = "http://#{host}#{":#{port}" if port}"
     end
 
     def gen_uri(path)
-      URI.join(base_url, path)
+      URI.join(base_uri, path)
     end
 
     private

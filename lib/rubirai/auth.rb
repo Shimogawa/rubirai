@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Rubirai
-  class RubiraiAPI
+  class Bot
     # Start authentication. Will store the session.
     # @param auth_key [String] the auth key defined in config file
     # @return [String] an authentication key which is stored in RubiraiAPI
@@ -36,7 +36,7 @@ module Rubirai
     private
 
     def check(qq, session = nil)
-      raise RubiraiError, 'Wrong format for qq' unless qq.to_i.to_s == to_s
+      raise RubiraiError, 'Wrong format for qq' unless qq.to_i.to_s == qq.to_s
       raise RubiraiError, 'No session provided' unless @session || session
     end
   end

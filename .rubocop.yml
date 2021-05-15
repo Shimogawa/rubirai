@@ -1,2 +1,5 @@
 Naming/MethodParameterName:
   Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false

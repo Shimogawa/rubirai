@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'plugin info api' do
   before do
-    # Do nothing
+    @mirai_bot = new_bot
   end
 
   after do

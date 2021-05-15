@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Rubirai
-  class RubiraiAPI
+  class Bot
     # Get Mirai API plugin information
     def about
       v = call :get, '/about'

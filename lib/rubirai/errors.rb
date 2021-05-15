@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rubirai/retcode'
+
 module Rubirai
   # Http response error
   class HttpResponseError < RuntimeError
