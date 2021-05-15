@@ -3,3 +3,12 @@ Naming/MethodParameterName:
 
 Layout/FirstHashElementIndentation:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false

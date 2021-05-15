@@ -3,13 +3,15 @@
 require 'rubirai/errors'
 require 'rubirai/plugin_info'
 require 'rubirai/auth'
+require 'rubirai/message'
 
+# Rubirai is a library for connecting Mirai http api.
 module Rubirai
   require 'http'
 
-  # The class for rubirai api.
+  # The class for rubirai bot.
   class Bot
-    attr_reader :base_uri
+    attr_reader :base_uri, :session, :qq
 
     def initialize(host, port = nil)
       @base_uri = "http://#{host}#{":#{port}" if port}"

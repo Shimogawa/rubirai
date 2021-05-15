@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Rubirai
+  # Section of Bot about authentication
   class Bot
     # Start authentication. Will store the session.
     # @param auth_key [String] the auth key defined in config file
@@ -14,8 +15,9 @@ module Rubirai
     def verify(qq, session = nil)
       check qq, session
 
+      call :post, '/verify', json: { "sessionKey": @session || session, "qq": qq.to_i }
       @session = session if session
-      call :post, '/verify', json: { "sessionKey": @session, "qq": qq.to_i }
+      @qq = qq
       nil
     end
 
@@ -25,6 +27,7 @@ module Rubirai
 
       call :post, '/release', json: { "sessionKey": @session || session, "qq": qq.to_i }
       @session = nil
+      @qq = nil
       nil
     end
 
@@ -32,6 +35,16 @@ module Rubirai
       auth auth_key
       verify qq
     end
+
+    alias connect login
+
+    def logout(qq)
+      return unless @session
+
+      release qq, @session
+    end
+
+    alias disconnect logout
 
     private
 

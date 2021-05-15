@@ -59,5 +59,22 @@ describe 'auth api' do
     expect { @mirai_bot.verify '1ab39cde' }.to raise_error(Rubirai::RubiraiError, 'Wrong format for qq')
     expect { new_bot.verify @qq }.to raise_error(Rubirai::RubiraiError, 'No session provided')
   end
+
+  it 'should be able to release' do
+    stub_request(:post, @mirai_bot.gen_uri('/release'))
+      .with(body: {
+        "sessionKey": @session_key,
+        "qq": @qq
+      })
+      .to_return(status: 200, body: %({
+          "code": 0,
+          "msg": "success"
+      }))
+
+    expect do
+      expect(@mirai_bot.release(@qq)).to be_nil
+    end.not_to raise_error
+    expect(@mirai_bot.session).to be_nil
+  end
 end
 
