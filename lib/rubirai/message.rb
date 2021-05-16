@@ -32,9 +32,7 @@ module Rubirai
     end
 
     def send_msg(type, target_id, msg)
-      unless %w[group friend].include? type.to_s.downcase
-        raise(RubiraiError, 'not valid type: should be one of [group, friend]')
-      end
+      ensure_type_in type, 'group', 'friend'
       chain = msg_to_chain msg
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,

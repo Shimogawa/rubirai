@@ -4,6 +4,7 @@ require 'rubirai/errors'
 require 'rubirai/plugin_info'
 require 'rubirai/auth'
 require 'rubirai/message'
+require 'rubirai/multipart'
 
 # Rubirai is a library for connecting Mirai http api.
 module Rubirai
@@ -33,6 +34,10 @@ module Rubirai
       raise(MiraiError, body['code'], body['msg']) if (body.include? 'code') && (body['code'] != 0)
 
       body
+    end
+
+    def ensure_type_in(type, *types)
+      raise(RubiraiError, "not valid type: should be one of #{types}") unless types.include? type.to_s.downcase
     end
   end
 end
