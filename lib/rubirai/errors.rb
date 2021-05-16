@@ -14,9 +14,10 @@ module Rubirai
   end
 
   class MiraiError < RubiraiError
-    def initialize(code)
+    def initialize(code, msg = nil)
       raise(RubiraiError, 'invalid mirai error code') unless Rubirai::RETURN_CODE.key? code
-      str = "Mirai error: #{code} - #{Rubirai::RETURN_CODE[code]}"
+      str = +"Mirai error: #{code} - #{Rubirai::RETURN_CODE[code]}"
+      str << "\n#{msg}" if msg
       super str
     end
   end

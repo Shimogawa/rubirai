@@ -5,25 +5,75 @@ require 'rubirai/utils'
 module Rubirai
   # Section of Bot about messages
   class Bot
-    def send_friend_msg(target_qq, msg)
-      chain = case msg
-              when Message
-                make_chain msg
-              when MessageChain
-                msg
-              when Hash
-                make_chain Message.build_from(msg)
-              when Array
-                make_chain(*msg)
-              else
-                make_chain PlainMessage.from(msg.to_s)
-              end
-      resp = call :post, '/sendFriendMessage', json: {
+    def msg_to_chain(msg)
+      case msg
+      when Message
+        make_chain msg
+      when MessageChain
+        msg
+      when Hash
+        make_chain Message.build_from(msg)
+      when Array
+        make_chain(*msg)
+      else
+        make_chain PlainMessage.from(msg.to_s)
+      end
+    end
+
+    def send_temp_msg(target_qq, group_id, msg)
+      chain = msg_to_chain msg
+      resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
-        target: target_qq,
+        qq: target_qq,
+        group: group_id,
         messageChain: chain.to_a
       }
       resp['messageId']
+    end
+
+    def send_msg(type, target_id, msg)
+      unless %w[group friend].include? type.to_s.downcase
+        raise(RubiraiError, 'not valid type: should be one of [group, friend]')
+      end
+      chain = msg_to_chain msg
+      resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
+        sessionKey: @session,
+        target: target_id,
+        messageChain: chain.to_a
+      }
+      resp['messageId']
+    end
+
+    def send_friend_msg(target_qq, msg)
+      send_msg :friend, target_qq, msg
+    end
+
+    def send_group_msg(target_group_id, msg)
+      send_msg :group, target_group_id, msg
+    end
+
+    def recall(msg_id)
+      call :post, '/recall', json: {
+        sessionKey: @session,
+        target: msg_id
+      }
+      nil
+    end
+
+    def send_image_msg(urls, **kwargs)
+      urls.must_be! Array
+      urls.each do |url|
+        url.must_be! String
+      end
+      valid = %w[target qq group]
+      res = {
+        sessionKey: @session,
+        urls: urls
+      }
+      kwargs.each do |k, v|
+        res[k.to_s.downcase.to_sym] = v if valid.include? k.to_s.downcase
+      end
+      call :post, '/sendImageMessage', json: res
     end
 
     private
@@ -51,7 +101,7 @@ module Rubirai
     end
 
     def append(msg)
-      raise(RubiraiError, 'not a message or hash') unless msg.is_a?(Message) || msg.is_a?(Hash)
+      msg.must_be! [Message, Hash], RubiraiError, 'msg must be a message or hash'
 
       if msg.is_a? Message
         @messages.append msg
@@ -144,7 +194,7 @@ module Rubirai
           super type
           hash = hash.stringify_keys
           attr_keys.each do |k|
-            instance_variable_set("@#{k}", hash[k.to_s.camel_case(lower: true)])
+            instance_variable_set("@#{k}", hash[k.to_s.snake_to_camel(lower: true)])
           end
         end
       end
@@ -158,7 +208,7 @@ module Rubirai
     def to_h
       Hash(keys.map do |k|
         v = instance_variable_get("@#{k}")
-        k = k.camel_case(lower: true)
+        k = k.snake_to_camel(lower: true)
         if v.respond_to? :to_h
           [k, v.to_h]
         else

@@ -2,5 +2,5 @@
 
 module Rubirai
   VERSION = '0.0.1'
-  MIRAI_API_VERSION = 'x'
+  MIRAI_API_VERSION = 'v2.0-RC1'
 end
