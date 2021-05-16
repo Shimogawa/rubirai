@@ -20,9 +20,11 @@ describe 'errors' do
   end
 
   it 'should create MiraiError with specific message' do
-    expect { raise Rubirai::HttpResponseError, '404' }
-      .to raise_error(Rubirai::RubiraiError, 'Http Error: 404') do |err|
-      expect(err).to be_a_kind_of(Rubirai::RubiraiError)
+    Rubirai::RETURN_CODE.each do |code, msg|
+      expect { raise Rubirai::MiraiError, code }
+        .to raise_error(Rubirai::MiraiError, "Mirai error: #{code} - #{msg}") do |err|
+        expect(err).to be_a_kind_of(Rubirai::RubiraiError)
+      end
     end
   end
 end
