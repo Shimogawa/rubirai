@@ -1,5 +1,7 @@
 # Rubirai
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FShimogawa%2Frubirai.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FShimogawa%2Frubirai?ref=badge_shield) [![codecov](https://codecov.io/gh/Shimogawa/rubirai/branch/master/graph/badge.svg?token=OVUVEWFPKY)](https://codecov.io/gh/Shimogawa/rubirai)
+[![CI](https://github.com/Shimogawa/rubirai/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Shimogawa/rubirai/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/Shimogawa/rubirai/branch/master/graph/badge.svg?token=OVUVEWFPKY)](https://codecov.io/gh/Shimogawa/rubirai)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FShimogawa%2Frubirai.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FShimogawa%2Frubirai?ref=badge_shield)
 
 
 A light-weight Mirai QQ bot http interface lib for Ruby.
