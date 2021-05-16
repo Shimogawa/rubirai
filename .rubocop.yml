@@ -12,3 +12,15 @@ Style/GuardClause:
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false

@@ -7,14 +7,16 @@ module Rubirai
   class Bot
     def send_friend_msg(target_qq, msg)
       chain = case msg
-              when String
-                make_chain PlainMessage.from msg
-              when Message, MessageChain
+              when Message
+                make_chain msg
+              when MessageChain
                 msg
               when Hash
-                make_chain Message.build_from msg
+                make_chain Message.build_from(msg)
+              when Array
+                make_chain(*msg)
               else
-                msg.to_s
+                make_chain PlainMessage.from(msg.to_s)
               end
       resp = call :post, '/sendFriendMessage', json: {
         sessionKey: @session,
@@ -24,17 +26,19 @@ module Rubirai
       resp['messageId']
     end
 
+    private
+
     def make_chain(*msgs)
-      MessageChain.make @qq, msgs
+      MessageChain.make msgs
     end
   end
 
   class MessageChain
     attr_reader :sender_id, :send_time, :messages, :read_only
 
-    def self.make(sender_id, *messages)
+    def self.make(*messages, sender_id: nil)
       res = new
-      res.sender_id = sender_id
+      res.sender_id = sender_id if sender_id
       res.extend(messages)
       res
     end
@@ -154,6 +158,7 @@ module Rubirai
     def to_h
       Hash(keys.map do |k|
         v = instance_variable_get("@#{k}")
+        k = k.camel_case(lower: true)
         if v.respond_to? :to_h
           [k, v.to_h]
         else

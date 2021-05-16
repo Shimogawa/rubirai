@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = 'admin@rebuild.moe'
   # s.files = ['lib/rubirai.rb']
 
-  s.required_ruby_version = '>= 2.4'
+  s.required_ruby_version = '>= 2.6'
 
   s.add_dependency 'http', '>= 5.0.0'
   s.homepage = 'https://github.com/Shimogawa/rubirai'

@@ -9,6 +9,8 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    codecov (0.5.2)
+      simplecov (>= 0.15, < 0.22)
     crack (0.4.5)
       rexml
     diff-lcs (1.4.4)
@@ -65,6 +67,8 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  codecov
+  rake
   rspec
   rubirai!
   simplecov
