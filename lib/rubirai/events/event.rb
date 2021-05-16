@@ -15,14 +15,26 @@ module Rubirai
         define_method(:descendants) do
           descs
         end
+        all_types = descs.map(&:type)
+        define_method(:all_types) do
+          all_types
+        end
+        type_map = Hash(descs.map do |d|
+          [d.type, d]
+        end)
+        define_method(:type_map) do
+          type_map
+        end
       end
     end
 
-    def self.all_types
-      descendants.map(&:type)
+    def self.type_to_klass(type)
+      # noinspection RubyResolve
+      type_map[type]
     end
 
-    def valid_type?(type)
+    def self.valid_type?(type)
+      # noinspection RubyResolve
       all_types.include? type
     end
 
@@ -70,6 +82,17 @@ module Rubirai
       class << self
         self
       end
+    end
+
+    def self.parse(hash)
+      hash = hash.stringify_keys
+      type_to_klass(hash['type']).new hash
+    end
+
+    attr_reader :raw
+
+    def initialize(hash)
+      @raw = hash
     end
   end
 end

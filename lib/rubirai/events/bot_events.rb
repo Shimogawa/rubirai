@@ -30,4 +30,24 @@ module Rubirai
   class BotGroupPermissionChangedEvent < BotEvent
     set_event :BotGroupPermissionChangedEvent, :origin, :new, :current, :group
   end
+
+  class BotMutedEvent < BotEvent
+    set_event :BotMuteEvent, :duration_seconds, :operator
+  end
+
+  class BotUnmutedEvent < BotEvent
+    set_event :BotUnmuteEvent, :operator
+  end
+
+  class BotJoinGroupEvent < BotEvent
+    set_event :BotJoinGroupEvent, :group
+  end
+
+  class BotActiveLeaveEvent < BotEvent
+    set_event :BotLeaveEventActive, :group
+  end
+
+  class BotKickedEvent < BotEvent
+    set_event :BotLeaveEventKick, :group
+  end
 end
