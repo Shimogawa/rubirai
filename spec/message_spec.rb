@@ -24,5 +24,7 @@ describe 'messages and message chains' do
   it 'test' do
     a = Rubirai::PlainMessage.new(text: 'a')
     p a
+    b = Rubirai::PlainMessage.from text: 'a'
+    p b
   end
 end

@@ -27,4 +27,19 @@ describe 'rubirai bot' do
     bot = Rubirai::Bot.new 'host'
     expect(bot.gen_uri('/b').to_s).to eq('http://host/b')
   end
+
+  it 'should check types' do
+    bot = Rubirai::Bot
+    expect { bot.ensure_type_in(:x, *%i[x y z]) }.not_to raise_error
+    expect { bot.ensure_type_in(:x, :X) }.not_to raise_error
+    expect { bot.ensure_type_in(:xAb, *%i[XaB Y z]) }.not_to raise_error
+    expect { bot.ensure_type_in(:x, *%i[y z]) }.to raise_error(
+      Rubirai::RubiraiError,
+      'not valid type: should be one of ["y", "z"]'
+    )
+    expect { bot.ensure_type_in(:x, :y) }.to raise_error(
+      Rubirai::RubiraiError,
+      'not valid type: should be one of ["y"]'
+    )
+  end
 end

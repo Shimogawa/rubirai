@@ -5,7 +5,7 @@ module Rubirai
     # Uploads an image to QQ server
     # @return [Hash] hash string keys are: `{ imageId, url, path }`
     def upload_image(path_or_io, type = :friend)
-      ensure_type_in type, 'friend', 'group', 'temp'
+      self.class.ensure_type_in type, 'friend', 'group', 'temp'
       call :post, '/uploadImage', form: {
         sessionKey: @session,
         type: type.to_s.downcase,
