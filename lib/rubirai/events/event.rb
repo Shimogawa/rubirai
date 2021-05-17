@@ -98,5 +98,6 @@ module Rubirai
 end
 
 require_relative 'bot_events'
+require_relative 'message_events'
 
 Rubirai::Event.gen_descendants

@@ -32,7 +32,7 @@ module Rubirai
       raise(HttpResponseError, resp.code) unless resp.status.success?
 
       body = JSON.parse(resp.body)
-      raise(MiraiError, body['code'], body['msg']) if (body.include? 'code') && (body['code'] != 0)
+      raise MiraiError.new(body['code'], body['msg']) if (body.include? 'code') && (body['code'] != 0)
 
       body
     end
