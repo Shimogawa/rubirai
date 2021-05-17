@@ -30,21 +30,30 @@ end
 
 class Object
   def must_be!(types, exc_type = nil, *args)
-    ok = false
-    case types
-    when Array
-      types.each do |type|
-        ok ||= is_a? type
-      end
+    ok = case types
+         when Array
+           types.any? { |type| is_a? type }
+         else
+           is_a? types
+         end
+    self.class.raise_or_default exc_type, "assert failed: `#{self}' must be of type #{types}", *args unless ok
+  end
+
+  def must_be_one_of!(things, exc_type = nil, *args)
+    ok = case things
+         when Array
+           things.include? self
+         else
+           self == things
+         end
+    self.class.raise_or_default exc_type, "assert failed: `#{self}' must be one of: #{things}", *args unless ok
+  end
+
+  def self.raise_or_default(exc_type, msg, *args)
+    if exc_type.nil?
+      raise(msg)
     else
-      ok = is_a? types
-    end
-    unless ok
-      if exc_type.nil?
-        raise("assert failed: `#{self}' must be of type #{types}")
-      else
-        raise(exc_type, *args)
-      end
+      raise(exc_type, *args)
     end
   end
 end

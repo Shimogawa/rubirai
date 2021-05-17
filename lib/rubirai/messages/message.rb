@@ -41,7 +41,7 @@ module Rubirai
         end
         return if attr_keys.empty?
         define_method(:from) do |**kwargs|
-          res = Message.get_msg_klass(type).new({})
+          res = get_msg_klass(type).new({})
           attr_keys.each do |key|
             res.instance_variable_set "@#{key}", kwargs[key]
           end
