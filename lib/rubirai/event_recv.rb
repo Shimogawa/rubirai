@@ -34,7 +34,7 @@ module Rubirai
     end
 
     def count_cached_message
-      resp = call :get, '/countMessage', param: {
+      resp = call :get, '/countMessage', params: {
         sessionKey: @session
       }
       resp['data']
