@@ -3,7 +3,7 @@
 require 'simplecov'
 SimpleCov.start do
   project_name 'rubirai'
-  add_filter '/spec/'
+  track_files 'lib/**/*.rb'
 end
 
 if ENV['CI'] == 'true'

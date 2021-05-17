@@ -33,7 +33,7 @@ module Rubirai
     end
 
     def send_msg(type, target_id, msg)
-      ensure_type_in type, 'group', 'friend'
+      self.class.ensure_type_in type, 'group', 'friend'
       chain = msg_to_chain msg
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
