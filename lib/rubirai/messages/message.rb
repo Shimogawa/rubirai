@@ -3,9 +3,16 @@
 require 'rubirai/utils'
 
 module Rubirai
+  # The message abstract class.
+  #
+  # @abstract
   class Message
+    # @return [Symbol]
     attr_reader :type
 
+    # Get all message types (subclasses)
+    #
+    # @return [Array<Symbol>] all message types
     def self.all_types
       %i[
         Source Quote At AtAll Face Plain Image
@@ -14,6 +21,9 @@ module Rubirai
       ]
     end
 
+    # Check if a type is in all message types
+    # @param type [Symbol] the type to check
+    # @return whether the type is in all message types
     def self.check_type(type)
       raise(RubiraiError, 'type not in all message types') unless Message.all_types.include? type
     end
@@ -92,16 +102,33 @@ module Rubirai
     end
   end
 
+  # The source message type
   class SourceMessage < Message
+    # @!attribute [r] id
+    #   @return [Integer] the message (chain) id
+    # @!attribute [r] time
+    #   @return [Integer] the timestamp
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    #   @return [SourceMessage] the message object
     set_message :Source, :id, :time
   end
 
   class QuoteMessage < Message
+    # @!attribute [r] id
+    #   @return [Integer] the original (quoted) message (chain) id
+    # @!attribute [r] group_id
+    #   @return [Integer] the group id
+    # @!attribute [r] sender_id
+    #   @return [Integer] the original sender's id
+    # @!attribute [r] target_id
+    #   @return [Integer] the original receiver's (group or user) id
+    # @!attribute [r] origin
+    #   @return [MessageChain] the original message chain
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    #   @return [QuoteMessage] the message object
     set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin
-
-    def self.keys
-      %i[id group_id sender_id target_id origin]
-    end
 
     def initialize(hash)
       super :Quote
@@ -113,15 +140,35 @@ module Rubirai
     end
   end
 
+  # The At message type
   class AtMessage < Message
+    # @!attribute [r] target
+    #   @return [Integer] the target group user's id
+    # @!attribute [r] display
+    #   @return [String] the displayed name (not used when sending)
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] not used
+    #   @return [AtMessage] the message object
     set_message :At, :target, :display
   end
 
+  # The At All message type
   class AtAllMessage < Message
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    #   @return [AtAllMessage] the message object
     set_message :AtAll
   end
 
+  # The QQ Face Emoji message type
   class FaceMessage < Message
+    # @!attribute [r] face_id
+    #   @return [Integer] the face's id
+    # @!attribute [r] name
+    #   @return [String, nil] the face's name
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    #   @return [FaceMessage] the message object
     set_message :Face, :face_id, :name
   end
 

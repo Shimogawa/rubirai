@@ -6,13 +6,22 @@ module Rubirai
   class MessageChain
     attr_reader :sender_id, :send_time, :messages, :read_only
 
+    # Makes a message chain from a list of messages
+    #
+    # @param messages [Array<Rubirai::Message, Hash>] a list of messages
+    # @param sender_id [Integer, nil]
+    # @return [Rubirai::MessageChain] the message chain
     def self.make(*messages, sender_id: nil)
       res = new
       res.sender_id = sender_id if sender_id
-      res.extend(messages)
+      res.extend(*messages)
       res
     end
 
+    # Append messages to this message chain
+    #
+    # @param messages [Array<Rubirai::Message, Hash>] a list of messages
+    # @return [Rubirai::MessageChain] self
     def extend(*messages)
       messages.each do |msg|
         append msg
@@ -20,16 +29,8 @@ module Rubirai
       self
     end
 
-    def append(msg)
-      msg.must_be! [Message, Hash], RubiraiError, 'msg must be a message or hash'
-
-      if msg.is_a? Message
-        @messages.append msg
-        return self
-      end
-      @messages.append Message.build_from(msg)
-      self
-    end
+    alias << extend
+    alias append extend
 
     def initialize(source = nil)
       @messages = []
@@ -53,5 +54,16 @@ module Rubirai
     private
 
     attr_writer :sender_id, :send_time
+
+    def internal_append(msg)
+      msg.must_be! [Message, Hash], RubiraiError, 'msg must be a message or hash'
+
+      if msg.is_a? Message
+        @messages.append msg
+        return self
+      end
+      @messages.append Message.build_from(msg)
+      self
+    end
   end
 end

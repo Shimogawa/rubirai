@@ -6,23 +6,17 @@ require 'rubirai/messages/message_chain'
 module Rubirai
   # Section of Bot about messages
   class Bot
-    def msg_to_chain(msg)
-      case msg
-      when Message
-        make_chain msg
-      when MessageChain
-        msg
-      when Hash
-        make_chain Message.build_from(msg)
-      when Array
-        make_chain(*msg)
-      else
-        make_chain PlainMessage.from(msg.to_s)
-      end
+    # Form a message chain from a message or messages
+    #
+    # @param msgs [Array<Rubirai::Message, Hash, Object>] the messages
+    # @return [Rubirai::MessageChain] the message chain
+    def self.msg_to_chain(*msgs)
+      msgs = msgs.map(&:to_message)
+      MessageChain.make(*msgs)
     end
 
     def send_temp_msg(target_qq, group_id, msg)
-      chain = msg_to_chain msg
+      chain = self.class.msg_to_chain msg
       resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
         qq: target_qq,
@@ -34,7 +28,7 @@ module Rubirai
 
     def send_msg(type, target_id, msg)
       self.class.ensure_type_in type, 'group', 'friend'
-      chain = msg_to_chain msg
+      chain = self.class.msg_to_chain msg
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
         target: target_id,
@@ -59,6 +53,11 @@ module Rubirai
       nil
     end
 
+    # Send image messages
+    #
+    # @param urls [Array<String>] the urls of the images
+    # @param kwargs [Hash] keys are one of [target, qq, group].
+    # @return [Array<String>] the image ids
     def send_image_msg(urls, **kwargs)
       urls.must_be! Array
       urls.each do |url|
@@ -75,10 +74,22 @@ module Rubirai
       call :post, '/sendImageMessage', json: res
     end
 
-    private
+    private_class_method :to_message
 
-    def make_chain(*msgs)
-      MessageChain.make msgs
+    # Objects to {Rubirai::Message}
+    #
+    # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
+    # @return [Rubirai::Message] the message
+    def self.to_message(msg)
+      # noinspection RubyYardReturnMatch
+      case msg
+      when Message
+        msg
+      when Hash
+        Message.build_from(msg)
+      else
+        PlainMessage.from(msg.to_s)
+      end
     end
   end
 end
