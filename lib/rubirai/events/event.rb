@@ -4,8 +4,6 @@ require 'rubirai/objects/group'
 
 module Rubirai
   class Event
-    private_class_method :descendants, :metaclass
-
     def self.gen_descendants
       descs = ObjectSpace.each_object(Class).select do |klass|
         klass < self
@@ -15,17 +13,18 @@ module Rubirai
         define_method(:descendants) do
           descs
         end
-        all_types = descs.map(&:type)
+        leaf_descs = descs.filter { |d| d.respond_to? :type }
+        all_types = leaf_descs.map(&:type)
         define_method(:all_types) do
           all_types
         end
-        type_map = Hash(descs.map do |d|
-          [d.type, d]
-        end)
+        type_map = leaf_descs.to_h { |d| [d.type, d] }
         define_method(:type_map) do
           type_map
         end
       end
+
+      private_class_method :descendants
     end
 
     def self.type_to_klass(type)
@@ -83,6 +82,8 @@ module Rubirai
         self
       end
     end
+
+    private_class_method :metaclass
 
     def self.parse(hash)
       hash = hash.stringify_keys

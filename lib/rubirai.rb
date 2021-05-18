@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 require 'rubirai/errors'
-require 'rubirai/plugin_info'
-require 'rubirai/auth'
-require 'rubirai/message'
-require 'rubirai/multipart'
 require 'rubirai/utils'
 
 # Rubirai is a library for connecting Mirai http api.
@@ -45,3 +41,13 @@ module Rubirai
     end
   end
 end
+
+require 'rubirai/auth'
+require 'rubirai/event_recv'
+require 'rubirai/listing'
+require 'rubirai/management'
+require 'rubirai/message'
+require 'rubirai/multipart'
+require 'rubirai/plugin_info'
+require 'rubirai/retcode'
+require 'rubirai/version'

@@ -16,7 +16,7 @@ module Rubirai
   end
 
   class RecallEvent < Event
-    set_event :nil, :author_id, :message_id, :time
+    set_event nil, :author_id, :message_id, :time
   end
 
   class GroupRecallEvent < RecallEvent

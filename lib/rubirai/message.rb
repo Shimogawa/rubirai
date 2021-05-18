@@ -74,8 +74,6 @@ module Rubirai
       call :post, '/sendImageMessage', json: res
     end
 
-    private_class_method :to_message
-
     # Objects to {Rubirai::Message}
     #
     # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
@@ -91,5 +89,7 @@ module Rubirai
         PlainMessage.from(msg.to_s)
       end
     end
+
+    private_class_method :to_message
   end
 end
