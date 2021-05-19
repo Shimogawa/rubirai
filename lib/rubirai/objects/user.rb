@@ -7,23 +7,23 @@ module Rubirai
   class User
     attr_reader :id, :name, :remark
 
-    def initialize(**kwargs)
-      kwargs = kwargs.stringify_keys
-      @id = kwargs['id']
-      @name = kwargs['name'] || kwargs['nickname']
-      @remark = kwargs['remark']
+    def initialize(hash)
+      hash = hash.stringify_keys
+      @id = hash['id']
+      @name = hash['name'] || hash['nickname']
+      @remark = hash['remark']
     end
   end
 
   class GroupUser < User
     attr_reader :member_name, :permission, :group
 
-    def initialize(**kwargs)
-      raise(RubiraiError, 'not a group user') unless kwargs.key? 'group'
-      super(**kwargs)
-      @member_name = kwargs['member_name']
-      @permission = kwargs['permission']
-      @group = Group.new(**kwargs['group'])
+    def initialize(hash)
+      raise(RubiraiError, 'not a group user') unless hash.key? 'group'
+      super(hash)
+      @member_name = hash['memberName']
+      @permission = hash['permission']
+      @group = Group.new(hash['group'])
     end
   end
 end

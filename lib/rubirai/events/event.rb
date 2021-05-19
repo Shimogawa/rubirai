@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 require 'rubirai/objects/group'
+require 'rubirai/utils'
 
 module Rubirai
   class Event
-    private_class_method :descendants, :metaclass
-
     def self.gen_descendants
       descs = ObjectSpace.each_object(Class).select do |klass|
         klass < self
@@ -15,14 +14,27 @@ module Rubirai
         define_method(:descendants) do
           descs
         end
+        leaf_descs = descs.filter { |d| d.respond_to? :type }
+        all_types = leaf_descs.map(&:type)
+        define_method(:all_types) do
+          all_types
+        end
+        type_map = leaf_descs.to_h { |d| [d.type, d] }
+        define_method(:type_map) do
+          type_map
+        end
       end
+
+      private_class_method :descendants
     end
 
-    def self.all_types
-      descendants.map(&:type)
+    def self.type_to_klass(type)
+      # noinspection RubyResolve
+      type_map[type]
     end
 
-    def valid_type?(type)
+    def self.valid_type?(type)
+      # noinspection RubyResolve
       all_types.include? type
     end
 
@@ -46,14 +58,14 @@ module Rubirai
             val = hash[k2]
             val = case k2
                   when 'group'
-                    Group.new(**val)
+                    Group.new val
                   when 'operator', 'member'
-                    GroupUser.new(**val)
+                    GroupUser.new val
                   when 'sender'
                     if val.key? 'group'
-                      GroupUser.new(**val)
+                      GroupUser.new val
                     else
-                      User.new(**val)
+                      User.new val
                     end
                   when 'messageChain'
                     MessageChain.new val
@@ -71,9 +83,23 @@ module Rubirai
         self
       end
     end
+
+    private_class_method :metaclass
+
+    def self.parse(hash)
+      hash = hash.stringify_keys
+      type_to_klass(hash['type']).new hash
+    end
+
+    attr_reader :raw
+
+    def initialize(hash)
+      @raw = hash
+    end
   end
 end
 
 require_relative 'bot_events'
+require_relative 'message_events'
 
 Rubirai::Event.gen_descendants

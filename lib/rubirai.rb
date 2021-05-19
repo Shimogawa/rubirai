@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 require 'rubirai/errors'
-require 'rubirai/plugin_info'
-require 'rubirai/auth'
-require 'rubirai/message'
-require 'rubirai/multipart'
 require 'rubirai/utils'
 
 # Rubirai is a library for connecting Mirai http api.
@@ -32,7 +28,9 @@ module Rubirai
       raise(HttpResponseError, resp.code) unless resp.status.success?
 
       body = JSON.parse(resp.body)
-      raise(MiraiError, body['code'], body['msg']) if (body.include? 'code') && (body['code'] != 0)
+      if (body.is_a? Hash) && (body.include? 'code') && (body['code'] != 0)
+        raise MiraiError.new(body['code'], body['msg'])
+      end
 
       body
     end
@@ -43,3 +41,13 @@ module Rubirai
     end
   end
 end
+
+require 'rubirai/auth'
+require 'rubirai/event_recv'
+require 'rubirai/listing'
+require 'rubirai/management'
+require 'rubirai/message'
+require 'rubirai/multipart'
+require 'rubirai/plugin_info'
+require 'rubirai/retcode'
+require 'rubirai/version'

@@ -4,11 +4,12 @@ module Rubirai
   class Group
     attr_reader :id, :name, :permission
 
-    def initialize(**kwargs)
-      kwargs = kwargs.stringify_keys
-      @id = kwargs['id']
-      @name = kwargs['name']
-      @permission = kwargs['permission']
+    # @param hash [Hash{String => Object}]
+    def initialize(hash)
+      hash = hash.stringify_keys
+      @id = hash['id']
+      @name = hash['name']
+      @permission = hash['permission']
     end
 
     class Permission
