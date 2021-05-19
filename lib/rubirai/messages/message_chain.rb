@@ -24,7 +24,7 @@ module Rubirai
     # @return [Rubirai::MessageChain] self
     def extend(*messages)
       messages.each do |msg|
-        append msg
+        internal_append msg
       end
       self
     end

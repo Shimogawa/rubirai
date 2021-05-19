@@ -42,6 +42,9 @@ module Rubirai
       klass.new hash
     end
 
+    # @!method from(**kwargs)
+    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    #   @return [AtAllMessage] the message object
     def self.set_message(type, *attr_keys)
       attr_reader(*attr_keys)
 
@@ -108,9 +111,6 @@ module Rubirai
     #   @return [Integer] the message (chain) id
     # @!attribute [r] time
     #   @return [Integer] the timestamp
-    # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] the fields to set
-    #   @return [SourceMessage] the message object
     set_message :Source, :id, :time
   end
 
@@ -125,9 +125,6 @@ module Rubirai
     #   @return [Integer] the original receiver's (group or user) id
     # @!attribute [r] origin
     #   @return [MessageChain] the original message chain
-    # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] the fields to set
-    #   @return [QuoteMessage] the message object
     set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin
 
     def initialize(hash)
@@ -136,7 +133,7 @@ module Rubirai
       @group_id = hash['groupId']
       @sender_id = hash['senderId']
       @target_id = hash['targetId']
-      @origin = MessageChain.make @sender_id, hash['origin']
+      @origin = MessageChain.make hash['origin'], sender_id: @sender_id
     end
   end
 
@@ -166,9 +163,6 @@ module Rubirai
     #   @return [Integer] the face's id
     # @!attribute [r] name
     #   @return [String, nil] the face's name
-    # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] the fields to set
-    #   @return [FaceMessage] the message object
     set_message :Face, :face_id, :name
   end
 

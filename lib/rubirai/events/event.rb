@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rubirai/objects/group'
+require 'rubirai/utils'
 
 module Rubirai
   class Event
@@ -57,14 +58,14 @@ module Rubirai
             val = hash[k2]
             val = case k2
                   when 'group'
-                    Group.new(**val)
+                    Group.new val
                   when 'operator', 'member'
-                    GroupUser.new(**val)
+                    GroupUser.new val
                   when 'sender'
                     if val.key? 'group'
-                      GroupUser.new(**val)
+                      GroupUser.new val
                     else
-                      User.new(**val)
+                      User.new val
                     end
                   when 'messageChain'
                     MessageChain.new val
