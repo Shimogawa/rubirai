@@ -125,5 +125,13 @@ module Rubirai
       }
       nil
     end
+
+    def get_group_file_list(group_id, dir = nil)
+      call :get, '/groupFileList', params: {
+        sessionKey: @session,
+        target: group_id,
+        dir: dir
+      }.compact
+    end
   end
 end

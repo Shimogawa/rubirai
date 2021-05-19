@@ -20,7 +20,7 @@ module Rubirai
         define_method(:to_h) do
           fields.to_h do |field|
             [field.to_s.snake_to_camel(lower: true), instance_variable_get(field)]
-          end.delete_if { |_, v| v.nil? }
+          end.compact
         end
       end
     end
