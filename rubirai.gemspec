@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.6'
 
   s.add_dependency 'http', '>= 5.0.0'
+  s.add_dependency 'concurrent-ruby', '>= 1.1.8'
   s.homepage = 'https://github.com/Shimogawa/rubirai'
   s.license = 'AGPLv3'
 end
