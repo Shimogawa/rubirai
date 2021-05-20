@@ -4,15 +4,16 @@ require 'rubirai/utils'
 
 module Rubirai
   class MessageChain
-    attr_reader :sender_id, :send_time, :messages, :read_only
+    attr_reader :bot, :sender_id, :send_time, :messages, :read_only
 
     # Makes a message chain from a list of messages
     #
-    # @param messages [Array<Rubirai::Message, Hash>] a list of messages
+    # @param messages [Array<Rubirai::Message, Rubirai::MessageChain, Hash>] a list of messages
     # @param sender_id [Integer, nil]
+    # @param bot [Rubirai::Bot, nil]
     # @return [Rubirai::MessageChain] the message chain
-    def self.make(*messages, sender_id: nil)
-      res = new
+    def self.make(*messages, sender_id: nil, bot: nil)
+      res = new(bot)
       res.sender_id = sender_id if sender_id
       res.extend(*messages)
       res
@@ -32,18 +33,28 @@ module Rubirai
     alias << extend
     alias append extend
 
-    def initialize(source = nil)
+    def concat(msg_chain)
+      msg_chain.to_a.each do |msg|
+        internal_append msg
+      end
+      self
+    end
+
+    # @param bot [Rubirai::Bot, nil]
+    # @param source [Array, nil]
+    def initialize(bot = nil, source = nil)
+      @bot = bot
       @messages = []
       return unless source
       raise(MiraiError, 'source is not array') unless source.class.is_a? Array
-      raise(MiraiError, 'length is zero') if source.length.zero?
+      raise(MiraiError, 'length is zero') if source.empty?
 
       if source[0].type == :Source
         @sender_id = source[0].id
         @send_time = source[0].time
-        @messages = extend(source.drop(1))
+        @messages = extend(*source.drop(1))
       else
-        @messages = extend(source)
+        @messages = extend(*source)
       end
     end
 
@@ -56,13 +67,17 @@ module Rubirai
     attr_writer :sender_id, :send_time
 
     def internal_append(msg)
-      msg.must_be! [Message, Hash], RubiraiError, 'msg must be a message or hash'
+      msg.must_be! [Message, MessageChain, Hash], RubiraiError, 'msg must be a message or hash'
 
-      if msg.is_a? Message
+      case msg
+      when Message
         @messages.append msg
-        return self
+      when MessageChain
+        @messages.append(*msg.messages)
+      else
+        @messages.append Message.build_from(msg, @bot)
       end
-      @messages.append Message.build_from(msg)
+
       self
     end
   end

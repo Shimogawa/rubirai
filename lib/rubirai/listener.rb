@@ -9,17 +9,18 @@ module Rubirai
     def start_listener(interval, is_blocking: false, ignore_error: false, &block)
       raise RubiraiError, 'listener is already running' if @listener.running?
       @listener_stop_event = Concurrent::Event.new if is_blocking
+      bot = self
       @listener = Concurrent::TimerTask(execution_interval: interval) do
         loop do
           events = fetch_message
           events.each do |e|
             block.call e
           rescue RuntimeError => e
-            block.call(RubiraiErrorEvent.new(e)) unless ignore_error
+            block.call(RubiraiErrorEvent.new(e, bot)) unless ignore_error
           end
           break if events.length < 10
         rescue RuntimeError => e
-          block.call(RubiraiErrorEvent.new(e)) unless ignore_error
+          block.call(RubiraiErrorEvent.new(e, bot)) unless ignore_error
           break
         end
       end

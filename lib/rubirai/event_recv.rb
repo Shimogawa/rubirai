@@ -30,7 +30,7 @@ module Rubirai
         sessionKey: @session,
         id: msg_id
       }
-      Event.parse resp['data']
+      Event.parse resp['data'], self
     end
 
     def count_cached_message
@@ -48,7 +48,7 @@ module Rubirai
         count: count
       }
       resp['data'].map do |event|
-        Event.parse event
+        Event.parse event, self
       end
     end
   end

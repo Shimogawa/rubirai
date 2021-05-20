@@ -4,17 +4,18 @@ require 'rubirai/utils'
 
 module Rubirai
   class Info
-    # @!method initialize(hash)
+    # @!method initialize(hash, bot = nil)
     #   @param hash [Hash{String => Object}]
+    #   @param bot [Rubirai::Bot, nil]
     # @!method to_h
     #   @return [Hash{String => Object}]
-    def self.set_fields(*fields, call_super: false, **default_values)
+    def self.set_fields(*fields, **default_values)
       attr_reader(*fields)
 
       class_eval do
-        define_method(:initialize) do |hash|
+        define_method(:initialize) do |hash, bot = nil|
           # noinspection RubySuperCallWithoutSuperclassInspection
-          super hash if call_super
+          super hash, bot
           fields.each do |field|
             value = hash[field.to_s.snake_to_camel(lower: true)] || default_values[field]
             instance_variable_set("@#{field}", value)
@@ -32,6 +33,13 @@ module Rubirai
     def self.set_modifiable_fields(*fields)
       set_fields(*fields)
       attr_writer(*fields)
+    end
+
+    attr_reader :raw, :bot
+
+    def initialize(hash, bot = nil)
+      @raw = hash
+      @bot = bot
     end
   end
 

@@ -24,3 +24,6 @@ Metrics/AbcSize:
 
 Style/CommentAnnotation:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

@@ -84,7 +84,7 @@ module Rubirai
         sessionKey: @session,
         target: group_id
       }
-      GroupConfig.new resp
+      GroupConfig.new resp, self
     end
 
     # Set group config
@@ -110,7 +110,7 @@ module Rubirai
         target: group_id,
         memberId: member_id
       }
-      MemberInfo.new resp
+      MemberInfo.new resp, self
     end
 
     def set_member_info(group_id, member_id, info)
@@ -133,7 +133,7 @@ module Rubirai
         dir: dir
       }.compact
       resp.must_be! Array # assert resp is Array
-      resp.map { |f| GroupFileSimple.new(f) }
+      resp.map { |f| GroupFileSimple.new(f, self) }
     end
 
     # Get the info about a group file
@@ -145,7 +145,7 @@ module Rubirai
         target: group_id,
         id: file_id
       }
-      GroupFile.new resp
+      GroupFile.new resp, self
     end
 
     def rename_group_file(group_id, file_id, new_name)
