@@ -74,6 +74,17 @@ module Rubirai
       call :post, '/sendImageMessage', json: res
     end
 
+    def send_nudge(target_id, subject_id, kind)
+      kind.to_s.downcase.must_be_one_of! %w[group friend], RubiraiError, 'kind must be one of group or friend'
+      call :post, '/sendNudge', json: {
+        sessionKey: @session,
+        target: target_id,
+        subject: subject_id,
+        kind: kind.to_s.capitalize
+      }
+      nil
+    end
+
     # Objects to {Rubirai::Message}
     #
     # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message

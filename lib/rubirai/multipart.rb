@@ -10,7 +10,7 @@ module Rubirai
         sessionKey: @session,
         type: type.to_s.downcase,
         img: HTTP::FormData::File.new(path_or_io)
-      }, headers: {content_type: "multipart/form-data"}
+      }, headers: { content_type: 'multipart/form-data' }
     end
 
     # Uploads a voice file to QQ server
@@ -22,7 +22,7 @@ module Rubirai
         sessionKey: @session,
         type: 'group',
         img: HTTP::FormData::File.new(path_or_io)
-      }, headers: {content_type: "multipart/form-data"}
+      }, headers: { content_type: 'multipart/form-data' }
     end
 
     # Uploads a file to a group (currently only groups supported)
@@ -37,7 +37,7 @@ module Rubirai
         target: target,
         path: group_path,
         file: HTTP::FormData::File.new(path_or_io)
-      }, headers: {content_type: "multipart/form-data"}
+      }, headers: { content_type: 'multipart/form-data' }
       res['id']
     end
   end

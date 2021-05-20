@@ -6,16 +6,20 @@ require 'rubirai/events/bot_events'
 module Rubirai
   # Section of Bot about event listening
   class Bot
-    def start_listener(interval, is_blocking: false, &block)
+    def start_listener(interval, is_blocking: false, ignore_error: false, &block)
       raise RubiraiError, 'listener is already running' if @listener.running?
       @listener_stop_event = Concurrent::Event.new if is_blocking
       @listener = Concurrent::TimerTask(execution_interval: interval) do
         loop do
           events = fetch_message
-          events.each { |e| block.call(e) }
+          events.each do |e|
+            block.call e
+          rescue RuntimeError => e
+            block.call(RubiraiErrorEvent.new(e)) unless ignore_error
+          end
           break if events.length < 10
         rescue RuntimeError => e
-          block.call(RubiraiErrorEvent.new(e))
+          block.call(RubiraiErrorEvent.new(e)) unless ignore_error
           break
         end
       end

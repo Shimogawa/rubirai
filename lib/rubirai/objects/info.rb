@@ -6,11 +6,15 @@ module Rubirai
   class Info
     # @!method initialize(hash)
     #   @param hash [Hash{String => Object}]
-    def self.set_fields(*fields, **default_values)
+    # @!method to_h
+    #   @return [Hash{String => Object}]
+    def self.set_fields(*fields, call_super: false, **default_values)
       attr_reader(*fields)
 
       class_eval do
         define_method(:initialize) do |hash|
+          # noinspection RubySuperCallWithoutSuperclassInspection
+          super hash if call_super
           fields.each do |field|
             value = hash[field.to_s.snake_to_camel(lower: true)] || default_values[field]
             instance_variable_set("@#{field}", value)
@@ -45,6 +49,14 @@ module Rubirai
   end
 
   class GroupFile < GroupFileSimple
-    set_fields :length, :download_times, :uploader_id, :upload_time, :last_modify_time, :download_url, :sha1, :md5
+    set_fields :length,
+               :download_times,
+               :uploader_id,
+               :upload_time,
+               :last_modify_time,
+               :download_url,
+               :sha1,
+               :md5,
+               call_super: true
   end
 end
