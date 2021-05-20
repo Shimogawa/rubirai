@@ -9,8 +9,8 @@ module Rubirai
     # An error event just for internal use
     #
     # @param err [RuntimeError] the error object
-    def initialize(err)
-      super nil
+    def initialize(err, bot = nil)
+      super nil, bot
       @err = err
     end
   end

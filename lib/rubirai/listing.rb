@@ -10,14 +10,14 @@ module Rubirai
       resp = call :get, '/friendList', params: {
         sessionKey: @session
       }
-      resp.map { |friend| User.new(**friend) }
+      resp.map { |friend| User.new(friend, self) }
     end
 
     def group_list
       resp = call :get, '/groupList', params: {
         sessionKey: @session
       }
-      resp.map { |group| Group.new(**group) }
+      resp.map { |group| Group.new(group, self) }
     end
 
     def member_list(group_id)
@@ -25,7 +25,7 @@ module Rubirai
         sessionKey: @session,
         target: group_id
       }
-      resp.map { |member| GroupUser.new(**member) }
+      resp.map { |member| GroupUser.new(member, self) }
     end
   end
 end

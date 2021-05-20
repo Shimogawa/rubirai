@@ -7,8 +7,7 @@ module Rubirai
   #
   # @abstract
   class Message
-    # @return [Symbol]
-    attr_reader :type
+    attr_reader :bot, :type
 
     # Get all message types (subclasses)
     #
@@ -32,14 +31,14 @@ module Rubirai
       Object.const_get "Rubirai::#{type}Message"
     end
 
-    def self.build_from(hash)
+    def self.build_from(hash, bot = nil)
       hash = hash.stringify_keys
       raise(RubiraiError, 'not a valid message') unless hash.key? 'type'
 
       type = msg['type'].to_sym
       check_type type
       klass = get_msg_klass type
-      klass.new hash
+      klass.new hash, bot
     end
 
     # @!method from(**kwargs)
@@ -53,8 +52,8 @@ module Rubirai
           attr_keys
         end
         return if attr_keys.empty?
-        define_method(:from) do |**kwargs|
-          res = get_msg_klass(type).new({})
+        define_method(:from) do |bot: nil, **kwargs|
+          res = get_msg_klass(type).new({}, bot)
           attr_keys.each do |key|
             res.instance_variable_set "@#{key}", kwargs[key]
           end
@@ -70,9 +69,9 @@ module Rubirai
       end
 
       class_eval do
-        define_method(:initialize) do |hash|
+        define_method(:initialize) do |hash, bot = nil|
           # noinspection RubySuperCallWithoutSuperclassInspection
-          super type
+          super type, bot
           hash = hash.stringify_keys
           attr_keys.each do |k|
             instance_variable_set("@#{k}", hash[k.to_s.snake_to_camel(lower: true)])
@@ -81,8 +80,9 @@ module Rubirai
       end
     end
 
-    def initialize(type)
+    def initialize(type, bot = nil)
       Message.check_type type
+      @bot = bot
       @type = type
     end
 
@@ -127,13 +127,13 @@ module Rubirai
     #   @return [MessageChain] the original message chain
     set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin
 
-    def initialize(hash)
-      super :Quote
+    def initialize(hash, bot = nil)
+      super :Quote, bot
       @id = hash['id']
       @group_id = hash['groupId']
       @sender_id = hash['senderId']
       @target_id = hash['targetId']
-      @origin = MessageChain.make hash['origin'], sender_id: @sender_id
+      @origin = MessageChain.make hash['origin'], sender_id: @sender_id, bot: bot
     end
   end
 
@@ -215,9 +215,9 @@ module Rubirai
       %w[NeteaseCloudMusic QQMusic MiguMusic]
     end
 
-    def initialize(hash)
-      super :MusicShare
+    def initialize(hash, bot = nil)
       raise(RubiraiError, 'non valid music type') unless all_kinds.include? hash['kind']
+      super :MusicShare, bot
 
       @kind = hash['kind']
       @title = hash['title']

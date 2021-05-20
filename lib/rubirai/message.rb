@@ -10,13 +10,13 @@ module Rubirai
     #
     # @param msgs [Array<Rubirai::Message, Hash, Object>] the messages
     # @return [Rubirai::MessageChain] the message chain
-    def self.msg_to_chain(*msgs)
-      msgs = msgs.map(&:to_message)
-      MessageChain.make(*msgs)
+    def self.msg_to_chain(*msgs, bot: nil)
+      msgs = msgs.each { |msg| to_message(msg, bot) }
+      MessageChain.make(*msgs, bot: bot)
     end
 
-    def send_temp_msg(target_qq, group_id, msg)
-      chain = self.class.msg_to_chain msg
+    def send_temp_msg(target_qq, group_id, *msgs)
+      chain = self.class.msg_to_chain(*msgs)
       resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
         qq: target_qq,
@@ -26,9 +26,9 @@ module Rubirai
       resp['messageId']
     end
 
-    def send_msg(type, target_id, msg)
+    def send_msg(type, target_id, *msgs)
       self.class.ensure_type_in type, 'group', 'friend'
-      chain = self.class.msg_to_chain msg
+      chain = self.class.msg_to_chain(*msgs)
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
         target: target_id,
@@ -37,12 +37,12 @@ module Rubirai
       resp['messageId']
     end
 
-    def send_friend_msg(target_qq, msg)
-      send_msg :friend, target_qq, msg
+    def send_friend_msg(target_qq, *msgs)
+      send_msg :friend, target_qq, *msgs
     end
 
-    def send_group_msg(target_group_id, msg)
-      send_msg :group, target_group_id, msg
+    def send_group_msg(target_group_id, *msgs)
+      send_msg :group, target_group_id, *msgs
     end
 
     def recall(msg_id)
@@ -89,15 +89,15 @@ module Rubirai
     #
     # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
     # @return [Rubirai::Message] the message
-    def self.to_message(msg)
+    def self.to_message(msg, bot = nil)
       # noinspection RubyYardReturnMatch
       case msg
-      when Message
+      when Message, MessageChain
         msg
       when Hash
-        Message.build_from(msg)
+        Message.build_from(msg, bot)
       else
-        PlainMessage.from(msg.to_s)
+        PlainMessage.from(text: msg.to_s, bot: bot)
       end
     end
 
