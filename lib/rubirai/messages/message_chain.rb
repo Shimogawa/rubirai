@@ -13,8 +13,7 @@ module Rubirai
     # @param bot [Rubirai::Bot, nil]
     # @return [Rubirai::MessageChain] the message chain
     def self.make(*messages, sender_id: nil, bot: nil)
-      res = new(bot)
-      res.sender_id = sender_id if sender_id
+      res = new(bot, sender_id: sender_id)
       res.extend(*messages)
       res
     end
@@ -42,8 +41,10 @@ module Rubirai
 
     # @param bot [Rubirai::Bot, nil]
     # @param source [Array, nil]
-    def initialize(bot = nil, source = nil)
+    # @param sender_id [Integer, nil]
+    def initialize(bot = nil, source = nil, sender_id: nil)
       @bot = bot
+      @sender_id = sender_id
       @messages = []
       return unless source
       raise(MiraiError, 'source is not array') unless source.class.is_a? Array
@@ -64,10 +65,8 @@ module Rubirai
 
     private
 
-    attr_writer :sender_id, :send_time
-
     def internal_append(msg)
-      msg.must_be! [Message, MessageChain, Hash], RubiraiError, 'msg must be a message or hash'
+      msg.must_be! [Message, MessageChain, Hash], RubiraiError, 'msg must be Message, MessageChain, or Hash'
 
       case msg
       when Message

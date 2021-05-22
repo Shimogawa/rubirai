@@ -35,7 +35,7 @@ module Rubirai
       hash = hash.stringify_keys
       raise(RubiraiError, 'not a valid message') unless hash.key? 'type'
 
-      type = msg['type'].to_sym
+      type = hash['type'].to_sym
       check_type type
       klass = get_msg_klass type
       klass.new hash, bot
@@ -51,7 +51,7 @@ module Rubirai
         define_method(:keys) do
           attr_keys
         end
-        return if attr_keys.empty?
+        break if attr_keys.empty?
         define_method(:from) do |bot: nil, **kwargs|
           res = get_msg_klass(type).new({}, bot)
           attr_keys.each do |key|
@@ -87,15 +87,19 @@ module Rubirai
     end
 
     def to_h
-      Hash(keys.map do |k|
+      res = self.class.keys.to_h do |k|
         v = instance_variable_get("@#{k}")
-        k = k.snake_to_camel(lower: true)
-        if v.respond_to? :to_h
+        k = k.to_s.snake_to_camel(lower: true)
+        if v&.respond_to?(:to_h)
           [k, v.to_h]
+        elsif v&.respond_to?(:to_a)
+          [k, v.to_a]
         else
           [k, v]
         end
-      end).stringify_keys
+      end
+      res[:type] = @type.to_s
+      res.compact.stringify_keys
     end
 
     def self.metaclass
@@ -133,7 +137,7 @@ module Rubirai
       @group_id = hash['groupId']
       @sender_id = hash['senderId']
       @target_id = hash['targetId']
-      @origin = MessageChain.make hash['origin'], sender_id: @sender_id, bot: bot
+      @origin = MessageChain.make(*hash['origin'], sender_id: @sender_id, bot: bot)
     end
   end
 

@@ -8,23 +8,15 @@ describe 'message api' do
   end
 
   after do
-    # Do nothing
-  end
-end
-
-describe 'messages and message chains' do
-  before :all do
-    @mirai_bot = new_bot
   end
 
-  after do
-    # Do nothing
-  end
-
-  it 'test' do
-    a = Rubirai::PlainMessage.new(text: 'a')
-    p a
-    b = Rubirai::PlainMessage.from text: 'a'
-    p b
+  it 'converts objects to message chain' do
+    chain = Rubirai.msg_to_chain 'hi', 2, Rubirai::AtMessage.from(target: 114514), 3, 'hi', :good
+    arr = [
+      { type: 'Plain', text: 'hi2' },
+      { type: 'At', target: 114514 },
+      { type: 'Plain', text: '3higood'}
+    ].map(&:stringify_keys)
+    expect(chain.to_a).to eq(arr)
   end
 end
