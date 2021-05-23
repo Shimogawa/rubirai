@@ -84,7 +84,7 @@ module Rubirai
         sessionKey: @session,
         target: group_id
       }
-      GroupConfig.new resp
+      GroupConfig.new resp, self
     end
 
     # Set group config
@@ -110,7 +110,7 @@ module Rubirai
         target: group_id,
         memberId: member_id
       }
-      MemberInfo.new resp
+      MemberInfo.new resp, self
     end
 
     def set_member_info(group_id, member_id, info)
@@ -122,6 +122,74 @@ module Rubirai
         target: group_id,
         memberId: member_id,
         info: info
+      }
+      nil
+    end
+
+    def get_group_file_list(group_id, dir = nil)
+      resp = call :get, '/groupFileList', params: {
+        sessionKey: @session,
+        target: group_id,
+        dir: dir
+      }.compact
+      resp.must_be! Array # assert resp is Array
+      resp.map { |f| GroupFileSimple.new(f, self) }
+    end
+
+    # Get the info about a group file
+    # @param group_id [Integer] the group id
+    # @param file_id [String] the file id, e.g. `/xxx-xxx-xxx-xxx`
+    def get_group_file_info(group_id, file_id)
+      resp = call :get, '/groupFileInfo', params: {
+        sessionKey: @session,
+        target: group_id,
+        id: file_id
+      }
+      GroupFile.new resp, self
+    end
+
+    def rename_group_file(group_id, file_id, new_name)
+      call :post, '/groupFileRename', json: {
+        sessionKey: @session,
+        target: group_id,
+        id: file_id,
+        rename: new_name
+      }
+      nil
+    end
+
+    def group_mkdir(group_id, dir)
+      call :post, '/groupMkdir', json: {
+        sessionKey: @session,
+        group: group_id,
+        dir: dir
+      }
+      nil
+    end
+
+    def group_file_mv(group_id, file_id, path)
+      call :post, '/groupFileMove', json: {
+        sessionKey: @session,
+        target: group_id,
+        id: file_id,
+        movePath: path
+      }
+      nil
+    end
+
+    def group_file_delete(group_id, file_id)
+      call :post, '/groupFileDelete', json: {
+        sessionKey: @session,
+        target: group_id,
+        id: file_id
+      }
+      nil
+    end
+
+    def group_set_essence(msg_id)
+      call :post, '/setEssence', json: {
+        sessionKey: @session,
+        target: msg_id
       }
       nil
     end

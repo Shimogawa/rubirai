@@ -4,13 +4,18 @@ require 'rubirai/utils'
 
 module Rubirai
   class Info
-    # @!method initialize(hash)
+    # @!method initialize(hash, bot = nil)
     #   @param hash [Hash{String => Object}]
+    #   @param bot [Rubirai::Bot, nil]
+    # @!method to_h
+    #   @return [Hash{String => Object}]
     def self.set_fields(*fields, **default_values)
       attr_reader(*fields)
 
       class_eval do
-        define_method(:initialize) do |hash|
+        define_method(:initialize) do |hash, bot = nil|
+          # noinspection RubySuperCallWithoutSuperclassInspection
+          super hash, bot
           fields.each do |field|
             value = hash[field.to_s.snake_to_camel(lower: true)] || default_values[field]
             instance_variable_set("@#{field}", value)
@@ -20,7 +25,7 @@ module Rubirai
         define_method(:to_h) do
           fields.to_h do |field|
             [field.to_s.snake_to_camel(lower: true), instance_variable_get(field)]
-          end.delete_if { |_, v| v.nil? }
+          end.compact
         end
       end
     end
@@ -28,6 +33,13 @@ module Rubirai
     def self.set_modifiable_fields(*fields)
       set_fields(*fields)
       attr_writer(*fields)
+    end
+
+    attr_reader :raw, :bot
+
+    def initialize(hash, bot = nil)
+      @raw = hash
+      @bot = bot
     end
   end
 
@@ -45,6 +57,14 @@ module Rubirai
   end
 
   class GroupFile < GroupFileSimple
-    set_fields :length, :download_times, :uploader_id, :upload_time, :last_modify_time, :download_url, :sha1, :md5
+    set_fields :length,
+               :download_times,
+               :uploader_id,
+               :upload_time,
+               :last_modify_time,
+               :download_url,
+               :sha1,
+               :md5,
+               call_super: true
   end
 end

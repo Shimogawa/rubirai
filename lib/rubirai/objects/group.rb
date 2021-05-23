@@ -2,11 +2,13 @@
 
 module Rubirai
   class Group
-    attr_reader :id, :name, :permission
+    attr_reader :bot, :id, :name, :permission
 
     # @param hash [Hash{String => Object}]
-    def initialize(hash)
+    # @param bot [Rubirai::Bot, nil]
+    def initialize(hash, bot = nil)
       hash = hash.stringify_keys
+      @bot = bot
       @id = hash['id']
       @name = hash['name']
       @permission = hash['permission']

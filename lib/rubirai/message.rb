@@ -6,17 +6,14 @@ require 'rubirai/messages/message_chain'
 module Rubirai
   # Section of Bot about messages
   class Bot
-    # Form a message chain from a message or messages
+    # Send temp message
     #
-    # @param msgs [Array<Rubirai::Message, Hash, Object>] the messages
-    # @return [Rubirai::MessageChain] the message chain
-    def self.msg_to_chain(*msgs)
-      msgs = msgs.map(&:to_message)
-      MessageChain.make(*msgs)
-    end
-
-    def send_temp_msg(target_qq, group_id, msg)
-      chain = self.class.msg_to_chain msg
+    # @param target_qq [Integer] target qq id
+    # @param group_id [Integer] group id
+    # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @return [Integer] message id
+    def send_temp_msg(target_qq, group_id, *msgs)
+      chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
         qq: target_qq,
@@ -26,9 +23,9 @@ module Rubirai
       resp['messageId']
     end
 
-    def send_msg(type, target_id, msg)
+    def send_msg(type, target_id, *msgs)
       self.class.ensure_type_in type, 'group', 'friend'
-      chain = self.class.msg_to_chain msg
+      chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
         target: target_id,
@@ -37,12 +34,12 @@ module Rubirai
       resp['messageId']
     end
 
-    def send_friend_msg(target_qq, msg)
-      send_msg :friend, target_qq, msg
+    def send_friend_msg(target_qq, *msgs)
+      send_msg :friend, target_qq, *msgs
     end
 
-    def send_group_msg(target_group_id, msg)
-      send_msg :group, target_group_id, msg
+    def send_group_msg(target_group_id, *msgs)
+      send_msg :group, target_group_id, *msgs
     end
 
     def recall(msg_id)
@@ -74,22 +71,15 @@ module Rubirai
       call :post, '/sendImageMessage', json: res
     end
 
-    # Objects to {Rubirai::Message}
-    #
-    # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
-    # @return [Rubirai::Message] the message
-    def self.to_message(msg)
-      # noinspection RubyYardReturnMatch
-      case msg
-      when Message
-        msg
-      when Hash
-        Message.build_from(msg)
-      else
-        PlainMessage.from(msg.to_s)
-      end
+    def send_nudge(target_id, subject_id, kind)
+      kind.to_s.downcase.must_be_one_of! %w[group friend], RubiraiError, 'kind must be one of group or friend'
+      call :post, '/sendNudge', json: {
+        sessionKey: @session,
+        target: target_id,
+        subject: subject_id,
+        kind: kind.to_s.capitalize
+      }
+      nil
     end
-
-    private_class_method :to_message
   end
 end
