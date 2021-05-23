@@ -1,21 +1,32 @@
 # frozen_string_literal: true
 
 require 'rubirai/utils'
+require 'rubirai/messages/message'
 
 module Rubirai
   class MessageChain
+    include Enumerable
+
     attr_reader :bot, :sender_id, :send_time, :messages, :read_only
 
     # Makes a message chain from a list of messages
     #
-    # @param messages [Array<Rubirai::Message, Rubirai::MessageChain, Hash>] a list of messages
+    # @param messages [Array<Rubirai::Message, Rubirai::MessageChain, Hash, String, Object>] a list of messages
     # @param sender_id [Integer, nil]
     # @param bot [Rubirai::Bot, nil]
     # @return [Rubirai::MessageChain] the message chain
     def self.make(*messages, sender_id: nil, bot: nil)
-      res = new(bot, sender_id: sender_id)
-      res.extend(*messages)
-      res
+      chain = new(bot, sender_id: sender_id)
+      result = []
+      messages.map { |msg| Message.to_message(msg, bot) }.each do |msg|
+        if !result.empty? && result[-1].is_a?(PlainMessage) && msg.is_a?(PlainMessage)
+          result[-1] = PlainMessage.from(text: result[-1].text + msg.text, bot: bot)
+        else
+          result.append msg
+        end
+      end
+      chain.extend(*result)
+      chain
     end
 
     # Append messages to this message chain
@@ -37,6 +48,26 @@ module Rubirai
         internal_append msg
       end
       self
+    end
+
+    def [](idx)
+      @messages[idx]
+    end
+
+    def each(&block)
+      @messages.each(&block)
+    end
+
+    def length
+      @messages.length
+    end
+
+    def size
+      @messages.size
+    end
+
+    def empty?
+      @messages.empty?
     end
 
     # @param bot [Rubirai::Bot, nil]
@@ -79,5 +110,10 @@ module Rubirai
 
       self
     end
+  end
+
+  # Makes a message chain. See {MessageChain::make}.
+  def self.MessageChain(*messages, sender_id: nil, bot: nil)
+    MessageChain.make(*messages, sender_id: sender_id, bot: bot)
   end
 end

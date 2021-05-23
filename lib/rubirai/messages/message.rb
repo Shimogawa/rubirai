@@ -9,6 +9,22 @@ module Rubirai
   class Message
     attr_reader :bot, :type
 
+    # Objects to {Rubirai::Message}
+    #
+    # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
+    # @return [Rubirai::Message] the message
+    def self.to_message(msg, bot = nil)
+      # noinspection RubyYardReturnMatch
+      case msg
+      when Message, MessageChain
+        msg
+      when Hash
+        Message.build_from(msg, bot)
+      else
+        PlainMessage.from(text: msg.to_s, bot: bot)
+      end
+    end
+
     # Get all message types (subclasses)
     #
     # @return [Array<Symbol>] all message types
@@ -90,10 +106,10 @@ module Rubirai
       res = self.class.keys.to_h do |k|
         v = instance_variable_get("@#{k}")
         k = k.to_s.snake_to_camel(lower: true)
-        if v&.respond_to?(:to_h)
-          [k, v.to_h]
-        elsif v&.respond_to?(:to_a)
+        if v.is_a? MessageChain
           [k, v.to_a]
+        elsif v&.respond_to?(:to_h)
+          [k, v.to_h]
         else
           [k, v]
         end
@@ -107,6 +123,10 @@ module Rubirai
         self
       end
     end
+  end
+
+  def self.Message(obj, bot = nil)
+    Message.to_message obj, bot
   end
 
   # The source message type

@@ -30,7 +30,7 @@ module Rubirai
 
     def self.type_to_klass(type)
       # noinspection RubyResolve
-      type_map[type]
+      type_map[type.to_sym]
     end
 
     def self.valid_type?(type)
@@ -45,7 +45,7 @@ module Rubirai
       attr_reader(*attr_keys)
 
       metaclass.instance_eval do
-        return if type.nil?
+        break if type.nil?
         define_method(:type) do
           type
         end
