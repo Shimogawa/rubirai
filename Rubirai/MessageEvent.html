@@ -60,7 +60,7 @@
       </div>
 
       <div id="content"><h1>Class: Rubirai::MessageEvent
-  
+  <span class="abstract note title">Abstract</span>
   
   
 </h1>
@@ -101,7 +101,20 @@
   
 </div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'></div>
+</div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="FriendMessageEvent.html" title="Rubirai::FriendMessageEvent (class)">FriendMessageEvent</a></span>, <span class='object_link'><a href="GroupMessageEvent.html" title="Rubirai::GroupMessageEvent (class)">GroupMessageEvent</a></span></p>
 </div>
@@ -109,9 +122,70 @@
 
 
 
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message_chain-instance_method" title="#message_chain (instance method)">#<strong>message_chain</strong>  &#x21d2; MessageChain </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The message chain.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sender-instance_method" title="#sender (instance method)">#<strong>sender</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The sender id.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
-  <h2>Instance Attribute Summary</h2>
+
+  
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Event.html" title="Rubirai::Event (class)">Event</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Event.html#bot-instance_method" title="Rubirai::Event#bot (method)">#bot</a></span>, <span class='object_link'><a href="Event.html#raw-instance_method" title="Rubirai::Event#raw (method)">#raw</a></span></p>
@@ -135,11 +209,126 @@
   
 </div>
 
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="message_chain-instance_method">
+  
+    #<strong>message_chain</strong>  &#x21d2; <tt><span class='object_link'><a href="MessageChain.html" title="Rubirai::MessageChain (class)">MessageChain</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the message chain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MessageChain.html" title="Rubirai::MessageChain (class)">MessageChain</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the message chain</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/events/message_events.rb', line 12</span>
+
+<span class='id identifier rubyid_set_event'>set_event</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:message_chain</span><span class='comma'>,</span> <span class='symbol'>:sender</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="sender-instance_method">
+  
+    #<strong>sender</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the sender id.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the sender id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/events/message_events.rb', line 12</span>
+
+<span class='id identifier rubyid_set_event'>set_event</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:message_chain</span><span class='comma'>,</span> <span class='symbol'>:sender</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 
 </div>
 
       <div id="footer">
-  Generated on Mon May 24 06:44:11 2021 by
+  Generated on Mon May 24 17:11:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

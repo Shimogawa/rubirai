@@ -101,7 +101,17 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The quote message type</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -304,14 +314,14 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Message</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#build_from-class_method" title="Rubirai::Message.build_from (method)">build_from</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#from-instance_method" title="Rubirai::Message#from (method)">#from</a></span>, <span class='object_link'><a href="Message.html#get_msg_klass-class_method" title="Rubirai::Message.get_msg_klass (method)">get_msg_klass</a></span>, <span class='object_link'><a href="Message.html#metaclass-class_method" title="Rubirai::Message.metaclass (method)">metaclass</a></span>, <span class='object_link'><a href="Message.html#set_message-class_method" title="Rubirai::Message.set_message (method)">set_message</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Message.html#AtAllMessage-class_method" title="Rubirai::Message.AtAllMessage (method)">AtAllMessage</a></span>, <span class='object_link'><a href="Message.html#AtMessage-class_method" title="Rubirai::Message.AtMessage (method)">AtMessage</a></span>, <span class='object_link'><a href="Message.html#FaceMessage-class_method" title="Rubirai::Message.FaceMessage (method)">FaceMessage</a></span>, <span class='object_link'><a href="Message.html#PlainMessage-class_method" title="Rubirai::Message.PlainMessage (method)">PlainMessage</a></span>, <span class='object_link'><a href="Message.html#QuoteMessage-class_method" title="Rubirai::Message.QuoteMessage (method)">QuoteMessage</a></span>, <span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#build_from-class_method" title="Rubirai::Message.build_from (method)">build_from</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#get_msg_klass-class_method" title="Rubirai::Message.get_msg_klass (method)">get_msg_klass</a></span>, <span class='object_link'><a href="Message.html#metaclass-class_method" title="Rubirai::Message.metaclass (method)">metaclass</a></span>, <span class='object_link'><a href="Message.html#set_message-class_method" title="Rubirai::Message.set_message (method)">set_message</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rubirai::QuoteMessage (class)">QuoteMessage</a></span></tt> 
+    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'><a href="Message.html#QuoteMessage-class_method" title="Rubirai::Message.QuoteMessage (method)">QuoteMessage</a></span></tt> 
   
 
   
@@ -333,17 +343,17 @@
       <pre class="lines">
 
 
-165
-166
-167
-168
-169
-170
-171
-172</pre>
+174
+175
+176
+177
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span>
@@ -407,10 +417,10 @@
       <pre class="lines">
 
 
-163</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 172</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:group_id</span><span class='comma'>,</span> <span class='symbol'>:sender_id</span><span class='comma'>,</span> <span class='symbol'>:target_id</span><span class='comma'>,</span> <span class='symbol'>:origin</span></pre>
     </td>
@@ -462,10 +472,10 @@
       <pre class="lines">
 
 
-163</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 172</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:group_id</span><span class='comma'>,</span> <span class='symbol'>:sender_id</span><span class='comma'>,</span> <span class='symbol'>:target_id</span><span class='comma'>,</span> <span class='symbol'>:origin</span></pre>
     </td>
@@ -517,10 +527,10 @@
       <pre class="lines">
 
 
-163</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 172</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:group_id</span><span class='comma'>,</span> <span class='symbol'>:sender_id</span><span class='comma'>,</span> <span class='symbol'>:target_id</span><span class='comma'>,</span> <span class='symbol'>:origin</span></pre>
     </td>
@@ -572,10 +582,10 @@
       <pre class="lines">
 
 
-163</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 172</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:group_id</span><span class='comma'>,</span> <span class='symbol'>:sender_id</span><span class='comma'>,</span> <span class='symbol'>:target_id</span><span class='comma'>,</span> <span class='symbol'>:origin</span></pre>
     </td>
@@ -627,10 +637,10 @@
       <pre class="lines">
 
 
-163</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 172</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Quote</span><span class='comma'>,</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:group_id</span><span class='comma'>,</span> <span class='symbol'>:sender_id</span><span class='comma'>,</span> <span class='symbol'>:target_id</span><span class='comma'>,</span> <span class='symbol'>:origin</span></pre>
     </td>
@@ -644,7 +654,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon May 24 06:44:11 2021 by
+  Generated on Mon May 24 17:11:18 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
