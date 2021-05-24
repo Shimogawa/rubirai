@@ -21,7 +21,9 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Generate docs
-        run: bundle exec yardoc --output-dir docs
+        run: |
+          bundle exec yardoc --output-dir docs
+          cp misc/common.css docs/css/
       - name: Deploy docs
         uses: peaceiris/actions-gh-pages@v3
         with:
