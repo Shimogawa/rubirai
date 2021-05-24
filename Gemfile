@@ -11,3 +11,8 @@ group :test do
   gem 'simplecov'
   gem 'webmock'
 end
+
+group :doc do
+  gem 'kramdown'
+  gem 'yard'
+end

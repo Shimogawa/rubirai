@@ -114,6 +114,24 @@ describe Rubirai::Message do
     expect(im.to_h).to eq(hash.compact)
   end
 
+  it 'should initialize and convert music share message correctly' do
+    hash = {
+      "type": 'MusicShare',
+      "kind": 'NeteaseCloudMusic',
+      "title": '相见恨晚',
+      "summary": '彭佳慧',
+      "jumpUrl": 'https://y.music.163.com/m/song/280761/',
+      "pictureUrl": 'http://p4.music.126.net/GpsgjHB_9XgtrBVXt8XX4w==/93458488373078.jpg',
+      "musicUrl": 'http://music.163.com/song/media/outer/url?id=280761&userid=52707509',
+      "brief": '[分享]相见恨晚'
+    }.stringify_keys
+    msm = Rubirai::MusicShareMessage.new hash
+    expect(msm.type).to eq(:MusicShare)
+    expect(msm.kind).to eq(hash['kind'])
+    expect(msm.jump_url).to eq(hash['jumpUrl'])
+    expect(msm.music_url).to eq(hash['musicUrl'])
+  end
+
   it 'should build correctly from hash' do
     hash = {
       "type": 'Face',
@@ -139,5 +157,15 @@ describe Rubirai::Message do
     expect(msg).to be_a(Rubirai::QuoteMessage)
     expect(msg.bot).to eq(bot)
     expect(msg.to_h).to eq(hash)
+  end
+
+  it 'should have kind of constructor methods' do
+    Rubirai::Message.all_types.each do |type|
+      expect(Rubirai.class.method_defined?("#{type}Message")).to be_truthy
+    end
+
+    am = Rubirai::AtMessage(target: 123456)
+    expect(am).to be_a(Rubirai::AtMessage)
+    expect(am.target).to eq(123456)
   end
 end

@@ -2,6 +2,10 @@
 
 require 'rubirai/utils'
 
+# @!method AtMessage(**kwargs, bot: nil)
+#   @param kwargs [Hash{Symbol => Object}] arguments
+#   @param bot [Rubirai::Bot, nil]
+#   @return [Rubirai::AtMessage]
 module Rubirai
   # The message abstract class.
   #
@@ -60,7 +64,7 @@ module Rubirai
     # @!method from(**kwargs)
     #   @param kwargs [Hash{Symbol => Object}] the fields to set
     #   @return [AtAllMessage] the message object
-    def self.set_message(type, *attr_keys)
+    def self.set_message(type, *attr_keys, &initialize_block)
       attr_reader(*attr_keys)
 
       metaclass.instance_eval do
@@ -88,6 +92,7 @@ module Rubirai
         define_method(:initialize) do |hash, bot = nil|
           # noinspection RubySuperCallWithoutSuperclassInspection
           super type, bot
+          initialize_block&.call(hash)
           hash = hash.stringify_keys
           attr_keys.each do |k|
             instance_variable_set("@#{k}", hash[k.to_s.snake_to_camel(lower: true)])
@@ -127,6 +132,12 @@ module Rubirai
 
   def self.Message(obj, bot = nil)
     Message.to_message obj, bot
+  end
+
+  Message.all_types.each do |type|
+    self.class.define_method("#{type}Message".to_sym) do |**kwargs|
+      Message.get_msg_klass(type).from(**kwargs)
+    end
   end
 
   # The source message type
@@ -233,23 +244,12 @@ module Rubirai
   end
 
   class MusicShareMessage < Message
-    attr_reader :kind, :title, :summary, :jump_url, :picture_url, :music_url, :brief
-
     def self.all_kinds
       %w[NeteaseCloudMusic QQMusic MiguMusic]
     end
 
-    def initialize(hash, bot = nil)
+    set_message :MusicShare, :kind, :title, :summary, :jump_url, :picture_url, :music_url, :brief do |hash|
       raise(RubiraiError, 'non valid music type') unless all_kinds.include? hash['kind']
-      super :MusicShare, bot
-
-      @kind = hash['kind']
-      @title = hash['title']
-      @summary = hash['summary']
-      @jump_url = hash['jumpUrl']
-      @picture_url = hash['pictureUrl']
-      @music_url = hash['musicUrl']
-      @brief = hash['brief']
     end
   end
 end
