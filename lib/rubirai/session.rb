@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Rubirai
-  # Section of Bot about session
   class Bot
     def get_session_cfg
       call :get, '/config', params: {

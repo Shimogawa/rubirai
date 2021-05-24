@@ -7,10 +7,20 @@ require 'rubirai/utils'
 module Rubirai
   require 'http'
 
-  # The class for rubirai bot.
+  # Bot represents a QQ bot at mirai side. All functions are API calls to the http plugin.
   class Bot
+    # @!attribute [r] base_uri
+    #   @return [String] the base uri of mirai-api-http which the bot will send messages to
+    # @!attribute [r] session
+    #   @return [String] the session key
+    # @!attribute [r] qq
+    #   @return [String, Integer] the qq of the bot
     attr_reader :base_uri, :session, :qq
 
+    # Initializes the bot
+    #
+    # @param host [String] the host (IP or domain)
+    # @param port [String, Integer, nil] the port number (default is 80 for http)
     def initialize(host, port = nil)
       @base_uri = "http://#{host}#{":#{port}" if port}"
     end
@@ -44,10 +54,12 @@ end
 
 require 'rubirai/auth'
 require 'rubirai/event_recv'
+require 'rubirai/listener'
 require 'rubirai/listing'
 require 'rubirai/management'
 require 'rubirai/message'
 require 'rubirai/multipart'
 require 'rubirai/plugin_info'
 require 'rubirai/retcode'
+require 'rubirai/session'
 require 'rubirai/version'

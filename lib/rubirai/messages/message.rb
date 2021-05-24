@@ -2,14 +2,25 @@
 
 require 'rubirai/utils'
 
-# @!method AtMessage(**kwargs, bot: nil)
-#   @param kwargs [Hash{Symbol => Object}] arguments
-#   @param bot [Rubirai::Bot, nil]
-#   @return [Rubirai::AtMessage]
 module Rubirai
   # The message abstract class.
   #
   # @abstract
+  # @!method self.AtMessage(**kwargs)
+  #   @param kwargs [Hash{Symbol => Object}] arguments
+  #   @return [Rubirai::AtMessage]
+  # @!method self.QuoteMessage(**kwargs)
+  #   @param kwargs [Hash{Symbol => Object}] arguments
+  #   @return [Rubirai::QuoteMessage]
+  # @!method self.AtAllMessage(**kwargs)
+  #   @param kwargs [Hash{Symbol => Object}] arguments
+  #   @return [Rubirai::AtAllMessage]
+  # @!method self.FaceMessage(**kwargs)
+  #   @param kwargs [Hash{Symbol => Object}] arguments
+  #   @return [Rubirai::FaceMessage]
+  # @!method self.PlainMessage(**kwargs)
+  #   @option text [String] the plain text
+  #   @return [Rubirai::PlainMessage]
   class Message
     attr_reader :bot, :type
 
@@ -61,9 +72,6 @@ module Rubirai
       klass.new hash, bot
     end
 
-    # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] the fields to set
-    #   @return [AtAllMessage] the message object
     def self.set_message(type, *attr_keys, &initialize_block)
       attr_reader(*attr_keys)
 
@@ -149,6 +157,7 @@ module Rubirai
     set_message :Source, :id, :time
   end
 
+  # The quote message type
   class QuoteMessage < Message
     # @!attribute [r] id
     #   @return [Integer] the original (quoted) message (chain) id
@@ -201,31 +210,53 @@ module Rubirai
     set_message :Face, :face_id, :name
   end
 
+  # The plain text message type
   class PlainMessage < Message
+    # @!attribute [r] text
+    #   @return [String] the text
     set_message :Plain, :text
   end
 
+  # The image message type.
+  # Only one out of the three fields is needed to form the message.
   class ImageMessage < Message
+    # @!attribute [r] image_id
+    #   @return [Integer, nil] the image id from mirai
+    # @!attribute [r] url
+    #   @return [String, nil] the url of the image
+    # @!attribute [r] path
+    #   @return [String, nil] the local path of the image
     set_message :Image, :image_id, :url, :path
   end
 
+  # The flash image message type
   class FlashImageMessage < Message
     set_message :FlashImage, :image_id, :url, :path
   end
 
+  # The voice message type
   class VoiceMessage < Message
     set_message :Voice, :voice_id, :url, :path
   end
 
+  # The xml message type
   class XmlMessage < Message
+    # @!attribute [r] xml
+    #   @return [String] the xml content
     set_message :Xml, :xml
   end
 
+  # The json message type
   class JsonMessage < Message
+    # @!attribute [r] json
+    #   @return [String] the json content
     set_message :Json, :json
   end
 
+  # The app message type
   class AppMessage < Message
+    # @!attribute [r] content
+    #   @return [String] the app content
     set_message :App, :content
   end
 
@@ -234,9 +265,29 @@ module Rubirai
   end
 
   class ForwardMessage < Message
-    # todo: not implemented, maybe add a received message type to
-    # reuse
-    set_message :Forward, :hash
+    class Node
+      attr_reader :sender_id, :time, :sender_name, :message_chain
+
+      def initialize(hash, bot = nil)
+        @sender_id = hash['senderId']
+        @time = hash['time']
+        @sender_name = hash['senderName']
+        @message_chain = MessageChain.make(*hash['messageChain'], sender_id: hash['senderId'], bot: bot)
+      end
+    end
+
+    set_message :Forward, :title, :brief, :source, :summary, :node_list
+
+    def initialize(hash, bot = nil)
+      super :Forward, bot
+      @title = hash['title']
+      @brief = hash['brief']
+      @source = hash['source']
+      @summary = hash['summary']
+      @node_list = hash['nodeList'].each do |chain|
+        Node.new chain, bot
+      end
+    end
   end
 
   class FileMessage < Message

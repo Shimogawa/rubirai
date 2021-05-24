@@ -4,7 +4,6 @@ require 'rubirai/objects/user'
 require 'rubirai/objects/group'
 
 module Rubirai
-  # Section of Bot about member/group listings
   class Bot
     def friend_list
       resp = call :get, '/friendList', params: {

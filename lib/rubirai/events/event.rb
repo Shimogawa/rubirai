@@ -38,9 +38,6 @@ module Rubirai
       all_types.include? type
     end
 
-    # @!method initialize(hash, bot = nil)
-    #   @param hash [Hash]
-    #   @param bot [Rubirai::Bot]
     def self.set_event(type, *attr_keys)
       attr_reader(*attr_keys)
 
