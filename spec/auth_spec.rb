@@ -111,7 +111,7 @@ describe 'auth api' do
     expect(mirai_bot.instance_variable_get("@session")).to eq(@session_key)
 
     expect do
-      expect(mirai_bot.logout(@qq)).to be_nil
+      expect(mirai_bot.logout).to be_nil
     end.not_to raise_error
     expect(mirai_bot.instance_variable_get("@session")).to be_nil
   end
