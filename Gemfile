@@ -13,6 +13,6 @@ group :test do
 end
 
 group :doc do
-  gem 'kramdown'
+  gem 'redcarpet'
   gem 'yard'
 end
