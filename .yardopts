@@ -1,3 +1,5 @@
---no-private --protected lib/**/*.rb
---markup-provider=kramdown
---markup=markdown
+--no-private
+--protected
+lib/**/*.rb
+-
+README.md
