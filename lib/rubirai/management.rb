@@ -3,7 +3,6 @@
 require 'rubirai/objects/info'
 
 module Rubirai
-  # Section of Bot about group management
   class Bot
     # Mute a group member
     #

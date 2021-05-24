@@ -4,7 +4,6 @@ require 'concurrent'
 require 'rubirai/events/bot_events'
 
 module Rubirai
-  # Section of Bot about event listening
   class Bot
     def start_listener(interval, is_blocking: false, ignore_error: false, &block)
       raise RubiraiError, 'listener is already running' if @listener.running?

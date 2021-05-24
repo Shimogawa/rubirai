@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Rubirai
+  # The return codes and their explanations
   RETURN_CODE = {
     0 => 'OK',
     1 => 'Wrong auth key',

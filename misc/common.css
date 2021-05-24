@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Noto+Serif:ital@0;1&display=swap');
+
+body, .summary_desc, .note.title, p.signature .extras, h3.signature .extras,
+h1, h2, h3, h4, h5, h6, p.inherited a, .tags ul .name {
+    font-family:'Noto Sans', 'Noto Sans SC', Arial, Helvetica, sans-serif !important;
+}
+
+pre, code, tt, dt code, table tr td dt code, ul.summary {
+    font-family:'Roboto Mono', monospace !important;
+}

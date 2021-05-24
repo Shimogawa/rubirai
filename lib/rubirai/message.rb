@@ -4,7 +4,6 @@ require 'rubirai/messages/message'
 require 'rubirai/messages/message_chain'
 
 module Rubirai
-  # Section of Bot about messages
   class Bot
     # Send temp message
     #

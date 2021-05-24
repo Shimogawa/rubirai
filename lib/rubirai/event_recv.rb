@@ -3,7 +3,6 @@
 require 'rubirai/events/event'
 
 module Rubirai
-  # Section of Bot about event receiving
   class Bot
     # Fetch `count` number of oldest events.
     # @param count [Integer] the number of events to fetch
