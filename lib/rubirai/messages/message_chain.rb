@@ -112,7 +112,7 @@ module Rubirai
     end
   end
 
-  # Makes a message chain. See {MessageChain::make}.
+  # Makes a message chain. See {MessageChain#make}.
   def self.MessageChain(*messages, sender_id: nil, bot: nil)
     MessageChain.make(*messages, sender_id: sender_id, bot: bot)
   end

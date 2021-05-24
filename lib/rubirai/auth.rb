@@ -22,7 +22,9 @@ module Rubirai
     end
 
     # Release a session.
-    def release(qq, session = nil)
+    def release(qq = nil, session = nil)
+      qq ||= @qq
+      raise RubiraiError, "not same qq: #{qq} and #{@qq}" if qq != @qq
       check qq, session
 
       call :post, '/release', json: { "sessionKey": @session || session, "qq": qq.to_i }
@@ -38,10 +40,8 @@ module Rubirai
 
     alias connect login
 
-    def logout(qq)
-      return unless @session
-
-      release qq, @session
+    def logout
+      release
     end
 
     alias disconnect logout

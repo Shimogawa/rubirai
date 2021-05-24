@@ -32,3 +32,11 @@ jobs:
           CI: "true"
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: bundle exec rake
+      - name: Generate docs
+        run: yardoc --output-dir docs
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
