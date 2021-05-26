@@ -3,6 +3,7 @@
 require 'rubirai/retcode'
 
 module Rubirai
+  # Represent all Rubirai errors
   class RubiraiError < RuntimeError
   end
 
@@ -13,6 +14,7 @@ module Rubirai
     end
   end
 
+  # Mirai error
   class MiraiError < RubiraiError
     def initialize(code, msg = nil)
       raise(RubiraiError, 'invalid mirai error code') unless Rubirai::RETURN_CODE.key? code

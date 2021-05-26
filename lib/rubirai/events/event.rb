@@ -4,7 +4,9 @@ require 'rubirai/objects/group'
 require 'rubirai/utils'
 
 module Rubirai
+  # @abstract
   class Event
+    # @private
     def self.gen_descendants
       descs = ObjectSpace.each_object(Class).select do |klass|
         klass < self

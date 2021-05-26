@@ -23,6 +23,7 @@ module Rubirai
     # @param port [String, Integer, nil] the port number (default is 80 for http)
     def initialize(host, port = nil)
       @base_uri = "http://#{host}#{":#{port}" if port}"
+      @listener_funcs = []
     end
 
     def gen_uri(path)

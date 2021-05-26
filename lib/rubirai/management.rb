@@ -62,6 +62,10 @@ module Rubirai
       nil
     end
 
+    # Mute all group
+    #
+    # @param group_id [Integer] group id
+    # @return [void]
     def mute_all(group_id)
       call :post, '/muteAll', json: {
         sessionKey: @session,
