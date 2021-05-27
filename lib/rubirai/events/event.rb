@@ -4,7 +4,9 @@ require 'rubirai/objects/group'
 require 'rubirai/utils'
 
 module Rubirai
+  # @abstract
   class Event
+    # @private
     def self.gen_descendants
       descs = ObjectSpace.each_object(Class).select do |klass|
         klass < self
@@ -93,6 +95,11 @@ module Rubirai
       type_to_klass(hash['type']).new hash, bot
     end
 
+    # @!attribute [r] bot
+    #   @return [Bot]
+    # @!attribute [r] raw
+    #   The raw hash representation of the event
+    #   @return [Hash]
     attr_reader :bot, :raw
 
     def initialize(hash, bot = nil)

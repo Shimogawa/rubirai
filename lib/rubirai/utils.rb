@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# @private
 class Hash
   def stringify_keys!
     transform_keys!(&:to_s)
@@ -18,6 +19,7 @@ class Hash
   end
 end
 
+# @private
 class String
   def snake_to_camel(lower: false)
     s = split('_').collect(&:capitalize).join
@@ -28,6 +30,7 @@ class String
   end
 end
 
+# @private
 class Object
   def must_be!(types, exc_type = nil, *args)
     ok = case types

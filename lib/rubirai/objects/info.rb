@@ -3,6 +3,7 @@
 require 'rubirai/utils'
 
 module Rubirai
+  # @abstract
   class Info
     # @!method initialize(hash, bot = nil)
     #   @param hash [Hash{String => Object}]

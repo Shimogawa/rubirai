@@ -13,7 +13,7 @@ module Rubirai
     # Verify and start a session. Also bind the session to a bot with the qq id.
     # @param qq [String, Integer] qq id
     # @param session [String, nil] the session key. Set to `nil` will use the saved credentials.
-    # @return [nil]
+    # @return [void]
     def verify(qq, session = nil)
       check qq, session
 
@@ -27,7 +27,7 @@ module Rubirai
     # Only fill in the arguments when you want to control another bot on the same Mirai process.
     # @param qq [String, Integer, nil] qq id. Set to `nil` will use the logged in bot id.
     # @param session [String, nil] the session key. Set to `nil` will use the logged in credentials.
-    # @return [nil]
+    # @return [void]
     def release(qq = nil, session = nil)
       qq ||= @qq
       raise RubiraiError, "not same qq: #{qq} and #{@qq}" if qq != @qq
@@ -43,7 +43,7 @@ module Rubirai
     #
     # @param qq [String, Integer] qq id
     # @param auth_key [String] the auth key set in the settings file for mirai-api-http.
-    # @return [nil]
+    # @return [void]
     # @see #auth
     # @see #verify
     def login(qq, auth_key)
@@ -55,7 +55,7 @@ module Rubirai
 
     # Log you out.
     #
-    # @return [nil]
+    # @return [void]
     # @see #release
     def logout
       release

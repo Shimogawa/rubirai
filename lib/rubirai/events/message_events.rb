@@ -3,29 +3,45 @@
 require 'rubirai/events/event'
 
 module Rubirai
+  # The base class for message events
   # @abstract
   class MessageEvent < Event
     # @!attribute [r] message_chain
     #   @return [MessageChain] the message chain
-    # @!attribute [r] sender
-    #   @return [Integer] the sender id
     set_event nil, :message_chain, :sender
   end
 
+  # Friend message event
   class FriendMessageEvent < MessageEvent
     # @!method initialize(hash, bot = nil)
     #   @param hash [Hash]
     #   @param bot [Rubirai::Bot]
+    # @!attribute [r] sender
+    #   @return [User] the sender
     set_event :FriendMessage
   end
 
+  # Group message event
   class GroupMessageEvent < MessageEvent
     # @!method initialize(hash, bot = nil)
     #   @param hash [Hash]
     #   @param bot [Rubirai::Bot]
+    # @!attribute [r] sender
+    #   @return [GroupUser] the sender
     set_event :GroupMessage
   end
 
+  # Temp message event
+  class TempMessageEvent < MessageEvent
+    # @!method initialize(hash, bot = nil)
+    #   @param hash [Hash]
+    #   @param bot [Rubirai::Bot]
+    # @!attribute [r] sender
+    #   @return [GroupUser] the sender
+    set_event :TempMessage
+  end
+
+  # The base class for recall events
   # @abstract
   class RecallEvent < Event
     # @!attribute [r] author_id
@@ -37,6 +53,7 @@ module Rubirai
     set_event nil, :author_id, :message_id, :time
   end
 
+  # Group recall event
   class GroupRecallEvent < RecallEvent
     # @!method initialize(hash, bot = nil)
     #   @param hash [Hash]
@@ -48,6 +65,7 @@ module Rubirai
     set_event :GroupRecallEvent, :group, :operator
   end
 
+  # Friend recall event
   class FriendRecallEvent < RecallEvent
     # @!method initialize(hash, bot = nil)
     #   @param hash [Hash]
