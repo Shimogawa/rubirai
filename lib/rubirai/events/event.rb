@@ -95,6 +95,11 @@ module Rubirai
       type_to_klass(hash['type']).new hash, bot
     end
 
+    # @!attribute [r] bot
+    #   @return [Bot]
+    # @!attribute [r] raw
+    #   The raw hash representation of the event
+    #   @return [Hash]
     attr_reader :bot, :raw
 
     def initialize(hash, bot = nil)
