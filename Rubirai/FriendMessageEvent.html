@@ -72,7 +72,7 @@
       <span class="inheritName"><span class='object_link'><a href="MessageEvent.html" title="Rubirai::MessageEvent (class)">MessageEvent</a></span></span>
       
         <ul class="fullTree">
-          <li><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></li>
+          <li><span class='object_link'>Object</span></li>
           
             <li class="next"><span class='object_link'><a href="Event.html" title="Rubirai::Event (class)">Event</a></span></li>
           
@@ -103,16 +103,59 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Friend message event</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sender-instance_method" title="#sender (instance method)">#<strong>sender</strong>  &#x21d2; User </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The sender.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
-  <h2>Instance Attribute Summary</h2>
+  
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="MessageEvent.html" title="Rubirai::MessageEvent (class)">MessageEvent</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="MessageEvent.html#message_chain-instance_method" title="Rubirai::MessageEvent#message_chain (method)">#message_chain</a></span>, <span class='object_link'><a href="MessageEvent.html#sender-instance_method" title="Rubirai::MessageEvent#sender (method)">#sender</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="MessageEvent.html#message_chain-instance_method" title="Rubirai::MessageEvent#message_chain (method)">#message_chain</a></span></p>
 
   
   
@@ -171,14 +214,14 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Event.html" title="Rubirai::Event (class)">Event</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Event.html#gen_descendants-class_method" title="Rubirai::Event.gen_descendants (method)">gen_descendants</a></span>, <span class='object_link'><a href="Event.html#parse-class_method" title="Rubirai::Event.parse (method)">parse</a></span>, <span class='object_link'><a href="Event.html#set_event-class_method" title="Rubirai::Event.set_event (method)">set_event</a></span>, <span class='object_link'><a href="Event.html#type_to_klass-class_method" title="Rubirai::Event.type_to_klass (method)">type_to_klass</a></span>, <span class='object_link'><a href="Event.html#valid_type%3F-class_method" title="Rubirai::Event.valid_type? (method)">valid_type?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Event.html#parse-class_method" title="Rubirai::Event.parse (method)">parse</a></span>, <span class='object_link'><a href="Event.html#set_event-class_method" title="Rubirai::Event.set_event (method)">set_event</a></span>, <span class='object_link'><a href="Event.html#type_to_klass-class_method" title="Rubirai::Event.type_to_klass (method)">type_to_klass</a></span>, <span class='object_link'><a href="Event.html#valid_type%3F-class_method" title="Rubirai::Event.valid_type? (method)">valid_type?</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'><a href="../Object.html" title="Object (class)">Object</a></span></tt> 
+    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
   
 
   
@@ -199,7 +242,7 @@
         <span class='name'>hash</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
       
       
       
@@ -227,10 +270,10 @@
       <pre class="lines">
 
 
-19</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/events/message_events.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/events/message_events.rb', line 21</span>
 
 <span class='id identifier rubyid_set_event'>set_event</span> <span class='symbol'>:FriendMessage</span></pre>
     </td>
@@ -240,11 +283,71 @@
   
 </div>
 
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="sender-instance_method">
+  
+    #<strong>sender</strong>  &#x21d2; <tt><span class='object_link'><a href="User.html" title="Rubirai::User (class)">User</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the sender.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="User.html" title="Rubirai::User (class)">User</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the sender</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/events/message_events.rb', line 21</span>
+
+<span class='id identifier rubyid_set_event'>set_event</span> <span class='symbol'>:FriendMessage</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 
 </div>
 
       <div id="footer">
-  Generated on Mon May 24 17:11:19 2021 by
+  Generated on Thu May 27 06:30:50 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
