@@ -1,4 +1,6 @@
 # Rubirai
+
+[![Gem Version](https://badge.fury.io/rb/rubirai.svg)](https://rubygems.org/gems/rubirai)
 [![CI](https://github.com/Shimogawa/rubirai/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Shimogawa/rubirai/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/Shimogawa/rubirai/branch/master/graph/badge.svg?token=OVUVEWFPKY)](https://codecov.io/gh/Shimogawa/rubirai)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9a9d8c887e5deb601e1e/maintainability)](https://codeclimate.com/github/Shimogawa/rubirai/maintainability)
@@ -18,6 +20,11 @@ bot = Rubirai::Bot.new('127.0.0.1', '8080')
 # qq and auth key
 bot.login 1145141919, 'ikisugi_key'
 ```
+
+## Wiki and Documentation
+
+- [中文](https://github.com/Shimogawa/rubirai/wiki)
+- [Documentation](https://www.rebuild.moe/rubirai/)
 
 
 ## License
