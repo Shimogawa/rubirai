@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 require 'concurrent'
-require 'rubirai/events/bot_events'
+require 'rubirai/events/rubirai_events'
 
 module Rubirai
   class Bot
     def start_listen(interval, is_blocking: false, ignore_error: false)
-      raise RubiraiError, 'listener is already running' if @listener.running?
+      raise RubiraiError, 'listener is already running' if @listener&.running?
       @listener_stop_event = Concurrent::Event.new if is_blocking
       bot = self
-      @listener = Concurrent::TimerTask(execution_interval: interval) do
+      @listener = Concurrent::TimerTask.new(execution_interval: interval) do
         loop do
           events = fetch_message
           events.each do |e|

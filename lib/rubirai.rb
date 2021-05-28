@@ -30,6 +30,11 @@ module Rubirai
       URI.join(base_uri, path)
     end
 
+    def self.ensure_type_in(type, *types)
+      types = types.map { |x| x.to_s.downcase }
+      type.to_s.downcase.must_be_one_of! types, RubiraiError, "not valid type: should be one of #{types}"
+    end
+
     private
 
     def call(method, path, **kwargs)
@@ -44,11 +49,6 @@ module Rubirai
       end
 
       body
-    end
-
-    def self.ensure_type_in(type, *types)
-      types = types.map { |x| x.to_s.downcase }
-      type.to_s.downcase.must_be_one_of! types, RubiraiError, "not valid type: should be one of #{types}"
     end
   end
 end
