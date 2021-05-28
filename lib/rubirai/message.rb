@@ -15,8 +15,8 @@ module Rubirai
       chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
-        qq: target_qq,
-        group: group_id,
+        qq: target_qq.to_i,
+        group: group_id.to_i,
         messageChain: chain.to_a
       }
       resp['messageId']
@@ -27,7 +27,7 @@ module Rubirai
       chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
-        target: target_id,
+        target: target_id.to_i,
         messageChain: chain.to_a
       }
       resp['messageId']
