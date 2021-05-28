@@ -78,15 +78,15 @@ module Rubirai
       @sender_id = sender_id
       @messages = []
       return unless source
-      raise(MiraiError, 'source is not array') unless source.class.is_a? Array
+      raise(MiraiError, 'source is not array') unless source.is_a? Array
       raise(MiraiError, 'length is zero') if source.empty?
 
-      if source[0].type == :Source
-        @sender_id = source[0].id
-        @send_time = source[0].time
-        @messages = extend(*source.drop(1))
+      if source[0]['type'] == 'Source'
+        @sender_id = source[0]['id']
+        @send_time = source[0]['time']
+        extend(*source.drop(1))
       else
-        @messages = extend(*source)
+        extend(*source)
       end
     end
 
