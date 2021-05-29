@@ -7,5 +7,5 @@ h1, h2, h3, h4, h5, h6, h3.signature .aliases {
 
 pre, code, tt, dt code, table tr td dt code, ul.summary, h3.signature .aliases .names,
 p.signature, h3.signature, .tags ul .name, p.inherited a {
-    font-family: 'Menlo', 'Roboto Mono', monospace !important;
+    font-family: 'Roboto Mono', monospace !important;
 }
