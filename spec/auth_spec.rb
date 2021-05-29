@@ -79,23 +79,7 @@ describe 'auth api' do
 
   it 'should be able to login and logout' do
     mirai_bot = Rubirai::Bot.new 'test'
-    stub_request(:post, @mirai_bot.gen_uri('/auth'))
-      .with(body: {
-        "authKey": @auth_key
-      })
-      .to_return(status: 200, body: %({
-          "code": 0,
-          "session": "#{@session_key}"
-      }))
-    stub_request(:post, @mirai_bot.gen_uri('/verify'))
-      .with(body: {
-        "sessionKey": @session_key,
-        "qq": @qq
-      })
-      .to_return(status: 200, body: %({
-          "code": 0,
-          "session": "success"
-      }))
+    stub_login
     stub_request(:post, @mirai_bot.gen_uri('/release'))
       .with(body: {
         "sessionKey": @session_key,

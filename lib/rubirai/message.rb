@@ -22,6 +22,12 @@ module Rubirai
       resp['messageId']
     end
 
+    # Send friend or group message
+    #
+    # @param type [Symbol, String] options: [group, friend]
+    # @param target_id [Integer] target qq/group id
+    # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @return [Integer] message id
     def send_msg(type, target_id, *msgs)
       self.class.ensure_type_in type, 'group', 'friend'
       chain = Rubirai::MessageChain.make(*msgs, bot: self)
@@ -33,14 +39,28 @@ module Rubirai
       resp['messageId']
     end
 
+    # Send friend message
+    #
+    # @param target_qq [Integer] target qq id
+    # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @return [Integer] message id
     def send_friend_msg(target_qq, *msgs)
       send_msg :friend, target_qq, *msgs
     end
 
+    # Send group message
+    #
+    # @param target_group_id [Integer] group id
+    # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @return [Integer] message id
     def send_group_msg(target_group_id, *msgs)
       send_msg :group, target_group_id, *msgs
     end
 
+    # Recall a message
+    #
+    # @param msg_id [Integer] message id
+    # @return [void]
     def recall(msg_id)
       call :post, '/recall', json: {
         sessionKey: @session,
@@ -70,6 +90,13 @@ module Rubirai
       call :post, '/sendImageMessage', json: res
     end
 
+    # Send nudge
+    #
+    # @param target_id [Integer] target id
+    # @param subject_id [Integer] the id of the place where the nudge will be seen.
+    #                   Should be a group id or a friend's id
+    # @param kind [String, Symbol] options: `[Group, Friend]`
+    # @return [void]
     def send_nudge(target_id, subject_id, kind)
       kind.to_s.downcase.must_be_one_of! %w[group friend], RubiraiError, 'kind must be one of group or friend'
       call :post, '/sendNudge', json: {

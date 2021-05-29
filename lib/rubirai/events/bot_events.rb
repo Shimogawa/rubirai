@@ -3,7 +3,11 @@
 require 'rubirai/events/event'
 
 module Rubirai
+  # Bot event
+  # @abstract
   class BotEvent < Event
+    # @!attribute [r] qq
+    #   @return [Integer] qq id of the event's bot
     set_event nil, :qq
   end
 

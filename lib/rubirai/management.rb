@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubirai/objects/info'
+require 'rubirai/objects/group_info'
 
 module Rubirai
   class Bot

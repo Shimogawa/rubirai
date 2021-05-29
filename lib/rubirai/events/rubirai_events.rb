@@ -3,7 +3,10 @@
 require 'rubirai/events/event'
 
 module Rubirai
+  # Error events thrown when errors happened in event listeners
   class RubiraiErrorEvent < Event
+    # @!attribute [r] err
+    #   @return [RuntimeError] the error
     attr_reader :err
 
     # An error event just for internal use

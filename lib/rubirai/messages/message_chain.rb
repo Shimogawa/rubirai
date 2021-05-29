@@ -7,7 +7,15 @@ module Rubirai
   class MessageChain
     include Enumerable
 
-    attr_reader :bot, :sender_id, :send_time, :messages, :read_only
+    # @!attribute [r] bot
+    #   @return [Bot] the bot object
+    # @!attribute [r] sender_id
+    #   @return [Integer, nil] the sender id, may be `nil`
+    # @!attribute [r] send_time
+    #   @return [Integer, nil] the send time of the message chain, may be `nil`
+    # @!attribute [r] messages
+    #   @return [Array<Message>] the raw message array
+    attr_reader :bot, :sender_id, :send_time, :messages
 
     # Makes a message chain from a list of messages
     #
@@ -43,8 +51,12 @@ module Rubirai
     alias << extend
     alias append extend
 
-    def concat(msg_chain)
-      msg_chain.to_a.each do |msg|
+    # Concats this message chain with another one
+    #
+    # @param msg_chain [MessageChain] another message chain
+    # @return [MessageChain] self
+    def concat!(msg_chain)
+      msg_chain.messages.each do |msg|
         internal_append msg
       end
       self

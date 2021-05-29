@@ -5,6 +5,12 @@ require 'rubirai/events/rubirai_events'
 
 module Rubirai
   class Bot
+    # Start to listen for events
+    #
+    # @param interval [Numeric] the interval to fetch events in seconds.
+    # @param is_blocking [Boolean] if the listen thread should block the current thread
+    # @param ignore_error [Boolean] if errors should generate error events (see {RubiraiErrorEvent})
+    # @return [void]
     def start_listen(interval, is_blocking: false, ignore_error: false)
       raise RubiraiError, 'listener is already running' if @listener&.running?
       @listener_stop_event = Concurrent::Event.new if is_blocking

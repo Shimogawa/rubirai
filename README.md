@@ -12,6 +12,14 @@ A light-weight Mirai QQ bot http interface lib for Ruby.
 
 ## Usage
 
+First, download the package using `gem`. In your `Gemfile`, add
+
+```ruby
+gem 'rubirai'
+```
+
+Then, start to write code (no matter if it's a rails application or something else):
+
 ```ruby
 require 'rubirai'
 # assuming your mirai http api address and port
@@ -19,6 +27,12 @@ require 'rubirai'
 bot = Rubirai::Bot.new('127.0.0.1', '8080')
 # qq and auth key
 bot.login 1145141919, 'ikisugi_key'
+```
+
+> If you want to install globally with `gem`, use
+
+```bash
+gem install rubirai 
 ```
 
 ## Wiki and Documentation

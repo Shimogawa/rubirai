@@ -73,6 +73,9 @@ describe Rubirai::Event do
     }
     e = Rubirai::Event.parse hash
     expect(e).to be_a(Rubirai::BotGroupPermissionChangedEvent)
-    expect(e.class.type)
+    expect(e.class.type).to eq(:BotGroupPermissionChangeEvent)
+    expect(e.origin).to eq(Rubirai::Group::Permission::MEMBER)
+    expect(e.new).to eq(Rubirai::Group::Permission::ADMINISTRATOR)
+    expect(e.group.id).to eq(123456789)
   end
 end
