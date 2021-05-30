@@ -28,6 +28,18 @@ require 'rubirai'
 bot = Rubirai::Bot.new('127.0.0.1', '8080')
 # qq and auth key
 bot.login 1145141919, 'ikisugi_key'
+
+# Add a listener function
+bot.add_listener do |event|
+  puts event.inspect
+  if event.is_a?(Rubirai::MessageEvent)
+    event.respond("Hello, world!")
+  end
+end
+
+# Listen to message every 0.5 seconds
+# And blocks the current thread
+bot.start_listen 0.5, is_blocking: true
 ```
 
 > If you want to install globally with `gem`, use
