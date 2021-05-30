@@ -4,19 +4,27 @@ require 'rubirai/utils'
 require 'rubirai/messages/message'
 
 module Rubirai
+  # Message chain
   class MessageChain
     include Enumerable
 
-    attr_reader :bot, :sender_id, :send_time, :messages, :read_only
+    # @!attribute [r] bot
+    #   @return [Bot] the bot object
+    # @!attribute [r] id
+    #   @return [Integer, nil] the message id, may be `nil`
+    # @!attribute [r] send_time
+    #   @return [Integer, nil] the send time of the message chain, may be `nil`
+    # @!attribute [r] messages
+    #   @return [Array<Message>] the raw message array
+    attr_reader :bot, :id, :send_time, :messages
 
     # Makes a message chain from a list of messages
     #
     # @param messages [Array<Rubirai::Message, Rubirai::MessageChain, Hash, String, Object>] a list of messages
-    # @param sender_id [Integer, nil]
     # @param bot [Rubirai::Bot, nil]
     # @return [Rubirai::MessageChain] the message chain
-    def self.make(*messages, sender_id: nil, bot: nil)
-      chain = new(bot, sender_id: sender_id)
+    def self.make(*messages, bot: nil)
+      chain = new(bot)
       result = []
       messages.map { |msg| Message.to_message(msg, bot) }.each do |msg|
         if !result.empty? && result[-1].is_a?(PlainMessage) && msg.is_a?(PlainMessage)
@@ -43,8 +51,12 @@ module Rubirai
     alias << extend
     alias append extend
 
-    def concat(msg_chain)
-      msg_chain.to_a.each do |msg|
+    # Concats this message chain with another one
+    #
+    # @param msg_chain [MessageChain] another message chain
+    # @return [MessageChain] self
+    def concat!(msg_chain)
+      msg_chain.messages.each do |msg|
         internal_append msg
       end
       self
@@ -70,19 +82,21 @@ module Rubirai
       @messages.empty?
     end
 
+    # Don't use the constructor. Use {.make}.
+    #
+    # @private
     # @param bot [Rubirai::Bot, nil]
     # @param source [Array, nil]
-    # @param sender_id [Integer, nil]
-    def initialize(bot = nil, source = nil, sender_id: nil)
+    # @param id [Integer, nil]
+    def initialize(bot = nil, source = nil)
       @bot = bot
-      @sender_id = sender_id
       @messages = []
       return unless source
       raise(MiraiError, 'source is not array') unless source.is_a? Array
       raise(MiraiError, 'length is zero') if source.empty?
 
       if source[0]['type'] == 'Source'
-        @sender_id = source[0]['id']
+        @id = source[0]['id']
         @send_time = source[0]['time']
         extend(*source.drop(1))
       else
@@ -90,6 +104,9 @@ module Rubirai
       end
     end
 
+    # Convert the message chain to an array of hashes.
+    #
+    # @return [Array<Hash{String => Object}>]
     def to_a
       @messages.map(&:to_h)
     end
@@ -113,7 +130,7 @@ module Rubirai
   end
 
   # Makes a message chain. See {MessageChain#make}.
-  def self.MessageChain(*messages, sender_id: nil, bot: nil)
-    MessageChain.make(*messages, sender_id: sender_id, bot: bot)
+  def self.MessageChain(*messages, bot: nil)
+    MessageChain.make(*messages, bot: bot)
   end
 end

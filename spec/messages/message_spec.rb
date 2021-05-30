@@ -37,7 +37,7 @@ describe Rubirai::Message do
     qm = Rubirai::QuoteMessage.new hash
     expect(qm.id).to eq(123456)
     expect(qm.origin).to be_a(Rubirai::MessageChain)
-    expect(qm.origin.sender_id).to eq(987654321)
+    expect(qm.origin.id).to be_nil
     expect(qm.origin.messages).to be_a(Array)
     expect(qm.origin.messages.length).to eq(1)
     expect(qm.origin.messages[0]).to be_a(Rubirai::Message)

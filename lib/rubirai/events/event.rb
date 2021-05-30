@@ -102,6 +102,7 @@ module Rubirai
     #   @return [Hash]
     attr_reader :bot, :raw
 
+    # @private
     def initialize(hash, bot = nil)
       @raw = hash
       @bot = bot

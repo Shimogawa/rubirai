@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 module Rubirai
+  # The group
+  #
+  # @!attribute [r] bot
+  #   @return [Bot] the bot
+  # @!attribute [r] id
+  #   @return [Integer] group id
+  # @!attribute [r] name
+  #   @return [String] group name
+  # @!attribute [r] permission
+  #   @return [String] the group permission of the bot. See {Permission}
   class Group
     attr_reader :bot, :id, :name, :permission
 
@@ -14,9 +24,15 @@ module Rubirai
       @permission = hash['permission']
     end
 
+    # Group permissions
     class Permission
+      # Owner
       OWNER = 'OWNER'
+
+      # Administrator
       ADMINISTRATOR = 'ADMINISTRATOR'
+
+      # Member
       MEMBER = 'MEMBER'
     end
   end

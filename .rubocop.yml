@@ -39,3 +39,6 @@ Metrics/PerceivedComplexity:
 
 Naming/AccessorMethodName:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false

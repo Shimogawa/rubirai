@@ -2,8 +2,9 @@
 
 module Rubirai
   class Bot
-    # Get Mirai API plugin information such as
+    # Get Mirai API plugin information.
     #
+    # The information is like
     # ```ruby
     # {
     #   'version' => '1.0.0'

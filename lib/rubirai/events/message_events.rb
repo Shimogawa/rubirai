@@ -8,6 +8,8 @@ module Rubirai
   class MessageEvent < Event
     # @!attribute [r] message_chain
     #   @return [MessageChain] the message chain
+    # @!attribute [r] sender
+    #   @return [User] the sender
     set_event nil, :message_chain, :sender
   end
 
