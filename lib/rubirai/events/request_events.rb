@@ -3,6 +3,8 @@
 require 'rubirai/events/event'
 
 module Rubirai
+  # Request events
+  # @abstract
   class RequestEvent < Event
     # @!attribute [r] event_id
     #   @return [Integer] the event id
@@ -17,16 +19,19 @@ module Rubirai
     set_event nil, :event_id, :from_id, :group_id, :nick, :message
   end
 
+  # New friend request event
   class NewFriendRequestEvent < RequestEvent
     set_event :NewFriendRequestEvent
   end
 
+  # Join group request event
   class JoinGroupRequestEvent < RequestEvent
     # @!attribute [r] group_name
     #   @return [String] the group name
     set_event :MemberJoinRequestEvent, :group_name
   end
 
+  # Event that the bot is invited to a group
   class BotInvitedToGroupEvent < RequestEvent
     # @!attribute [r] group_name
     #   @return [String] the group name

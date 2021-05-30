@@ -6,6 +6,7 @@ module Rubirai
   # The abstract class for group information
   # @abstract
   class GroupInfo
+    # @private
     def self.set_fields(*fields, **default_values)
       attr_reader(*fields)
 
@@ -27,13 +28,19 @@ module Rubirai
       end
     end
 
+    # @private
     def self.set_modifiable_fields(*fields)
       set_fields(*fields)
       attr_writer(*fields)
     end
 
+    # @!attribute [r] raw
+    #   @return [Hash{String => Object}] the raw hash
+    # @!attribute [r] bot
+    #   @return [Bot] the bot
     attr_reader :raw, :bot
 
+    # @private
     def initialize(hash, bot = nil)
       @raw = hash
       @bot = bot
@@ -70,11 +77,11 @@ module Rubirai
     # @!method to_h
     #   @return [Hash{String => Object}]
     # @!attribute [rw] name
-    #   @return [String]
+    #   @return [String] member's name in the group
     # @!attribute [r] nick
-    #   @return [String]
+    #   @return [String] member's personal nickname
     # @!attribute [rw] special_title
-    #   @return [String]
+    #   @return [String] member's special title in the group
     set_fields :name, :nick, :special_title
     attr_writer :name, :special_title
   end
@@ -93,6 +100,8 @@ module Rubirai
     # @!attribute [r] is_file
     #   @return [Boolean]
     set_fields :name, :id, :path, :is_file, is_file: true
+
+    alias is_file? is_file
   end
 
   # Group file with detailed information

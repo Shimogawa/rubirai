@@ -62,7 +62,7 @@ module Rubirai
       nil
     end
 
-    # Mute all group
+    # Mute all in a group
     #
     # @param group_id [Integer] group id
     # @return [void]
@@ -74,6 +74,11 @@ module Rubirai
       nil
     end
 
+
+    # Unmute all in a group
+    #
+    # @param group_id [Integer] group id
+    # @return [void]
     def unmute_all(group_id)
       call :post, '/unmuteAll', json: {
         sessionKey: @session,
@@ -82,6 +87,10 @@ module Rubirai
       nil
     end
 
+    # Get group config
+    #
+    # @param group_id [Integer] group id
+    # @return [GroupConfig] the config
     def get_group_config(group_id)
       resp = call :get, '/groupConfig', params: {
         sessionKey: @session,
@@ -93,7 +102,9 @@ module Rubirai
     # Set group config
     #
     # @param group_id [Integer] group id
-    # @param config [GroupConfig, Hash{String => Object}] the configuration
+    # @param config [GroupConfig, Hash{String, Symbol => Object}] the configuration. If given as
+    #               a hash, then it should be exactly named the same as given in `mirai-api-http`
+    #               docs.
     # @return [void]
     def set_group_config(group_id, config)
       config.must_be! [GroupConfig, Hash], RubiraiError, 'must be GroupConfig or Hash'
@@ -107,6 +118,11 @@ module Rubirai
       nil
     end
 
+    # Get member info
+    #
+    # @param group_id [Integer] group id
+    # @param member_id [Integer] the member's qq id
+    # @return [MemberInfo] the member's info
     def get_member_info(group_id, member_id)
       resp = call :get, '/memberInfo', params: {
         sessionKey: @session,
@@ -116,6 +132,14 @@ module Rubirai
       MemberInfo.new resp, self
     end
 
+    # Set member info
+    #
+    # @param group_id [Integer] group id
+    # @param member_id [Integer] the member's qq id
+    # @param info [MemberInfo, Hash{String,Symbol => Object}] the info to set. If given as
+    #             a hash, then it should be exactly named the same as given in `mirai-api-http`
+    #             docs.
+    # @return [void]
     def set_member_info(group_id, member_id, info)
       info.must_be! [MemberInfo, Hash], RubiraiError, 'must be MemberInfo or Hash'
       info.stringify_keys! if info.is_a? Hash
@@ -129,6 +153,11 @@ module Rubirai
       nil
     end
 
+    # Get the group files as a list
+    #
+    # @param group_id [Integer] the group id
+    # @param dir [String, nil] the directory to get. If `nil`, then the root directory is asserted.
+    # @return [Array<GroupFileSimple>] the list of files
     def get_group_file_list(group_id, dir = nil)
       resp = call :get, '/groupFileList', params: {
         sessionKey: @session,
@@ -141,12 +170,18 @@ module Rubirai
 
     # Get the info about a group file
     # @param group_id [Integer] the group id
-    # @param file_id [String] the file id, e.g. `/xxx-xxx-xxx-xxx`
-    def get_group_file_info(group_id, file_id)
+    # @param file_or_id [GroupFileSimple, String] the file id, e.g. `/xxx-xxx-xxx-xxx`
+    #
+    # @return [GroupFile] the info about the file
+    def get_group_file_info(group_id, file_or_id)
+      file_or_id.must_be! [GroupFileSimple, String], RubiraiError, 'must be GroupFileSimple or String'
+      raise RubiraiError, "#{file_or_id} is not a file" if file_or_id.is_a?(GroupFileSimple) && !file_or_id.is_file?
+      id = file_or_id.is_a? String ? file_or_id : file_or_id.id
+
       resp = call :get, '/groupFileInfo', params: {
         sessionKey: @session,
         target: group_id,
-        id: file_id
+        id: id
       }
       GroupFile.new resp, self
     end

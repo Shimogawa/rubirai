@@ -17,6 +17,8 @@ module Rubirai
     #   @return [String, Integer] the qq of the bot
     attr_reader :base_uri, :session, :qq
 
+    alias id qq
+
     # Initializes the bot
     #
     # @param host [String] the host (IP or domain)

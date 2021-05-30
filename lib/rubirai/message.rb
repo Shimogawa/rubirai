@@ -108,4 +108,46 @@ module Rubirai
       nil
     end
   end
+
+  class MessageEvent
+    # Respond to a message event
+    #
+    # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain
+    # @param quote [Boolean] if to quote the original message
+    # @return [void]
+    def respond(*msgs, quote: false)
+      check_bot
+      msgs.prepend(gen_quote) if quote
+      case self
+      when FriendMessageEvent
+        @bot.send_friend_msg(@sender.id, *msgs)
+      when GroupMessageEvent
+        @bot.send_group_msg(@sender.group.id, *msgs)
+      when TempMessageEvent
+        @bot.send_temp_msg(@sender.id, @sender.group.id, *msgs)
+      else
+        raise 'undefined error'
+      end
+      nil
+    end
+
+    # Generates a quote message from this event
+    #
+    # @return [QuoteMessage] the quote message
+    def gen_quote
+      QuoteMessage.from(
+        id: @message_chain.id,
+        group_id: @sender.is_a?(GroupUser) ? @sender.group.id : 0,
+        sender_id: @sender.id,
+        target_id: @sender.is_a?(GroupUser) ? @sender.group.id : @bot.qq,
+        origin: @message_chain
+      )
+    end
+
+    private
+
+    def check_bot
+      raise RubiraiError, 'no bot found in event' unless @bot
+    end
+  end
 end

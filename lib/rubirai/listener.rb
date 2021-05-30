@@ -33,14 +33,24 @@ module Rubirai
       @listener_stop_event.wait if is_blocking
     end
 
+    # Add a listener
+    #
+    # @return [void]
     def add_listener(&listener_block)
       @listener_funcs << listener_block
     end
 
+    # Clear all listeners
+    #
+    # @return [void]
     def clear_listener
       @listener_funcs.clear
     end
 
+    # Stop listening to events. Will unblock the thread if
+    # `is_blocking` is `true` when calling {#start_listen}
+    #
+    # @return [void]
     def stop_listen
       @listener.shutdown
       @listener_stop_event&.set

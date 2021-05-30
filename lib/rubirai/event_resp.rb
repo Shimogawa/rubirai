@@ -19,17 +19,29 @@ module Rubirai
   # Operations for responding to group join requests.
   # Only use the values defined in this module to respond to group join requests.
   module JoinGroupRequestOperation
+    # Approve the request
     APPROVE = 0
+
+    # Deny the request
     DENY = 1
+
+    # Ignore the request
     IGNORE = 2
+
+    # Deny and blacklist the sender of the request
     DENY_AND_BLACKLIST = 3
+
+    # Ignore and blacklist the sender of the request
     IGNORE_AND_BLACKLIST = 4
   end
 
   # Operations for responding to group invite requests.
   # Only use the values defined in this module to respond to group invite requests.
   module GroupInviteRequestOperation
+    # Approve the request
     APPROVE = 0
+
+    # Deny the request
     DENY = 1
   end
 
@@ -74,6 +86,14 @@ module Rubirai
       nil
     end
 
+    # Respond to group invitations (raw)
+    #
+    # @param event_id [Integer] the event id
+    # @param from_id [Integer] id of the sender
+    # @param group_id [Integer] the group id
+    # @param operation [Integer] see {GroupInviteRequestOperation}
+    # @param message [String] the message to reply
+    # @return [void]
     def respond_to_group_invite(event_id, from_id, group_id, operation, message = '')
       call :post, '/resp/botInvitedJoinGroupRequestEvent', json: {
         sessionKey: @session,

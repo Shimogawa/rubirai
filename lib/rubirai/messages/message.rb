@@ -22,6 +22,10 @@ module Rubirai
   #   @option text [String] the plain text
   #   @return [Rubirai::PlainMessage]
   class Message
+    # @!attribute [r] bot
+    #   @return [Bot] the bot
+    # @!attribute [r] type
+    #   @return [Symbol] the type
     attr_reader :bot, :type
 
     # Objects to {Rubirai::Message}
@@ -58,10 +62,12 @@ module Rubirai
       raise(RubiraiError, 'type not in all message types') unless Message.all_types.include? type
     end
 
+    # @private
     def self.get_msg_klass(type)
       Object.const_get "Rubirai::#{type}Message"
     end
 
+    # @private
     def self.build_from(hash, bot = nil)
       hash = hash.stringify_keys
       raise(RubiraiError, 'not a valid message') unless hash.key? 'type'
@@ -72,6 +78,7 @@ module Rubirai
       klass.new hash, bot
     end
 
+    # @private
     def self.set_message(type, *attr_keys, &initialize_block)
       attr_reader(*attr_keys)
 
@@ -109,12 +116,16 @@ module Rubirai
       end
     end
 
+    # @private
     def initialize(type, bot = nil)
       Message.check_type type
       @bot = bot
       @type = type
     end
 
+    # Convert the message to a hash
+    #
+    # @return [Hash{String => Object}]
     def to_h
       res = self.class.keys.to_h do |k|
         v = instance_variable_get("@#{k}")
@@ -131,6 +142,7 @@ module Rubirai
       res.compact.stringify_keys
     end
 
+    # @private
     def self.metaclass
       class << self
         self
@@ -154,15 +166,19 @@ module Rubirai
     #   @return [Integer] the message (chain) id
     # @!attribute [r] time
     #   @return [Integer] the timestamp
+    # @!method from(**kwargs)
+    #   @option kwargs [Integer] :id the id
+    #   @option kwargs [Integer] :time the timestamp
+    #   @!scope class
     set_message :Source, :id, :time
   end
 
   # The quote message type
   class QuoteMessage < Message
     # @!attribute [r] id
-    #   @return [Integer] the original (quoted) message (chain) id
+    #   @return [Integer] the original (quoted) message chain id
     # @!attribute [r] group_id
-    #   @return [Integer] the group id
+    #   @return [Integer] the group id. `0` if from friend.
     # @!attribute [r] sender_id
     #   @return [Integer] the original sender's id
     # @!attribute [r] target_id
@@ -171,13 +187,14 @@ module Rubirai
     #   @return [MessageChain] the original message chain
     set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin
 
+    # @private
     def initialize(hash, bot = nil)
       super :Quote, bot
       @id = hash['id']
       @group_id = hash['groupId']
       @sender_id = hash['senderId']
       @target_id = hash['targetId']
-      @origin = MessageChain.make(*hash['origin'], sender_id: @sender_id, bot: bot)
+      @origin = MessageChain.make(*hash['origin'], bot: bot)
     end
   end
 
@@ -272,7 +289,7 @@ module Rubirai
         @sender_id = hash['senderId']
         @time = hash['time']
         @sender_name = hash['senderName']
-        @message_chain = MessageChain.make(*hash['messageChain'], sender_id: hash['senderId'], bot: bot)
+        @message_chain = MessageChain.make(*hash['messageChain'], bot: bot)
       end
     end
 
