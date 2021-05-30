@@ -60,7 +60,7 @@
       </div>
 
       <div id="content"><h1>Class: Rubirai::BotEvent
-  
+  <span class="abstract note title">Abstract</span>
   
   
 </h1>
@@ -101,7 +101,21 @@
   
 </div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <div class="note abstract">
+  <strong>This class is abstract.</strong>
+  <div class='inline'></div>
+</div>
+<p>Bot event</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="BotActiveLeaveEvent.html" title="Rubirai::BotActiveLeaveEvent (class)">BotActiveLeaveEvent</a></span>, <span class='object_link'><a href="BotActiveOfflineEvent.html" title="Rubirai::BotActiveOfflineEvent (class)">BotActiveOfflineEvent</a></span>, <span class='object_link'><a href="BotDroppedEvent.html" title="Rubirai::BotDroppedEvent (class)">BotDroppedEvent</a></span>, <span class='object_link'><a href="BotForcedOfflineEvent.html" title="Rubirai::BotForcedOfflineEvent (class)">BotForcedOfflineEvent</a></span>, <span class='object_link'><a href="BotGroupPermissionChangedEvent.html" title="Rubirai::BotGroupPermissionChangedEvent (class)">BotGroupPermissionChangedEvent</a></span>, <span class='object_link'><a href="BotJoinGroupEvent.html" title="Rubirai::BotJoinGroupEvent (class)">BotJoinGroupEvent</a></span>, <span class='object_link'><a href="BotKickedEvent.html" title="Rubirai::BotKickedEvent (class)">BotKickedEvent</a></span>, <span class='object_link'><a href="BotMutedEvent.html" title="Rubirai::BotMutedEvent (class)">BotMutedEvent</a></span>, <span class='object_link'><a href="BotOnlineEvent.html" title="Rubirai::BotOnlineEvent (class)">BotOnlineEvent</a></span>, <span class='object_link'><a href="BotReloginEvent.html" title="Rubirai::BotReloginEvent (class)">BotReloginEvent</a></span>, <span class='object_link'><a href="BotUnmutedEvent.html" title="Rubirai::BotUnmutedEvent (class)">BotUnmutedEvent</a></span></p>
 </div>
@@ -109,9 +123,42 @@
 
 
 
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#qq-instance_method" title="#qq (instance method)">#<strong>qq</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Qq id of the event&#39;s bot.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
-  <h2>Instance Attribute Summary</h2>
+
+  
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Event.html" title="Rubirai::Event (class)">Event</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Event.html#bot-instance_method" title="Rubirai::Event#bot (method)">#bot</a></span>, <span class='object_link'><a href="Event.html#raw-instance_method" title="Rubirai::Event#raw (method)">#raw</a></span></p>
@@ -127,19 +174,73 @@
   <h2>Method Summary</h2>
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Event.html" title="Rubirai::Event (class)">Event</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Event.html#initialize-instance_method" title="Rubirai::Event#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Event.html#parse-class_method" title="Rubirai::Event.parse (method)">parse</a></span>, <span class='object_link'><a href="Event.html#set_event-class_method" title="Rubirai::Event.set_event (method)">set_event</a></span>, <span class='object_link'><a href="Event.html#type_to_klass-class_method" title="Rubirai::Event.type_to_klass (method)">type_to_klass</a></span>, <span class='object_link'><a href="Event.html#valid_type%3F-class_method" title="Rubirai::Event.valid_type? (method)">valid_type?</a></span></p>
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
+  <p class="inherited"><span class='object_link'><a href="Event.html#parse-class_method" title="Rubirai::Event.parse (method)">parse</a></span>, <span class='object_link'><a href="Event.html#set_event-class_method" title="Rubirai::Event.set_event (method)">set_event</a></span>, <span class='object_link'><a href="Event.html#type_to_klass-class_method" title="Rubirai::Event.type_to_klass (method)">type_to_klass</a></span>, <span class='object_link'><a href="Event.html#valid_type%3F-class_method" title="Rubirai::Event.valid_type? (method)">valid_type?</a></span></p>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="qq-instance_method">
   
-    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="Event.html#initialize-instance_method" title="Rubirai::Event#initialize (method)">Rubirai::Event</a></span></p>
+    #<strong>qq</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
   
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns qq id of the event&#39;s bot.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>qq id of the event&#39;s bot</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/events/bot_events.rb', line 11</span>
+
+<span class='id identifier rubyid_set_event'>set_event</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:qq</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Fri May 28 09:01:40 2021 by
+  Generated on Sun May 30 12:18:59 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

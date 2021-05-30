@@ -69,12 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="Info.html" title="Rubirai::Info (class)">Info</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="GroupInfo.html" title="Rubirai::GroupInfo (class)">GroupInfo</a></span></span>
       
         <ul class="fullTree">
           <li><span class='object_link'>Object</span></li>
           
-            <li class="next"><span class='object_link'><a href="Info.html" title="Rubirai::Info (class)">Info</a></span></li>
+            <li class="next"><span class='object_link'><a href="GroupInfo.html" title="Rubirai::GroupInfo (class)">GroupInfo</a></span></li>
           
             <li class="next">Rubirai::GroupConfig</li>
           
@@ -96,46 +96,695 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rubirai/objects/info.rb</dd>
+    <dd>lib/rubirai/objects/group_info.rb</dd>
   </dl>
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Group config</p>
 
 
-
-
-
-
-  <h2>Instance Attribute Summary</h2>
+  </div>
+</div>
+<div class="tags">
   
-  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Info.html" title="Rubirai::Info (class)">Info</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Info.html#bot-instance_method" title="Rubirai::Info#bot (method)">#bot</a></span>, <span class='object_link'><a href="Info.html#raw-instance_method" title="Rubirai::Info#raw (method)">#raw</a></span></p>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow_member_invite-instance_method" title="#allow_member_invite (instance method)">#<strong>allow_member_invite</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#announcement-instance_method" title="#announcement (instance method)">#<strong>announcement</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#anonymous_chat-instance_method" title="#anonymous_chat (instance method)">#<strong>anonymous_chat</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is anonymous chat enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_approve-instance_method" title="#auto_approve (instance method)">#<strong>auto_approve</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#confess_talk-instance_method" title="#confess_talk (instance method)">#<strong>confess_talk</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Is confess talk enabled.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
   
   
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="GroupInfo.html" title="Rubirai::GroupInfo (class)">GroupInfo</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="GroupInfo.html#bot-instance_method" title="Rubirai::GroupInfo#bot (method)">#bot</a></span>, <span class='object_link'><a href="GroupInfo.html#raw-instance_method" title="Rubirai::GroupInfo#raw (method)">#raw</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hash, bot = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
   
   
   
   
-  <h2>Method Summary</h2>
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Info.html" title="Rubirai::Info (class)">Info</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Info.html#set_fields-class_method" title="Rubirai::Info.set_fields (method)">set_fields</a></span>, <span class='object_link'><a href="Info.html#set_modifiable_fields-class_method" title="Rubirai::Info.set_modifiable_fields (method)">set_modifiable_fields</a></span>, <span class='object_link'><a href="Info.html#to_h-instance_method" title="Rubirai::Info#to_h (method)">#to_h</a></span></p>
-<div id="constructor_details" class="method_details_list">
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_h-instance_method" title="#to_h (instance method)">#<strong>to_h</strong>  &#x21d2; Hash{String =&gt; Object} </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
-    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">Rubirai::Info</a></span></p>
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>hash</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span> =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bot</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Bot.html" title="Rubirai::Bot (class)">Rubirai::Bot</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
   
 </div>
 
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="allow_member_invite=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="allow_member_invite-instance_method">
+  
+    #<strong>allow_member_invite</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="announcement=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="announcement-instance_method">
+  
+    #<strong>announcement</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="anonymous_chat=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="anonymous_chat-instance_method">
+  
+    #<strong>anonymous_chat</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns is anonymous chat enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is anonymous chat enabled</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="auto_approve=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="auto_approve-instance_method">
+  
+    #<strong>auto_approve</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="confess_talk=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="confess_talk-instance_method">
+  
+    #<strong>confess_talk</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns is confess talk enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is confess talk enabled</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    #<strong>name</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="to_h-instance_method">
+  
+    #<strong>to_h</strong>  &#x21d2; <tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span> =&gt; <span class='object_link'>Object</span>}</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span> =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/objects/group_info.rb', line 69</span>
+
+<span class='id identifier rubyid_set_modifiable_fields'>set_modifiable_fields</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:announcement</span><span class='comma'>,</span> <span class='symbol'>:confess_talk</span><span class='comma'>,</span> <span class='symbol'>:allow_member_invite</span><span class='comma'>,</span> <span class='symbol'>:auto_approve</span><span class='comma'>,</span> <span class='symbol'>:anonymous_chat</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Fri May 28 09:01:39 2021 by
+  Generated on Sun May 30 12:18:59 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

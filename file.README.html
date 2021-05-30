@@ -68,7 +68,16 @@
 
 <p>A light-weight Mirai QQ bot http interface lib for Ruby.</p>
 
+<p><a href="https://github.com/Shimogawa/rubirai/wiki">中文</a> | <a href="https://www.rebuild.moe/rubirai/">Rubydocs</a></p>
+
 <h2 id="usage">Usage</h2>
+
+<p>First, download the package using <code>gem</code>. In your <code>Gemfile</code>, add</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rubirai</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>Then, start to write code (no matter if it&#39;s a rails application or something else):</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rubirai</span><span class='tstring_end'>&#39;</span></span>
 <span class='comment'># assuming your mirai http api address and port
@@ -76,13 +85,32 @@
 </span><span class='id identifier rubyid_bot'>bot</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Rubirai.html" title="Rubirai (module)">Rubirai</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rubirai/Bot.html" title="Rubirai::Bot (class)">Bot</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rubirai/Bot.html#initialize-instance_method" title="Rubirai::Bot#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>8080</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='comment'># qq and auth key
 </span><span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span> <span class='int'>1145141919</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ikisugi_key</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='comment'># Add a listener function
+</span><span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_add_listener'>add_listener</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_event'>event</span><span class='op'>|</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Rubirai.html" title="Rubirai (module)">Rubirai</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rubirai/MessageEvent.html" title="Rubirai::MessageEvent (class)">MessageEvent</a></span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_respond'>respond</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello, world!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='comment'># Listen to message every 0.5 seconds
+</span><span class='comment'># And blocks the current thread
+</span><span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_start_listen'>start_listen</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>is_blocking:</span> <span class='kw'>true</span>
+</code></pre>
+
+<blockquote>
+<p>If you want to install globally with <code>gem</code>, use</p>
+</blockquote>
+
+<pre class="code bash"><code class="bash">gem install rubirai 
 </code></pre>
 
 <h2 id="wiki-and-documentation">Wiki and Documentation</h2>
 
 <ul>
-<li><a href="https://github.com/Shimogawa/rubirai/wiki">中文</a></li>
-<li><a href="https://www.rebuild.moe/rubirai/">Documentation</a></li>
+<li><a href="https://github.com/Shimogawa/rubirai/wiki">中文 Wiki</a></li>
+<li><a href="https://www.rebuild.moe/rubirai/">Docs</a></li>
 </ul>
 
 <h2 id="license">License</h2>
@@ -91,7 +119,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri May 28 09:01:39 2021 by
+  Generated on Sun May 30 12:18:57 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

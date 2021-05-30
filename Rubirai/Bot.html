@@ -153,6 +153,8 @@
     
 
     
+      (also: #id)
+    
   </span>
   
   
@@ -263,7 +265,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get Mirai API plugin information such as.</p>
+    <span class="summary_desc"><div class='inline'><p>Get Mirai API plugin information.</p>
 </div></span>
   
 </li>
@@ -272,7 +274,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_listener-instance_method" title="#add_listener (instance method)">#<strong>add_listener</strong>(&amp;listener_block)  &#x21d2; Object </a>
+      <a href="#add_listener-instance_method" title="#add_listener (instance method)">#<strong>add_listener</strong>(&amp;listener_block)  &#x21d2; void </a>
     
 
     
@@ -286,7 +288,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Add a listener.</p>
+</div></span>
   
 </li>
 
@@ -317,7 +320,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#clear_listener-instance_method" title="#clear_listener (instance method)">#<strong>clear_listener</strong>  &#x21d2; Object </a>
+      <a href="#clear_listener-instance_method" title="#clear_listener (instance method)">#<strong>clear_listener</strong>  &#x21d2; void </a>
     
 
     
@@ -331,7 +334,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Clear all listeners.</p>
+</div></span>
   
 </li>
 
@@ -457,7 +461,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_group_config-instance_method" title="#get_group_config (instance method)">#<strong>get_group_config</strong>(group_id)  &#x21d2; Object </a>
+      <a href="#get_group_config-instance_method" title="#get_group_config (instance method)">#<strong>get_group_config</strong>(group_id)  &#x21d2; GroupConfig </a>
     
 
     
@@ -471,7 +475,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Get group config.</p>
+</div></span>
   
 </li>
 
@@ -479,7 +484,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_group_file_info-instance_method" title="#get_group_file_info (instance method)">#<strong>get_group_file_info</strong>(group_id, file_id)  &#x21d2; Object </a>
+      <a href="#get_group_file_info-instance_method" title="#get_group_file_info (instance method)">#<strong>get_group_file_info</strong>(group_id, file_or_id)  &#x21d2; GroupFile </a>
     
 
     
@@ -502,7 +507,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_group_file_list-instance_method" title="#get_group_file_list (instance method)">#<strong>get_group_file_list</strong>(group_id, dir = nil)  &#x21d2; Object </a>
+      <a href="#get_group_file_list-instance_method" title="#get_group_file_list (instance method)">#<strong>get_group_file_list</strong>(group_id, dir = nil)  &#x21d2; Array&lt;GroupFileSimple&gt; </a>
     
 
     
@@ -516,7 +521,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Get the group files as a list.</p>
+</div></span>
   
 </li>
 
@@ -524,7 +530,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_member_info-instance_method" title="#get_member_info (instance method)">#<strong>get_member_info</strong>(group_id, member_id)  &#x21d2; Object </a>
+      <a href="#get_member_info-instance_method" title="#get_member_info (instance method)">#<strong>get_member_info</strong>(group_id, member_id)  &#x21d2; MemberInfo </a>
     
 
     
@@ -538,7 +544,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Get member info.</p>
+</div></span>
   
 </li>
 
@@ -861,7 +868,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Mute all group.</p>
+    <span class="summary_desc"><div class='inline'><p>Mute all in a group.</p>
 </div></span>
   
 </li>
@@ -943,7 +950,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#recall-instance_method" title="#recall (instance method)">#<strong>recall</strong>(msg_id)  &#x21d2; Object </a>
+      <a href="#recall-instance_method" title="#recall (instance method)">#<strong>recall</strong>(msg_id)  &#x21d2; void </a>
     
 
     
@@ -957,7 +964,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Recall a message.</p>
+</div></span>
   
 </li>
 
@@ -1010,7 +1018,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#respond_to_group_invite-instance_method" title="#respond_to_group_invite (instance method)">#<strong>respond_to_group_invite</strong>(event_id, from_id, group_id, operation, message = &#39;&#39;)  &#x21d2; Object </a>
+      <a href="#respond_to_group_invite-instance_method" title="#respond_to_group_invite (instance method)">#<strong>respond_to_group_invite</strong>(event_id, from_id, group_id, operation, message = &#39;&#39;)  &#x21d2; void </a>
     
 
     
@@ -1024,7 +1032,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Respond to group invitations (raw).</p>
+</div></span>
   
 </li>
 
@@ -1078,7 +1087,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_friend_msg-instance_method" title="#send_friend_msg (instance method)">#<strong>send_friend_msg</strong>(target_qq, *msgs)  &#x21d2; Object </a>
+      <a href="#send_friend_msg-instance_method" title="#send_friend_msg (instance method)">#<strong>send_friend_msg</strong>(target_qq, *msgs)  &#x21d2; Integer </a>
     
 
     
@@ -1092,7 +1101,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Send friend message.</p>
+</div></span>
   
 </li>
 
@@ -1100,7 +1110,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_group_msg-instance_method" title="#send_group_msg (instance method)">#<strong>send_group_msg</strong>(target_group_id, *msgs)  &#x21d2; Object </a>
+      <a href="#send_group_msg-instance_method" title="#send_group_msg (instance method)">#<strong>send_group_msg</strong>(target_group_id, *msgs)  &#x21d2; Integer </a>
     
 
     
@@ -1114,7 +1124,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Send group message.</p>
+</div></span>
   
 </li>
 
@@ -1145,7 +1156,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_msg-instance_method" title="#send_msg (instance method)">#<strong>send_msg</strong>(type, target_id, *msgs)  &#x21d2; Object </a>
+      <a href="#send_msg-instance_method" title="#send_msg (instance method)">#<strong>send_msg</strong>(type, target_id, *msgs)  &#x21d2; Integer </a>
     
 
     
@@ -1159,7 +1170,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Send friend or group message.</p>
+</div></span>
   
 </li>
 
@@ -1167,7 +1179,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_nudge-instance_method" title="#send_nudge (instance method)">#<strong>send_nudge</strong>(target_id, subject_id, kind)  &#x21d2; Object </a>
+      <a href="#send_nudge-instance_method" title="#send_nudge (instance method)">#<strong>send_nudge</strong>(target_id, subject_id, kind)  &#x21d2; void </a>
     
 
     
@@ -1181,7 +1193,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Send nudge.</p>
+</div></span>
   
 </li>
 
@@ -1235,7 +1248,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#set_member_info-instance_method" title="#set_member_info (instance method)">#<strong>set_member_info</strong>(group_id, member_id, info)  &#x21d2; Object </a>
+      <a href="#set_member_info-instance_method" title="#set_member_info (instance method)">#<strong>set_member_info</strong>(group_id, member_id, info)  &#x21d2; void </a>
     
 
     
@@ -1249,7 +1262,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Set member info.</p>
+</div></span>
   
 </li>
 
@@ -1280,7 +1294,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#start_listen-instance_method" title="#start_listen (instance method)">#<strong>start_listen</strong>(interval, is_blocking: false, ignore_error: false)  &#x21d2; Object </a>
+      <a href="#start_listen-instance_method" title="#start_listen (instance method)">#<strong>start_listen</strong>(interval, is_blocking: false, ignore_error: false)  &#x21d2; void </a>
     
 
     
@@ -1294,7 +1308,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Start to listen for events.</p>
+</div></span>
   
 </li>
 
@@ -1302,7 +1317,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stop_listen-instance_method" title="#stop_listen (instance method)">#<strong>stop_listen</strong>  &#x21d2; Object </a>
+      <a href="#stop_listen-instance_method" title="#stop_listen (instance method)">#<strong>stop_listen</strong>  &#x21d2; void </a>
     
 
     
@@ -1316,7 +1331,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Stop listening to events.</p>
+</div></span>
   
 </li>
 
@@ -1347,7 +1363,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#unmute_all-instance_method" title="#unmute_all (instance method)">#<strong>unmute_all</strong>(group_id)  &#x21d2; Object </a>
+      <a href="#unmute_all-instance_method" title="#unmute_all (instance method)">#<strong>unmute_all</strong>(group_id)  &#x21d2; void </a>
     
 
     
@@ -1361,7 +1377,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Unmute all in a group.</p>
+</div></span>
   
 </li>
 
@@ -1525,13 +1542,13 @@
       <pre class="lines">
 
 
-24
-25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_port'>port</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@base_uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_host'>host</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_port'>port</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_port'>port</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1614,6 +1631,10 @@
     #<strong>qq</strong>  &#x21d2; <tt><span class='object_link'>Object</span></tt>  <span class="extras">(readonly)</span>
   
 
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='id-instance_method'>id</span></span>
+    </span>
   
 
   
@@ -1721,13 +1742,13 @@
       <pre class="lines">
 
 
-33
-34
 35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ensure_type_in'>ensure_type_in</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_types'>types</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_types'>types</span> <span class='op'>=</span> <span class='id identifier rubyid_types'>types</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='rbrace'>}</span>
@@ -1755,7 +1776,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get Mirai API plugin information such as</p>
+    <p>Get Mirai API plugin information.</p>
+
+<p>The information is like</p>
 
 <pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>version</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.0.0</span><span class='tstring_end'>&#39;</span></span>
@@ -1791,13 +1814,13 @@
       <pre class="lines">
 
 
-14
 15
 16
-17</pre>
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/plugin_info.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/plugin_info.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_about'>about</span>
   <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/about</span><span class='tstring_end'>&#39;</span></span>
@@ -1811,24 +1834,34 @@
       <div class="method_details ">
   <h3 class="signature " id="add_listener-instance_method">
   
-    #<strong>add_listener</strong>(&amp;listener_block)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>add_listener</strong>(&amp;listener_block)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Add a listener</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-30
-31
-32</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_listener'>add_listener</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_listener_block'>listener_block</span><span class='rparen'>)</span>
   <span class='ivar'>@listener_funcs</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_listener_block'>listener_block</span>
@@ -1919,24 +1952,34 @@
       <div class="method_details ">
   <h3 class="signature " id="clear_listener-instance_method">
   
-    #<strong>clear_listener</strong>  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>clear_listener</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Clear all listeners</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-34
-35
-36</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear_listener'>clear_listener</span>
   <span class='ivar'>@listener_funcs</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
@@ -2251,12 +2294,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gen_uri'>gen_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_base_uri'>base_uri</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -2269,35 +2312,81 @@
       <div class="method_details ">
   <h3 class="signature " id="get_group_config-instance_method">
   
-    #<strong>get_group_config</strong>(group_id)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>get_group_config</strong>(group_id)  &#x21d2; <tt><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get group config</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>group id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the config</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-85
-86
-87
-88
-89
-90
-91</pre>
+93
+94
+95
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_group_config'>get_group_config</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resp'>resp</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupConfig</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span>
     <span class='label'>sessionKey:</span> <span class='ivar'>@session</span><span class='comma'>,</span>
     <span class='label'>target:</span> <span class='id identifier rubyid_group_id'>group_id</span>
   <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
+  <span class='const'><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GroupConfig.html#initialize-instance_method" title="Rubirai::GroupConfig#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2307,7 +2396,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_group_file_info-instance_method">
   
-    #<strong>get_group_file_info</strong>(group_id, file_id)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>get_group_file_info</strong>(group_id, file_or_id)  &#x21d2; <tt><span class='object_link'><a href="GroupFile.html" title="Rubirai::GroupFile (class)">GroupFile</a></span></tt> 
   
 
   
@@ -2341,10 +2430,10 @@
   
     <li>
       
-        <span class='name'>file_id</span>
+        <span class='name'>file_or_id</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span></tt>, <tt><span class='object_link'>String</span></tt>)</span>
       
       
       
@@ -2356,6 +2445,36 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="GroupFile.html" title="Rubirai::GroupFile (class)">GroupFile</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the info about the file</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2363,25 +2482,33 @@
       <pre class="lines">
 
 
-145
-146
-147
-148
-149
-150
-151
-152</pre>
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 175</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_group_file_info'>get_group_file_info</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_group_file_info'>get_group_file_info</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='period'>.</span><span class='id identifier rubyid_must_be!'>must_be!</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span></span><span class='comma'>,</span> <span class='const'>String</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>must be GroupFileSimple or String</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='embexpr_end'>}</span><span class='tstring_content'> is not a file</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='period'>.</span><span class='id identifier rubyid_is_file?'>is_file?</span>
+  <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>String</span> <span class='op'>?</span> <span class='id identifier rubyid_file_or_id'>file_or_id</span> <span class='op'>:</span> <span class='id identifier rubyid_file_or_id'>file_or_id</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+
   <span class='id identifier rubyid_resp'>resp</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupFileInfo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span>
     <span class='label'>sessionKey:</span> <span class='ivar'>@session</span><span class='comma'>,</span>
     <span class='label'>target:</span> <span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span>
-    <span class='label'>id:</span> <span class='id identifier rubyid_file_id'>file_id</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span>
   <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="GroupFile.html" title="Rubirai::GroupFile (class)">GroupFile</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
+  <span class='const'><span class='object_link'><a href="GroupFile.html" title="Rubirai::GroupFile (class)">GroupFile</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GroupFile.html#initialize-instance_method" title="Rubirai::GroupFile#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2391,30 +2518,93 @@
       <div class="method_details ">
   <h3 class="signature " id="get_group_file_list-instance_method">
   
-    #<strong>get_group_file_list</strong>(group_id, dir = nil)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>get_group_file_list</strong>(group_id, dir = nil)  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span>&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the group files as a list</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dir</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>the directory to get. If <code>nil</code>, then the root directory is asserted.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of files</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-132
-133
-134
-135
-136
-137
-138
-139
-140</pre>
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_group_file_list'>get_group_file_list</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resp'>resp</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupFileList</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span>
@@ -2423,7 +2613,7 @@
     <span class='label'>dir:</span> <span class='id identifier rubyid_dir'>dir</span>
   <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
   <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_must_be!'>must_be!</span> <span class='const'>Array</span> <span class='comment'># assert resp is Array
-</span>  <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+</span>  <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="GroupFileSimple.html" title="Rubirai::GroupFileSimple (class)">GroupFileSimple</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GroupFileSimple.html#initialize-instance_method" title="Rubirai::GroupFileSimple#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2433,29 +2623,90 @@
       <div class="method_details ">
   <h3 class="signature " id="get_member_info-instance_method">
   
-    #<strong>get_member_info</strong>(group_id, member_id)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>get_member_info</strong>(group_id, member_id)  &#x21d2; <tt><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get member info</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>member_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the member&#39;s qq id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the member&#39;s info</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116
-117</pre>
+125
+126
+127
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_member_info'>get_member_info</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_member_id'>member_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resp'>resp</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/memberInfo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span>
@@ -2463,7 +2714,7 @@
     <span class='label'>target:</span> <span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span>
     <span class='label'>memberId:</span> <span class='id identifier rubyid_member_id'>member_id</span>
   <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Info.html#initialize-instance_method" title="Rubirai::Info#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
+  <span class='const'><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="MemberInfo.html#initialize-instance_method" title="Rubirai::MemberInfo#initialize (method)">new</a></span></span> <span class='id identifier rubyid_resp'>resp</span><span class='comma'>,</span> <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2546,17 +2797,17 @@
       <pre class="lines">
 
 
-183
-184
-185
-186
-187
-188
-189
-190</pre>
+217
+218
+219
+220
+221
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_file_delete'>group_file_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupFileDelete</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -2586,18 +2837,18 @@
       <pre class="lines">
 
 
-173
-174
-175
-176
-177
-178
-179
-180
-181</pre>
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_file_mv'>group_file_mv</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupFileMove</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -2691,17 +2942,17 @@
       <pre class="lines">
 
 
-164
-165
-166
-167
-168
-169
-170
-171</pre>
+198
+199
+200
+201
+202
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_mkdir'>group_mkdir</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupMkdir</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -2731,16 +2982,16 @@
       <pre class="lines">
 
 
-192
-193
-194
-195
-196
-197
-198</pre>
+226
+227
+228
+229
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_set_essence'>group_set_essence</span><span class='lparen'>(</span><span class='id identifier rubyid_msg_id'>msg_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/setEssence</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -3281,7 +3532,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p class="note returns_void">This method returns an undefined value.</p><p>Mute all group</p>
+    <p class="note returns_void">This method returns an undefined value.</p><p>Mute all in a group</p>
 
 
   </div>
@@ -3571,28 +3822,57 @@
       <div class="method_details ">
   <h3 class="signature " id="recall-instance_method">
   
-    #<strong>recall</strong>(msg_id)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>recall</strong>(msg_id)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Recall a message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>msg_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>message id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-44
-45
-46
-47
-48
-49
-50</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_recall'>recall</span><span class='lparen'>(</span><span class='id identifier rubyid_msg_id'>msg_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/recall</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -3727,18 +4007,18 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-154
-155
-156
-157
-158
-159
-160
-161
-162</pre>
+188
+189
+190
+191
+192
+193
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rename_group_file'>rename_group_file</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_new_name'>new_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/groupFileRename</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -3757,32 +4037,123 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="respond_to_group_invite-instance_method">
   
-    #<strong>respond_to_group_invite</strong>(event_id, from_id, group_id, operation, message = &#39;&#39;)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>respond_to_group_invite</strong>(event_id, from_id, group_id, operation, message = &#39;&#39;)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Respond to group invitations (raw)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>event_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the event id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>from_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>id of the sender</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>operation</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>see <span class='object_link'><a href="GroupInviteRequestOperation.html" title="Rubirai::GroupInviteRequestOperation (module)">GroupInviteRequestOperation</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>the message to reply</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to_group_invite'>respond_to_group_invite</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='comma'>,</span> <span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/resp/botInvitedJoinGroupRequestEvent</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -3906,20 +4277,20 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre>
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to_member_join'>respond_to_member_join</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='comma'>,</span> <span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/resp/memberJoinRequestEvent</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -4045,20 +4416,20 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/event_resp.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to_new_friend_request'>respond_to_new_friend_request</span><span class='lparen'>(</span><span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='comma'>,</span> <span class='id identifier rubyid_group_id'>group_id</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/resp/newFriendRequestEvent</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -4079,24 +4450,85 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="send_friend_msg-instance_method">
   
-    #<strong>send_friend_msg</strong>(target_qq, *msgs)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>send_friend_msg</strong>(target_qq, *msgs)  &#x21d2; <tt>Integer</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Send friend message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>target_qq</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>target qq id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>msgs</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Rubirai::Message</a></span>, <span class='object_link'>Hash</span>, <span class='object_link'>String</span>, <span class='object_link'>Object</span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>messages to form a chain, can be any type</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>message id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_friend_msg'>send_friend_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_target_qq'>target_qq</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_msgs'>msgs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_send_msg'>send_msg</span> <span class='symbol'>:friend</span><span class='comma'>,</span> <span class='id identifier rubyid_target_qq'>target_qq</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_msgs'>msgs</span>
@@ -4109,24 +4541,85 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="send_group_msg-instance_method">
   
-    #<strong>send_group_msg</strong>(target_group_id, *msgs)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>send_group_msg</strong>(target_group_id, *msgs)  &#x21d2; <tt>Integer</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Send group message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>target_group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>msgs</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Rubirai::Message</a></span>, <span class='object_link'>Hash</span>, <span class='object_link'>String</span>, <span class='object_link'>Object</span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>messages to form a chain, can be any type</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>message id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_group_msg'>send_group_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_target_group_id'>target_group_id</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_msgs'>msgs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_send_msg'>send_msg</span> <span class='symbol'>:group</span><span class='comma'>,</span> <span class='id identifier rubyid_target_group_id'>target_group_id</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_msgs'>msgs</span>
@@ -4212,24 +4705,24 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71</pre>
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_image_msg'>send_image_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_urls'>urls</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_kwargs'>kwargs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_urls'>urls</span><span class='period'>.</span><span class='id identifier rubyid_must_be!'>must_be!</span> <span class='const'>Array</span>
@@ -4254,31 +4747,107 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="send_msg-instance_method">
   
-    #<strong>send_msg</strong>(type, target_id, *msgs)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>send_msg</strong>(type, target_id, *msgs)  &#x21d2; <tt>Integer</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Send friend or group message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>options: [group, friend]</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>target_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>target qq/group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>msgs</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Rubirai::Message</a></span>, <span class='object_link'>Hash</span>, <span class='object_link'>String</span>, <span class='object_link'>Object</span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>messages to form a chain, can be any type</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>message id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
-26
-27
-28
-29
-30
 31
 32
 33
-34</pre>
+34
+35
+36
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_msg'>send_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_target_id'>target_id</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_msgs'>msgs</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_ensure_type_in'>ensure_type_in</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>group</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>friend</span><span class='tstring_end'>&#39;</span></span>
@@ -4298,31 +4867,91 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="send_nudge-instance_method">
   
-    #<strong>send_nudge</strong>(target_id, subject_id, kind)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>send_nudge</strong>(target_id, subject_id, kind)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Send nudge</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>target_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>target id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>subject_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the id of the place where the nudge will be seen.
+Should be a group id or a friend&#39;s id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>kind</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>options: <code>[Group, Friend]</code></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82</pre>
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/message.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_nudge'>send_nudge</span><span class='lparen'>(</span><span class='id identifier rubyid_target_id'>target_id</span><span class='comma'>,</span> <span class='id identifier rubyid_subject_id'>subject_id</span><span class='comma'>,</span> <span class='id identifier rubyid_kind'>kind</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_kind'>kind</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='period'>.</span><span class='id identifier rubyid_must_be_one_of!'>must_be_one_of!</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>group</span><span class='words_sep'> </span><span class='tstring_content'>friend</span><span class='tstring_end'>]</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>kind must be one of group or friend</span><span class='tstring_end'>&#39;</span></span>
@@ -4499,12 +5128,14 @@ Only fill in the arguments when you want to control another bot on the same Mira
         <span class='name'>config</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></tt>, <tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span> =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></tt>, <tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span>, Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>the configuration</p>
+        <div class='inline'><p>the configuration. If given as
+a hash, then it should be exactly named the same as given in <code>mirai-api-http</code>
+docs.</p>
 </div>
       
     </li>
@@ -4518,20 +5149,20 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108</pre>
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_group_config'>set_group_config</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_config'>config</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_must_be!'>must_be!</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="GroupConfig.html" title="Rubirai::GroupConfig (class)">GroupConfig</a></span></span><span class='comma'>,</span> <span class='const'>Hash</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>must be GroupConfig or Hash</span><span class='tstring_end'>&#39;</span></span>
@@ -4552,33 +5183,94 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="set_member_info-instance_method">
   
-    #<strong>set_member_info</strong>(group_id, member_id, info)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>set_member_info</strong>(group_id, member_id, info)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Set member info</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>group id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>member_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the member&#39;s qq id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>info</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></tt>, <tt><span class='object_link'>Hash</span>{<span class='object_link'>String</span>,Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the info to set. If given as
+a hash, then it should be exactly named the same as given in <code>mirai-api-http</code>
+docs.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130</pre>
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_member_info'>set_member_info</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_member_id'>member_id</span><span class='comma'>,</span> <span class='id identifier rubyid_info'>info</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_info'>info</span><span class='period'>.</span><span class='id identifier rubyid_must_be!'>must_be!</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="MemberInfo.html" title="Rubirai::MemberInfo (class)">MemberInfo</a></span></span><span class='comma'>,</span> <span class='const'>Hash</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>must be MemberInfo or Hash</span><span class='tstring_end'>&#39;</span></span>
@@ -4688,7 +5380,7 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="start_listen-instance_method">
   
-    #<strong>start_listen</strong>(interval, is_blocking: false, ignore_error: false)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>start_listen</strong>(interval, is_blocking: false, ignore_error: false)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -4696,12 +5388,66 @@ Only fill in the arguments when you want to control another bot on the same Mira
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p><p>Start to listen for events</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>interval</span>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the interval to fetch events in seconds.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>is_blocking</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>if the listen thread should block the current thread</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ignore_error</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>if errors should generate error events (see <span class='object_link'><a href="RubiraiErrorEvent.html" title="Rubirai::RubiraiErrorEvent (class)">RubiraiErrorEvent</a></span>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Raises:</p>
 <ul class="raise">
   
@@ -4722,12 +5468,6 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13
 14
 15
 16
@@ -4742,10 +5482,16 @@ Only fill in the arguments when you want to control another bot on the same Mira
 25
 26
 27
-28</pre>
+28
+29
+30
+31
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start_listen'>start_listen</span><span class='lparen'>(</span><span class='id identifier rubyid_interval'>interval</span><span class='comma'>,</span> <span class='label'>is_blocking:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>ignore_error:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="RubiraiError.html" title="Rubirai::RubiraiError (class)">RubiraiError</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>listener is already running</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@listener</span><span class='op'>&amp;.</span><span class='id identifier rubyid_running?'>running?</span>
@@ -4776,26 +5522,37 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="stop_listen-instance_method">
   
-    #<strong>stop_listen</strong>  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>stop_listen</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Stop listening to events. Will unblock the thread if
+<code>is_blocking</code> is <code>true</code> when calling <span class='object_link'><a href="#start_listen-instance_method" title="Rubirai::Bot#start_listen (method)">#start_listen</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40
-41
-42</pre>
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/listener.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop_listen'>stop_listen</span>
   <span class='ivar'>@listener</span><span class='period'>.</span><span class='id identifier rubyid_shutdown'>shutdown</span>
@@ -4894,28 +5651,57 @@ Only fill in the arguments when you want to control another bot on the same Mira
       <div class="method_details ">
   <h3 class="signature " id="unmute_all-instance_method">
   
-    #<strong>unmute_all</strong>(group_id)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+    #<strong>unmute_all</strong>(group_id)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Unmute all in a group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>group_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>group id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-77
-78
-79
-80
 81
 82
-83</pre>
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/management.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unmute_all'>unmute_all</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span> <span class='symbol'>:post</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/unmuteAll</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>json:</span> <span class='lbrace'>{</span>
@@ -5292,7 +6078,7 @@ Only group uploads available currently.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri May 28 09:01:39 2021 by
+  Generated on Sun May 30 12:18:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
