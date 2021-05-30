@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
   s.description = 'A Mirai QQ bot http interface lib for Ruby.'
   s.authors = ['Rebuild']
   s.email = 'admin@rebuild.moe'
-  s.licenses = ['AGPL-3.0']
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ['lib']
@@ -20,5 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'concurrent-ruby', '~> 1.1.8'
   s.add_dependency 'http', '~> 5.0'
   s.homepage = 'https://github.com/Shimogawa/rubirai'
-  s.license = 'AGPLv3'
+  s.license = 'AGPL-3.0'
 end
