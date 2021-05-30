@@ -74,7 +74,6 @@ module Rubirai
       nil
     end
 
-
     # Unmute all in a group
     #
     # @param group_id [Integer] group id
