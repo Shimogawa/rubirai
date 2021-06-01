@@ -8,13 +8,14 @@ module Rubirai
   require 'http'
 
   # Bot represents a QQ bot at mirai side. All functions are API calls to the http plugin.
+  #
+  # @!attribute [r] base_uri
+  #   @return [String] the base uri of mirai-api-http which the bot will send messages to
+  # @!attribute [r] session
+  #   @return [String] the session key
+  # @!attribute [r] qq
+  #   @return [String, Integer] the qq of the bot
   class Bot
-    # @!attribute [r] base_uri
-    #   @return [String] the base uri of mirai-api-http which the bot will send messages to
-    # @!attribute [r] session
-    #   @return [String] the session key
-    # @!attribute [r] qq
-    #   @return [String, Integer] the qq of the bot
     attr_reader :base_uri, :session, :qq
 
     alias id qq
@@ -28,10 +29,12 @@ module Rubirai
       @listener_funcs = []
     end
 
+    # @private
     def gen_uri(path)
       URI.join(base_uri, path)
     end
 
+    # @private
     def self.ensure_type_in(type, *types)
       types = types.map { |x| x.to_s.downcase }
       type.to_s.downcase.must_be_one_of! types, RubiraiError, "not valid type: should be one of #{types}"

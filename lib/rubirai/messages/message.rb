@@ -2,25 +2,75 @@
 
 require 'rubirai/utils'
 
+# @!method self.AtMessage(**kwargs)
+#   Form an {Rubirai::AtMessage}. The `display` option has no effect when
+#   sending at messages.
+#   @option kwargs [Integer] :target the target id
+#   @return [Rubirai::AtMessage] the message object
+#   @see Rubirai::AtMessage.from
+# @!method self.QuoteMessage(**kwargs)
+#   Form a {Rubirai::QuoteMessage}.
+#   @return [Rubirai::QuoteMessage] the message object
+#   @see Rubirai::QuoteMessage.from
+# @!method self.AtAllMessage()
+#   Form an {Rubirai::AtAllMessage}.
+#   @return [Rubirai::AtAllMessage] the message object
+#   @see Rubirai::AtAllMessage.from
+# @!method self.FaceMessage(**kwargs)
+#   Form a {Rubirai::FaceMessage}. Only needs to give one of the two arguments.
+#   @option kwargs [Integer] :face_id the face id (high priority)
+#   @option kwargs [String] :name the face's name (low priority)
+#   @return [Rubirai::FaceMessage] the message object
+#   @see Rubirai::FaceMessage.from
+# @!method self.PlainMessage(**kwargs)
+#   @option kwargs [String] :text the plain text
+#   @return [Rubirai::PlainMessage] the message object
+#   @see Rubirai::PlainMessage.from
+# @!method self.ImageMessage(**kwargs)
+#   Form an {Rubirai::ImageMessage}. Only needs to give one of the three arguments.
+#   @option kwargs [String] :image_id the image id
+#   @option kwargs [String] :url the url of the image
+#   @option kwargs [String] :path the local path of the image
+#   @return [Rubirai::ImageMessage] the message object
+#   @see Rubirai::ImageMessage.from
+# @!method self.FlashImageMessage(**kwargs)
+#   Form a {Rubirai::FlashImageMessage}. Only needs to give one of the three arguments.
+#   @option kwargs [String] :image_id the image id
+#   @option kwargs [String] :url the url of the image
+#   @option kwargs [String] :path the local path of the image
+#   @return [Rubirai::FlashImageMessage] the message object
+#   @see Rubirai::FlashImageMessage.from
+# @!method self.VoiceMessage(**kwargs)
+#   Form a {Rubirai::VoiceMessage}. Only needs to give one of the three arguments.
+#   @option kwargs [String] :voice_id the voice id
+#   @option kwargs [String] :url the url of the voice
+#   @option kwargs [String] :path the local path of the voice
+#   @return [Rubirai::VoiceMessage] the message object
+#   @see Rubirai::VoiceMessage.from
+# @!method self.XmlMessage(**kwargs)
+#   Form a {Rubirai::XmlMessage}.
+#   @option kwargs [String] :xml the xml body
+#   @return [Rubirai::XmlMessage] the message object
+#   @see Rubirai::XmlMessage.from
+# @!method self.JsonMessage(**kwargs)
+#   Form a {Rubirai::JsonMessage}.
+#   @option kwargs [String] :json the json body
+#   @return [Rubirai::JsonMessage] the message object
+#   @see Rubirai::JsonMessage.from
+# @!method self.AppMessage(**kwargs)
+#   Form an {Rubirai::AppMessage}.
+#   @option kwargs [String] :content the app body
+#   @return [Rubirai::AppMessage] the message object
+#   @see Rubirai::AppMessage.from
+# @!method self.PokeMessage(**kwargs)
+#   Form a {Rubirai::PokeMessage}.
+#   @option kwargs [String] :name the poke name
+#   @return [Rubirai::PokeMessage] the message object
+#   @see Rubirai::PokeMessage.from
 module Rubirai
   # The message abstract class.
   #
   # @abstract
-  # @!method self.AtMessage(**kwargs)
-  #   @param kwargs [Hash{Symbol => Object}] arguments
-  #   @return [Rubirai::AtMessage]
-  # @!method self.QuoteMessage(**kwargs)
-  #   @param kwargs [Hash{Symbol => Object}] arguments
-  #   @return [Rubirai::QuoteMessage]
-  # @!method self.AtAllMessage(**kwargs)
-  #   @param kwargs [Hash{Symbol => Object}] arguments
-  #   @return [Rubirai::AtAllMessage]
-  # @!method self.FaceMessage(**kwargs)
-  #   @param kwargs [Hash{Symbol => Object}] arguments
-  #   @return [Rubirai::FaceMessage]
-  # @!method self.PlainMessage(**kwargs)
-  #   @option text [String] the plain text
-  #   @return [Rubirai::PlainMessage]
   class Message
     # @!attribute [r] bot
     #   @return [Bot] the bot
@@ -30,7 +80,7 @@ module Rubirai
 
     # Objects to {Rubirai::Message}
     #
-    # @param msg [Rubirai::Message, Hash, Object] the object to transform to a message
+    # @param msg [Rubirai::Message, Hash{String => Object}, Object] the object to transform to a message
     # @return [Rubirai::Message] the message
     def self.to_message(msg, bot = nil)
       # noinspection RubyYardReturnMatch
@@ -150,6 +200,10 @@ module Rubirai
     end
   end
 
+  # {include:Rubirai::Message.to_message}
+  # @param obj [Message, Hash{String => Object}, Object] the object
+  # @return [Message] the message
+  # @see Rubirai::Message.to_message
   def self.Message(obj, bot = nil)
     Message.to_message obj, bot
   end
@@ -185,6 +239,8 @@ module Rubirai
     #   @return [Integer] the original receiver's (group or user) id
     # @!attribute [r] origin
     #   @return [MessageChain] the original message chain
+    # @!method from(**kwargs)
+    #   Form a {QuoteMessage}.
     set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin, :origin_raw
 
     # @private
@@ -217,15 +273,16 @@ module Rubirai
     # @!attribute [r] display
     #   @return [String] the displayed name (not used when sending)
     # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] not used
+    #   Form an {AtMessage}. The `display` option has no effect when
+    #   sending at messages.
+    #   @option kwargs [Integer] :target the target id
     #   @return [AtMessage] the message object
     set_message :At, :target, :display
   end
 
   # The At All message type
   class AtAllMessage < Message
-    # @!method from(**kwargs)
-    #   @param kwargs [Hash{Symbol => Object}] the fields to set
+    # @!method from()
     #   @return [AtAllMessage] the message object
     set_message :AtAll
   end
@@ -236,6 +293,12 @@ module Rubirai
     #   @return [Integer] the face's id
     # @!attribute [r] name
     #   @return [String, nil] the face's name
+    # @!method from(**kwargs)
+    #   Form a {Rubirai::FaceMessage}. Only needs to give one of the two arguments.
+    #   @option kwargs [Integer] :face_id the face id (high priority)
+    #   @option kwargs [String] :name the face's name (low priority)
+    #   @return [Rubirai::FaceMessage] the message object
+    #   @!scope class
     set_message :Face, :face_id, :name
   end
 
@@ -243,6 +306,10 @@ module Rubirai
   class PlainMessage < Message
     # @!attribute [r] text
     #   @return [String] the text
+    # @!method from(**kwargs)
+    #   @option kwargs [String] :text the plain text
+    #   @return [PlainMessage] the message object
+    #   @!scope class
     set_message :Plain, :text
   end
 
@@ -250,21 +317,54 @@ module Rubirai
   # Only one out of the three fields is needed to form the message.
   class ImageMessage < Message
     # @!attribute [r] image_id
-    #   @return [Integer, nil] the image id from mirai
+    #   @return [String, nil] the image id from mirai
     # @!attribute [r] url
     #   @return [String, nil] the url of the image
     # @!attribute [r] path
     #   @return [String, nil] the local path of the image
+    # @!method from(**kwargs)
+    #   Form an {Rubirai::ImageMessage}. Only needs to give one of the three arguments.
+    #   @option kwargs [String] :image_id the image id
+    #   @option kwargs [String] :url the url of the image
+    #   @option kwargs [String] :path the local path of the image
+    #   @return [Rubirai::ImageMessage] the message object
+    #   @!scope class
     set_message :Image, :image_id, :url, :path
   end
 
   # The flash image message type
   class FlashImageMessage < Message
+    # @!attribute [r] image_id
+    #   @return [String, nil] the image id from mirai
+    # @!attribute [r] url
+    #   @return [String, nil] the url of the image
+    # @!attribute [r] path
+    #   @return [String, nil] the local path of the image
+    # @!method from(**kwargs)
+    #   Form a {Rubirai::FlashImageMessage}. Only needs to give one of the three arguments.
+    #   @option kwargs [String] :image_id the image id
+    #   @option kwargs [String] :url the url of the image
+    #   @option kwargs [String] :path the local path of the image
+    #   @return [Rubirai::FlashImageMessage] the message object
+    #   @!scope class
     set_message :FlashImage, :image_id, :url, :path
   end
 
   # The voice message type
   class VoiceMessage < Message
+    # @!attribute [r] voice_id
+    #   @return [String, nil] the voice id from mirai
+    # @!attribute [r] url
+    #   @return [String, nil] the url of the voice
+    # @!attribute [r] path
+    #   @return [String, nil] the local path of the voice
+    # @!method from(**kwargs)
+    #   Form a {Rubirai::VoiceMessage}. Only needs to give one of the three arguments.
+    #   @option kwargs [String] :voice_id the voice id
+    #   @option kwargs [String] :url the url of the voice
+    #   @option kwargs [String] :path the local path of the voice
+    #   @return [Rubirai::VoiceMessage] the message object
+    #   @!scope class
     set_message :Voice, :voice_id, :url, :path
   end
 
@@ -272,6 +372,11 @@ module Rubirai
   class XmlMessage < Message
     # @!attribute [r] xml
     #   @return [String] the xml content
+    # @!method from(**kwargs)
+    #   Form a {Rubirai::XmlMessage}.
+    #   @option kwargs [String] :xml the xml body
+    #   @return [Rubirai::XmlMessage] the message object
+    #   @!scope class
     set_message :Xml, :xml
   end
 
@@ -279,6 +384,11 @@ module Rubirai
   class JsonMessage < Message
     # @!attribute [r] json
     #   @return [String] the json content
+    # @!method from(**kwargs)
+    #   Form a {Rubirai::JsonMessage}.
+    #   @option kwargs [String] :json the json body
+    #   @return [Rubirai::JsonMessage] the message object
+    #   @!scope class
     set_message :Json, :json
   end
 
@@ -286,27 +396,72 @@ module Rubirai
   class AppMessage < Message
     # @!attribute [r] content
     #   @return [String] the app content
+    # @!method from(**kwargs)
+    #   Form an {Rubirai::AppMessage}.
+    #   @option kwargs [String] :content the app body
+    #   @return [Rubirai::AppMessage] the message object
+    #   @!scope class
     set_message :App, :content
   end
 
+  # The poke message type
   class PokeMessage < Message
+    # @!attribute [r] name
+    #   @return [String] type (name) of the poke
+    # @!method from(**kwargs)
+    #   Form an {Rubirai::PokeMessage}.
+    #   @option kwargs [String] :name the name (type) of poke
+    #   @return [Rubirai::PokeMessage] the message object
+    #   @!scope class
     set_message :Poke, :name
   end
 
+  # The forward message type
   class ForwardMessage < Message
+    # A message node in the forward message list
+    #
+    # @!attribute [r] sender_id
+    #   @return [Integer] sender id
+    # @!attribute [r] time
+    #   @return [Integer] send timestamp (second)
+    # @!attribute [r] sender_name
+    #   @return [String] the sender name
+    # @!attribute [r] message_chain
+    #   @return [MessageChain] the message chain
     class Node
       attr_reader :sender_id, :time, :sender_name, :message_chain
 
+      # @private
       def initialize(hash, bot = nil)
+        return unless hash
         @sender_id = hash['senderId']
         @time = hash['time']
         @sender_name = hash['senderName']
         @message_chain = MessageChain.make(*hash['messageChain'], bot: bot)
       end
+
+      def self.from(**kwargs)
+        n = new({})
+        %i[sender_id time sender_name message_chain].each do |attr|
+          n.instance_variable_set("@#{attr}", kwargs[attr])
+        end
+      end
     end
 
+    # @!attribute [r] title
+    #   @return [String] the title
+    # @!attribute [r] brief
+    #   @return [String] the brief text
+    # @!attribute [r] source
+    #   @return [String] the source text
+    # @!attribute [r] summary
+    #   @return [String] the summary text
+    # @!attribute [r] node_list
+    #   @return [Array<Node>] the node list
+    #   @see Node
     set_message :Forward, :title, :brief, :source, :summary, :node_list
 
+    # @private
     def initialize(hash, bot = nil)
       super :Forward, bot
       @title = hash['title']
@@ -319,15 +474,42 @@ module Rubirai
     end
   end
 
+  # The file message type
   class FileMessage < Message
+    # @!attribute [r] id
+    #   @return [String] the file id
+    # @!attribute [r] internal_id
+    #   @return [Integer] the internal id needed by server
+    # @!attribute [r] name
+    #   @return [String] the filename
+    # @!attribute [r] size
+    #   @return [Integer] the file size
     set_message :File, :id, :internal_id, :name, :size
   end
 
+  # The music share card message
   class MusicShareMessage < Message
+    # List all kinds of music providers
+    #
+    # @return [Array<String>] kinds
     def self.all_kinds
       %w[NeteaseCloudMusic QQMusic MiguMusic]
     end
 
+    # @!attribute [r] kind
+    #   @return [String] the kind of music provider
+    # @!attribute [r] title
+    #   @return [String] the music card title
+    # @!attribute [r] summary
+    #   @return [String] the music card summary
+    # @!attribute [r] jump_url
+    #   @return [String] the jump url
+    # @!attribute [r] picture_url
+    #   @return [String] the picture's url
+    # @!attribute [r] music_url
+    #   @return [String] the music's url
+    # @!attribute [r] brief
+    #   @return [String, nil] the brief message (optional)
     set_message :MusicShare, :kind, :title, :summary, :jump_url, :picture_url, :music_url, :brief do |hash|
       raise(RubiraiError, 'non valid music type') unless all_kinds.include? hash['kind']
     end

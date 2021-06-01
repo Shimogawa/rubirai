@@ -89,7 +89,6 @@ module Rubirai
     # @private
     # @param bot [Rubirai::Bot, nil]
     # @param source [Array, nil]
-    # @param id [Integer, nil]
     def initialize(bot = nil, source = nil)
       @bot = bot
       @messages = []
@@ -133,6 +132,9 @@ module Rubirai
   end
 
   # Makes a message chain. See {MessageChain#make}.
+  #
+  # @return [MessageChain] the message chain made.
+  # @see MessageChain#make
   def self.MessageChain(*messages, bot: nil)
     MessageChain.make(*messages, bot: bot)
   end
