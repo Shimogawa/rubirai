@@ -114,7 +114,7 @@ module Rubirai
     #
     # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain
     # @param quote [Boolean] if to quote the original message
-    # @return [void]
+    # @return [Integer] message id
     def respond(*msgs, quote: false)
       check_bot
       msgs.prepend(gen_quote) if quote
@@ -128,7 +128,6 @@ module Rubirai
       else
         raise 'undefined error'
       end
-      nil
     end
 
     # Generates a quote message from this event
@@ -140,7 +139,8 @@ module Rubirai
         group_id: @sender.is_a?(GroupUser) ? @sender.group.id : 0,
         sender_id: @sender.id,
         target_id: @sender.is_a?(GroupUser) ? @sender.group.id : @bot.qq,
-        origin: @message_chain
+        origin: @message_chain.raw,
+        bot: @bot
       )
     end
 

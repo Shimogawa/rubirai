@@ -185,7 +185,7 @@ module Rubirai
     #   @return [Integer] the original receiver's (group or user) id
     # @!attribute [r] origin
     #   @return [MessageChain] the original message chain
-    set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin
+    set_message :Quote, :id, :group_id, :sender_id, :target_id, :origin, :origin_raw
 
     # @private
     def initialize(hash, bot = nil)
@@ -195,6 +195,18 @@ module Rubirai
       @sender_id = hash['senderId']
       @target_id = hash['targetId']
       @origin = MessageChain.make(*hash['origin'], bot: bot)
+      @origin_raw = hash['origin']
+    end
+
+    def to_h
+      {
+        "type" => "Quote",
+        "id" => @id,
+        "groupId" => @group_id,
+        "senderId" => @sender_id,
+        "targetId" => @target_id,
+        "origin" => if @origin_raw then @origin_raw else @origin.to_a end
+      }.compact
     end
   end
 

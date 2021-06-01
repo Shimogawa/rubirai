@@ -84,4 +84,62 @@ describe 'message api' do
       expect(@mirai_bot.recall(123)).to be_nil
     end.not_to raise_error
   end
+
+  it 'should be able to respond to a message event' do
+    e = Rubirai::Event.parse({
+      "type": 'GroupMessage',
+      "messageChain": [
+        {
+          "type": 'Source',
+          "id": 123456,
+          "time": 123456789
+        }.stringify_keys,
+        {
+          "type": 'Plain',
+          "text": 'Miral牛逼'
+        }.stringify_keys
+      ],
+      "sender": {
+        "id": 123456789,
+        "memberName": '化腾',
+        "permission": 'MEMBER',
+        "group": {
+          "id": 1234567890,
+          "name": 'Miral Technology',
+          "permission": 'MEMBER'
+        }.stringify_keys
+      }.stringify_keys
+    }.stringify_keys, @mirai_bot)
+    stub_request(:post, @mirai_bot.gen_uri('/sendGroupMessage'))
+      .with(body: {
+        "sessionKey": 'test_session_key',
+        "target": 1234567890,
+        "messageChain": [
+          {
+            "id": 123456,
+            "groupId": 1234567890,
+            "senderId": 123456789,
+            "targetId": 1234567890,
+            "origin": [
+              {
+                "type": 'Source',
+                "id": 123456,
+                "time": 123456789
+              },
+              { "text": 'Miral牛逼', "type": 'Plain' }
+            ],
+            "type": 'Quote'
+          },
+          { "text": 'hi', "type": 'Plain' }
+        ]
+      })
+      .to_return(status: 200, body: %({
+          "code": 0,
+          "msg": "success",
+          "messageId": 1234567890
+      }))
+    expect(e).to be_a(Rubirai::GroupMessageEvent)
+    msg_id = e.respond 'hi', quote: true
+    expect(msg_id).to eq(1234567890)
+  end
 end
