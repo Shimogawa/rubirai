@@ -256,12 +256,12 @@ module Rubirai
 
     def to_h
       {
-        "type" => "Quote",
-        "id" => @id,
-        "groupId" => @group_id,
-        "senderId" => @sender_id,
-        "targetId" => @target_id,
-        "origin" => if @origin_raw then @origin_raw else @origin.to_a end
+        'type' => 'Quote',
+        'id' => @id,
+        'groupId' => @group_id,
+        'senderId' => @sender_id,
+        'targetId' => @target_id,
+        'origin' => @origin_raw || @origin.to_a
       }.compact
     end
   end
