@@ -55,8 +55,12 @@ gem install rubirai
 
 
 ## License
+
+[AGPL-3.0 License][license]
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FShimogawa%2Frubirai.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FShimogawa%2Frubirai?ref=badge_large)
 
 
 [wiki]: https://github.com/Shimogawa/rubirai/wiki
 [rubydocs]: https://www.rebuild.moe/rubirai/
+[license]: LICENSE

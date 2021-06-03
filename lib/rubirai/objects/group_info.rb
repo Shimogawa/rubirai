@@ -5,6 +5,11 @@ require 'rubirai/utils'
 module Rubirai
   # The abstract class for group information
   # @abstract
+  #
+  # @!attribute [r] raw
+  #   @return [Hash{String => Object}] the raw hash
+  # @!attribute [r] bot
+  #   @return [Bot] the bot
   class GroupInfo
     # @private
     def self.set_fields(*fields, **default_values)
@@ -34,10 +39,6 @@ module Rubirai
       attr_writer(*fields)
     end
 
-    # @!attribute [r] raw
-    #   @return [Hash{String => Object}] the raw hash
-    # @!attribute [r] bot
-    #   @return [Bot] the bot
     attr_reader :raw, :bot
 
     # @private

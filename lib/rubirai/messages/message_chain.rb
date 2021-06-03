@@ -12,11 +12,13 @@ module Rubirai
     #   @return [Bot] the bot object
     # @!attribute [r] id
     #   @return [Integer, nil] the message id, may be `nil`
+    # @!attribute [r] raw
+    #   @return [Hash{String => Object}, nil] the raw message chain, may be `nil`
     # @!attribute [r] send_time
     #   @return [Integer, nil] the send time of the message chain, may be `nil`
     # @!attribute [r] messages
     #   @return [Array<Message>] the raw message array
-    attr_reader :bot, :id, :send_time, :messages
+    attr_reader :bot, :id, :raw, :send_time, :messages
 
     # Makes a message chain from a list of messages
     #
@@ -87,10 +89,10 @@ module Rubirai
     # @private
     # @param bot [Rubirai::Bot, nil]
     # @param source [Array, nil]
-    # @param id [Integer, nil]
     def initialize(bot = nil, source = nil)
       @bot = bot
       @messages = []
+      @raw = source
       return unless source
       raise(MiraiError, 'source is not array') unless source.is_a? Array
       raise(MiraiError, 'length is zero') if source.empty?
@@ -130,6 +132,9 @@ module Rubirai
   end
 
   # Makes a message chain. See {MessageChain#make}.
+  #
+  # @return [MessageChain] the message chain made.
+  # @see MessageChain#make
   def self.MessageChain(*messages, bot: nil)
     MessageChain.make(*messages, bot: bot)
   end
