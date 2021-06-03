@@ -101,7 +101,17 @@
   
 </div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The forward message type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
   
     
@@ -115,34 +125,24 @@
 
 
 
-
-
-  <h2>Instance Attribute Summary</h2>
-  
-  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Message</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Message.html#bot-instance_method" title="Rubirai::Message#bot (method)">#bot</a></span>, <span class='object_link'><a href="Message.html#type-instance_method" title="Rubirai::Message#type (method)">#type</a></span></p>
-
-
-  
-    <h2>
-      Instance Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hash, bot = nil)  &#x21d2; ForwardMessage </a>
+      <a href="#brief-instance_method" title="#brief (instance method)">#<strong>brief</strong>  &#x21d2; String </a>
     
 
     
   </span>
   
   
-    <span class="note title constructor">constructor</span>
   
+    
+      <span class="note title readonly">readonly</span>
+    
+    
   
   
   
@@ -150,15 +150,134 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of ForwardMessage.</p>
+    <span class="summary_desc"><div class='inline'><p>The brief text.</p>
 </div></span>
   
 </li>
 
-      
-    </ul>
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#node_list-instance_method" title="#node_list (instance method)">#<strong>node_list</strong>  &#x21d2; Array&lt;Node&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
   
 
+  
+    <span class="summary_desc"><div class='inline'><p>The node list.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source-instance_method" title="#source (instance method)">#<strong>source</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The source text.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#summary-instance_method" title="#summary (instance method)">#<strong>summary</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The summary text.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#title-instance_method" title="#title (instance method)">#<strong>title</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The title.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Message</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Message.html#bot-instance_method" title="Rubirai::Message#bot (method)">#bot</a></span>, <span class='object_link'><a href="Message.html#type-instance_method" title="Rubirai::Message#type (method)">#type</a></span></p>
+
+
 
   
   
@@ -166,17 +285,20 @@
   
   
   
-  
+  <h2>Method Summary</h2>
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Message</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Message.html#AtAllMessage-class_method" title="Rubirai::Message.AtAllMessage (method)">AtAllMessage</a></span>, <span class='object_link'><a href="Message.html#AtMessage-class_method" title="Rubirai::Message.AtMessage (method)">AtMessage</a></span>, <span class='object_link'><a href="Message.html#FaceMessage-class_method" title="Rubirai::Message.FaceMessage (method)">FaceMessage</a></span>, <span class='object_link'><a href="Message.html#PlainMessage-class_method" title="Rubirai::Message.PlainMessage (method)">PlainMessage</a></span>, <span class='object_link'><a href="Message.html#QuoteMessage-class_method" title="Rubirai::Message.QuoteMessage (method)">QuoteMessage</a></span>, <span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
+  <p class="inherited"><span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="brief-instance_method">
   
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    #<strong>initialize</strong>(hash, bot = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rubirai::ForwardMessage (class)">ForwardMessage</a></span></tt> 
+    #<strong>brief</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -184,13 +306,30 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of ForwardMessage.</p>
+    <p>Returns the brief text.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the brief text</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -198,42 +337,251 @@
       <pre class="lines">
 
 
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307</pre>
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 298</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 462</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='kw'>super</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span>
-  <span class='ivar'>@title</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>title</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@brief</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>brief</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@source</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>source</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@summary</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>summary</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@node_list</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nodeList</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_chain'>chain</span><span class='op'>|</span>
-    <span class='const'><span class='object_link'><a href="ForwardMessage/Node.html" title="Rubirai::ForwardMessage::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ForwardMessage/Node.html#initialize-instance_method" title="Rubirai::ForwardMessage::Node#initialize (method)">new</a></span></span> <span class='id identifier rubyid_chain'>chain</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='symbol'>:brief</span><span class='comma'>,</span> <span class='symbol'>:source</span><span class='comma'>,</span> <span class='symbol'>:summary</span><span class='comma'>,</span> <span class='symbol'>:node_list</span></pre>
     </td>
   </tr>
 </table>
 </div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="node_list-instance_method">
   
+    #<strong>node_list</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="ForwardMessage/Node.html" title="Rubirai::ForwardMessage::Node (class)">Node</a></span>&gt;</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the node list.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="ForwardMessage/Node.html" title="Rubirai::ForwardMessage::Node (class)">Node</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the node list</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="ForwardMessage/Node.html" title="Rubirai::ForwardMessage::Node (class)">Node</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 462</span>
+
+<span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='symbol'>:brief</span><span class='comma'>,</span> <span class='symbol'>:source</span><span class='comma'>,</span> <span class='symbol'>:summary</span><span class='comma'>,</span> <span class='symbol'>:node_list</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="source-instance_method">
+  
+    #<strong>source</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the source text.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the source text</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 462</span>
+
+<span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='symbol'>:brief</span><span class='comma'>,</span> <span class='symbol'>:source</span><span class='comma'>,</span> <span class='symbol'>:summary</span><span class='comma'>,</span> <span class='symbol'>:node_list</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="summary-instance_method">
+  
+    #<strong>summary</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the summary text.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the summary text</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 462</span>
+
+<span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='symbol'>:brief</span><span class='comma'>,</span> <span class='symbol'>:source</span><span class='comma'>,</span> <span class='symbol'>:summary</span><span class='comma'>,</span> <span class='symbol'>:node_list</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="title-instance_method">
+  
+    #<strong>title</strong>  &#x21d2; <tt><span class='object_link'>String</span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the title.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the title</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 462</span>
+
+<span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:Forward</span><span class='comma'>,</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='symbol'>:brief</span><span class='comma'>,</span> <span class='symbol'>:source</span><span class='comma'>,</span> <span class='symbol'>:summary</span><span class='comma'>,</span> <span class='symbol'>:node_list</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
 </div>
 
       <div id="footer">
-  Generated on Sun May 30 12:28:06 2021 by
+  Generated on Thu Jun  3 07:49:52 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

@@ -209,7 +209,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The message object.</p>
+    <span class="summary_desc"><div class='inline'><p>Form an <span class='object_link'><a href="" title="Rubirai::AtMessage (class)">AtMessage</a></span>.</p>
 </div></span>
   
 </li>
@@ -228,7 +228,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Message.html" title="Rubirai::Message (class)">Message</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Message.html#AtAllMessage-class_method" title="Rubirai::Message.AtAllMessage (method)">AtAllMessage</a></span>, <span class='object_link'><a href="Message.html#AtMessage-class_method" title="Rubirai::Message.AtMessage (method)">AtMessage</a></span>, <span class='object_link'><a href="Message.html#FaceMessage-class_method" title="Rubirai::Message.FaceMessage (method)">FaceMessage</a></span>, <span class='object_link'><a href="Message.html#PlainMessage-class_method" title="Rubirai::Message.PlainMessage (method)">PlainMessage</a></span>, <span class='object_link'><a href="Message.html#QuoteMessage-class_method" title="Rubirai::Message.QuoteMessage (method)">QuoteMessage</a></span>, <span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Message.html#all_types-class_method" title="Rubirai::Message.all_types (method)">all_types</a></span>, <span class='object_link'><a href="Message.html#check_type-class_method" title="Rubirai::Message.check_type (method)">check_type</a></span>, <span class='object_link'><a href="Message.html#to_h-instance_method" title="Rubirai::Message#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Message.html#to_message-class_method" title="Rubirai::Message.to_message (method)">to_message</a></span></p>
 
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
@@ -277,10 +277,10 @@
       <pre class="lines">
 
 
-210</pre>
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 280</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:At</span><span class='comma'>,</span> <span class='symbol'>:target</span><span class='comma'>,</span> <span class='symbol'>:display</span></pre>
     </td>
@@ -332,10 +332,10 @@
       <pre class="lines">
 
 
-210</pre>
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 280</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:At</span><span class='comma'>,</span> <span class='symbol'>:target</span><span class='comma'>,</span> <span class='symbol'>:display</span></pre>
     </td>
@@ -353,7 +353,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="from-instance_method">
   
-    #<strong>from</strong>(**kwargs)  &#x21d2; <tt><span class='object_link'><a href="Message.html#AtMessage-class_method" title="Rubirai::Message.AtMessage (method)">AtMessage</a></span></tt> 
+    #<strong>from</strong>(**kwargs)  &#x21d2; <tt><span class='object_link'><a href="" title="Rubirai::AtMessage (class)">AtMessage</a></span></tt> 
   
 
   
@@ -361,31 +361,34 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the message object.</p>
+    <p>Form an <span class='object_link'><a href="" title="Rubirai::AtMessage (class)">Rubirai::AtMessage</a></span>. The <code>display</code> option has no effect when
+sending at messages.</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>**kwargs</tt>):</p>
+    <ul class="option">
       
-        <span class='name'>kwargs</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'>Hash</span>{Symbol =&gt; <span class='object_link'>Object</span>}</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>not used</p>
+        <li>
+          <span class="name">:target</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>the target id</p>
 </div>
+          
+        </li>
       
-    </li>
+    </ul>
   
-</ul>
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -393,7 +396,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Message.html#AtMessage-class_method" title="Rubirai::Message.AtMessage (method)">AtMessage</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rubirai::AtMessage (class)">AtMessage</a></span></tt>)</span>
       
       
       
@@ -411,10 +414,10 @@
       <pre class="lines">
 
 
-210</pre>
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message.rb', line 280</span>
 
 <span class='id identifier rubyid_set_message'>set_message</span> <span class='symbol'>:At</span><span class='comma'>,</span> <span class='symbol'>:target</span><span class='comma'>,</span> <span class='symbol'>:display</span></pre>
     </td>
@@ -427,7 +430,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun May 30 12:28:05 2021 by
+  Generated on Thu Jun  3 07:49:52 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
