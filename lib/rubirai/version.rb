@@ -2,7 +2,7 @@
 
 module Rubirai
   # Rubirai version
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   # mirai-api-http version
   MIRAI_API_VERSION = '1.10.0'

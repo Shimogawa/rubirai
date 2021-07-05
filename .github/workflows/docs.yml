@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  gendoc:
     runs-on: ubuntu-latest
     strategy:
       matrix:
