@@ -79,7 +79,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/rubirai.rb<span class="defines">,<br />
-  lib/rubirai/auth.rb,<br /> lib/rubirai/errors.rb,<br /> lib/rubirai/listing.rb,<br /> lib/rubirai/message.rb,<br /> lib/rubirai/retcode.rb,<br /> lib/rubirai/session.rb,<br /> lib/rubirai/version.rb,<br /> lib/rubirai/listener.rb,<br /> lib/rubirai/multipart.rb,<br /> lib/rubirai/event_recv.rb,<br /> lib/rubirai/event_resp.rb,<br /> lib/rubirai/management.rb,<br /> lib/rubirai/plugin_info.rb,<br /> lib/rubirai/events/event.rb,<br /> lib/rubirai/objects/user.rb,<br /> lib/rubirai/objects/group.rb,<br /> lib/rubirai/messages/message.rb,<br /> lib/rubirai/events/bot_events.rb,<br /> lib/rubirai/objects/group_info.rb,<br /> lib/rubirai/events/message_events.rb,<br /> lib/rubirai/events/request_events.rb,<br /> lib/rubirai/events/rubirai_events.rb,<br /> lib/rubirai/messages/message_chain.rb</span>
+  lib/rubirai/auth.rb,<br /> lib/rubirai/utils.rb,<br /> lib/rubirai/errors.rb,<br /> lib/rubirai/listing.rb,<br /> lib/rubirai/message.rb,<br /> lib/rubirai/retcode.rb,<br /> lib/rubirai/session.rb,<br /> lib/rubirai/version.rb,<br /> lib/rubirai/listener.rb,<br /> lib/rubirai/multipart.rb,<br /> lib/rubirai/event_recv.rb,<br /> lib/rubirai/event_resp.rb,<br /> lib/rubirai/management.rb,<br /> lib/rubirai/plugin_info.rb,<br /> lib/rubirai/events/event.rb,<br /> lib/rubirai/objects/user.rb,<br /> lib/rubirai/objects/group.rb,<br /> lib/rubirai/messages/message.rb,<br /> lib/rubirai/events/bot_events.rb,<br /> lib/rubirai/objects/group_info.rb,<br /> lib/rubirai/events/message_events.rb,<br /> lib/rubirai/events/request_events.rb,<br /> lib/rubirai/events/rubirai_events.rb,<br /> lib/rubirai/messages/interpolation.rb,<br /> lib/rubirai/messages/message_chain.rb</span>
 </dd>
   </dl>
   
@@ -89,7 +89,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Rubirai/FriendRequestOperation.html" title="Rubirai::FriendRequestOperation (module)">FriendRequestOperation</a></span>, <span class='object_link'><a href="Rubirai/GroupInviteRequestOperation.html" title="Rubirai::GroupInviteRequestOperation (module)">GroupInviteRequestOperation</a></span>, <span class='object_link'><a href="Rubirai/JoinGroupRequestOperation.html" title="Rubirai::JoinGroupRequestOperation (module)">JoinGroupRequestOperation</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Rubirai/FriendRequestOperation.html" title="Rubirai::FriendRequestOperation (module)">FriendRequestOperation</a></span>, <span class='object_link'><a href="Rubirai/GroupInviteRequestOperation.html" title="Rubirai::GroupInviteRequestOperation (module)">GroupInviteRequestOperation</a></span>, <span class='object_link'><a href="Rubirai/JoinGroupRequestOperation.html" title="Rubirai::JoinGroupRequestOperation (module)">JoinGroupRequestOperation</a></span>, <span class='object_link'><a href="Rubirai/Utils.html" title="Rubirai::Utils (module)">Utils</a></span>
     
   
     
@@ -146,7 +146,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="MIRAI_API_VERSION-constant" class="">MIRAI_API_VERSION =
           <div class="docstring">
@@ -7508,12 +7508,12 @@ sending at messages.</p>
       <pre class="lines">
 
 
-138
-139
-140</pre>
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message_chain.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/messages/message_chain.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>MessageChain</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_messages'>messages</span><span class='comma'>,</span> <span class='label'>bot:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Rubirai/MessageChain.html" title="Rubirai::MessageChain (class)">MessageChain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_make'><span class='object_link'><a href="Rubirai/MessageChain.html#make-class_method" title="Rubirai::MessageChain.make (method)">make</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_messages'>messages</span><span class='comma'>,</span> <span class='label'>bot:</span> <span class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span>
@@ -12406,7 +12406,7 @@ sending at messages.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  3 08:00:13 2021 by
+  Generated on Mon Jul  5 09:45:48 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

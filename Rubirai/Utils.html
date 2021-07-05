@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Rubirai::GroupInviteRequestOperation
+  Module: Rubirai::Utils
   
     &mdash; Documentation by YARD 0.9.26
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rubirai::GroupInviteRequestOperation";
+  pathId = "Rubirai::Utils";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (G)</a> &raquo;
+    <a href="../_index.html">Index (U)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Rubirai.html" title="Rubirai (module)">Rubirai</a></span></span>
      &raquo; 
-    <span class="title">GroupInviteRequestOperation</span>
+    <span class="title">Utils</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Rubirai::GroupInviteRequestOperation
+      <div id="content"><h1>Module: Rubirai::Utils
   
   
   
@@ -78,71 +78,88 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rubirai/event_resp.rb</dd>
+    <dd>lib/rubirai/utils.rb</dd>
   </dl>
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>Operations for responding to group invite requests.
-Only use the values defined in this module to respond to group invite requests.</p>
 
 
-  </div>
-</div>
-<div class="tags">
-  
 
-</div>
+
+
+
+
   
     <h2>
-      Constant Summary
-      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
-    <dl class="constants">
+    <ul class="summary">
       
-        <dt id="APPROVE-constant" class="">APPROVE =
-          <div class="docstring">
-  <div class="discussion">
-    <p>Approve the request</p>
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#random_str-class_method" title="random_str (class method)">.<strong>random_str</strong>(len)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="random_str-class_method">
+  
+    .<strong>random_str</strong>(len)  &#x21d2; <tt><span class='object_link'>Object</span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rubirai/utils.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_random_str'>random_str</span><span class='lparen'>(</span><span class='id identifier rubyid_len'>len</span><span class='rparen'>)</span>
+  <span class='const'>SecureRandom</span><span class='period'>.</span><span class='id identifier rubyid_alphanumeric'>alphanumeric</span> <span class='id identifier rubyid_len'>len</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='int'>0</span></pre></dd>
-      
-        <dt id="DENY-constant" class="">DENY =
-          <div class="docstring">
-  <div class="discussion">
-    <p>Deny the request</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='int'>1</span></pre></dd>
-      
-    </dl>
-  
-
-
-
-
-
-
-
-
 
 </div>
 
