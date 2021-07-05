@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'securerandom'
+
 # @private
 class Hash
   def stringify_keys!
@@ -57,6 +59,14 @@ class Object
       raise(msg)
     else
       raise(exc_type, *args)
+    end
+  end
+end
+
+module Rubirai
+  module Utils
+    def self.random_str(len)
+      SecureRandom.alphanumeric len
     end
   end
 end
