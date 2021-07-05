@@ -11,6 +11,18 @@ A light-weight Mirai QQ bot http interface lib for Ruby.
 
 [中文][wiki] | [Rubydocs][rubydocs]
 
+## Description
+
+This library is designed specifically for integration with [mirai-api-http].
+[Mirai][mirai] is a QQ bot framework. The relationship is like this:
+
+```
+mirai <-jvm-> mirai-console <-plugin-> mirai-api-http <-http-> rubirai
+```
+
+[mirai-api-http]: https://github.com/project-mirai/mirai-api-http
+[mirai]: https://github.com/mamoe/mirai
+
 ## Usage
 
 First, download the package using `gem`. In your `Gemfile`, add
