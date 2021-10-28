@@ -2,11 +2,11 @@
 
 module Rubirai
   class Bot
-    # Start authentication. Will store the session.
-    # @param auth_key [String] the auth key defined in config file
+    # Start verification. Will store the session.
+    # @param verify_key [String] the auth key defined in config file
     # @return [String] the session key which will also be stored in the bot
-    def auth(auth_key)
-      v = call :post, '/auth', json: { "authKey": auth_key }
+    def verify(verify_key)
+      v = call :post, '/verify', json: { "verifyKey": verify_key }
       @session = v['session']
     end
 
@@ -14,10 +14,10 @@ module Rubirai
     # @param qq [String, Integer] qq id
     # @param session [String, nil] the session key. Set to `nil` will use the saved credentials.
     # @return [void]
-    def verify(qq, session = nil)
+    def bind(qq, session = nil)
       check qq, session
 
-      call :post, '/verify', json: { "sessionKey": @session || session, "qq": qq.to_i }
+      call :post, '/bind', json: { "sessionKey": @session || session, "qq": qq.to_i }
       @session = session if session
       @qq = qq
       nil
@@ -43,12 +43,15 @@ module Rubirai
     #
     # @param qq [String, Integer] qq id
     # @param auth_key [String] the auth key set in the settings file for mirai-api-http.
+    # @param skip_bind [Boolean] if to skip binding (need to enable `singeMode` for
+    #                            mirai-http-api)
     # @return [void]
-    # @see #auth
+    # @see #bind
     # @see #verify
-    def login(qq, auth_key)
-      auth auth_key
-      verify qq
+    def login(qq, auth_key, skip_bind: false)
+      verify auth_key
+      skip_bind or bind(qq)
+      nil
     end
 
     alias connect login

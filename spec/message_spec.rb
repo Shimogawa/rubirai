@@ -6,7 +6,7 @@ describe 'message api' do
   before :all do
     @mirai_bot = new_bot
     stub_login
-    @mirai_bot.login @qq, @auth_key
+    @mirai_bot.login @qq, @verify_key
   end
 
   after do

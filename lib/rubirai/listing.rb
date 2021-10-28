@@ -11,7 +11,7 @@ module Rubirai
       resp = call :get, '/friendList', params: {
         sessionKey: @session
       }
-      resp.map { |friend| User.new(friend, self) }
+      resp['data'].map { |friend| User.new(friend, self) }
     end
 
     # Get group list of the bot
@@ -20,7 +20,7 @@ module Rubirai
       resp = call :get, '/groupList', params: {
         sessionKey: @session
       }
-      resp.map { |group| Group.new(group, self) }
+      resp['data'].map { |group| Group.new(group, self) }
     end
 
     # Get member list of a group
@@ -31,7 +31,7 @@ module Rubirai
         sessionKey: @session,
         target: group_id
       }
-      resp.map { |member| GroupUser.new(member, self) }
+      resp['data'].map { |member| GroupUser.new(member, self) }
     end
   end
 end
