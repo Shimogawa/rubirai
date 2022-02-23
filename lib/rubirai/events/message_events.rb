@@ -15,7 +15,7 @@ module Rubirai
 
   # Friend message event
   class FriendMessageEvent < MessageEvent
-    # @!method initialize(hash, bot = nil)
+    # @!method initialize(hash, boxt = nil)
     #   @param hash [Hash]
     #   @param bot [Rubirai::Bot]
     # @!attribute [r] sender

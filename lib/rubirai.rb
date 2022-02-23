@@ -58,7 +58,7 @@ module Rubirai
 
       body = JSON.parse(resp.body)
       if (body.is_a? Hash) && (body.include? 'code') && (body['code'] != 0)
-        raise MiraiError.new(body['code'], body['msg'] || body['errorMessage'])
+        raise MiraiError.new(body['code'], body['msg'])
       end
 
       body

@@ -18,7 +18,7 @@ module Rubirai
       check qq, session
 
       call :post, '/bind', json: { "sessionKey": @session || session, "qq": qq.to_i }
-      @session = session if session
+      @session ||= session
       @qq = qq
       nil
     end
@@ -43,14 +43,14 @@ module Rubirai
     #
     # @param qq [String, Integer] qq id
     # @param auth_key [String] the auth key set in the settings file for mirai-api-http.
-    # @param skip_bind [Boolean] if to skip binding (need to enable `singeMode` for
-    #                            mirai-http-api)
+    # @param single_mode [Boolean] if to skip binding (need to enable `singeMode` for
+    #                              mirai-http-api)
     # @return [void]
     # @see #bind
     # @see #verify
-    def login(qq, auth_key, skip_bind: false)
+    def login(qq, auth_key, single_mode: false)
       verify auth_key
-      skip_bind or bind(qq)
+      single_mode or bind(qq)
       nil
     end
 
