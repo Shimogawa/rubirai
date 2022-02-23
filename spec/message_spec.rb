@@ -6,7 +6,7 @@ describe 'message api' do
   before :all do
     @mirai_bot = new_bot
     stub_login
-    @mirai_bot.login @qq, @auth_key
+    @mirai_bot.login @qq, @verify_key
   end
 
   after do
@@ -114,22 +114,8 @@ describe 'message api' do
       .with(body: {
         "sessionKey": 'test_session_key',
         "target": 1234567890,
+        "quote": 123456,
         "messageChain": [
-          {
-            "id": 123456,
-            "groupId": 1234567890,
-            "senderId": 123456789,
-            "targetId": 1234567890,
-            "origin": [
-              {
-                "type": 'Source',
-                "id": 123456,
-                "time": 123456789
-              },
-              { "text": 'Miral牛逼', "type": 'Plain' }
-            ],
-            "type": 'Quote'
-          },
           { "text": 'hi', "type": 'Plain' }
         ]
       })

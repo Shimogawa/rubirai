@@ -23,6 +23,16 @@ mirai <-jvm-> mirai-console <-plugin-> mirai-api-http <-http-> rubirai
 [mirai-api-http]: https://github.com/project-mirai/mirai-api-http
 [mirai]: https://github.com/mamoe/mirai
 
+## Prerequisite
+
+Install [mirai-api-http] and configure its `setting.yml` file.
+
+Now its easier to enable `singleMode` if you have only one account
+in the mirai console.
+
+Note that you **must** enable Http Adapter with configuration of
+`http` under `adapterSettings`. More mode support to come.
+
 ## Usage
 
 First, download the package using `gem`. In your `Gemfile`, add
@@ -38,7 +48,7 @@ require 'rubirai'
 # assuming your mirai http api address and port
 # are 127.0.0.1 and 8080
 bot = Rubirai::Bot.new('127.0.0.1', '8080')
-# qq and auth key
+# qq and verify key
 bot.login 1145141919, 'ikisugi_key'
 
 # Add a listener function
@@ -64,7 +74,6 @@ gem install rubirai
 
 - [中文 Wiki][wiki]
 - [Docs][rubydocs]
-
 
 ## License
 

@@ -7,7 +7,7 @@ module Rubirai
   class Bot
     # Start to listen for events
     #
-    # @param interval [Numeric] the interval to fetch events in seconds.
+    # @param interval [Integer, Float] the interval to fetch events in seconds.
     # @param is_blocking [Boolean] if the listen thread should block the current thread
     # @param ignore_error [Boolean] if errors should generate error events (see {RubiraiErrorEvent})
     # @return [void]
