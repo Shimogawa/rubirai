@@ -42,14 +42,14 @@ module Rubirai
     # Log you in.
     #
     # @param qq [String, Integer] qq id
-    # @param auth_key [String] the auth key set in the settings file for mirai-api-http.
+    # @param verify_key [String] the auth key set in the settings file for mirai-api-http.
     # @param single_mode [Boolean] if to skip binding (need to enable `singeMode` for
     #                              mirai-http-api)
     # @return [void]
     # @see #bind
     # @see #verify
-    def login(qq, auth_key, single_mode: false)
-      verify auth_key
+    def login(qq, verify_key, single_mode: false)
+      verify verify_key
       single_mode or bind(qq)
       nil
     end
