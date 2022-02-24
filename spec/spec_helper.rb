@@ -24,22 +24,22 @@ WebMock.disable_net_connect!(allow_localhost: false)
 
 RSpec.configure do |config|
   config.before :all do
-    @auth_key = 'test_auth_key'
+    @verify_key = 'test_verify_key'
     @session_key = 'test_session_key'
     @qq = 1145141919
   end
 end
 
 def stub_login
-  stub_request(:post, @mirai_bot.gen_uri('/auth'))
+  stub_request(:post, @mirai_bot.gen_uri('/verify'))
     .with(body: {
-      "authKey": @auth_key
+      "verifyKey": @verify_key
     })
     .to_return(status: 200, body: %({
           "code": 0,
           "session": "#{@session_key}"
       }))
-  stub_request(:post, @mirai_bot.gen_uri('/verify'))
+  stub_request(:post, @mirai_bot.gen_uri('/bind'))
     .with(body: {
       "sessionKey": @session_key,
       "qq": @qq

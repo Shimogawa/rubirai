@@ -10,15 +10,17 @@ module Rubirai
     # @param target_qq [Integer] target qq id
     # @param group_id [Integer] group id
     # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @param quote [NilClass, Integer] the message id to quote, nil for not quote
     # @return [Integer] message id
-    def send_temp_msg(target_qq, group_id, *msgs)
+    def send_temp_msg(target_qq, group_id, *msgs, quote: nil)
       chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, '/sendTempMessage', json: {
         sessionKey: @session,
         qq: target_qq.to_i,
         group: group_id.to_i,
+        quote: quote,
         messageChain: chain.to_a
-      }
+      }.compact
       resp['messageId']
     end
 
@@ -27,15 +29,17 @@ module Rubirai
     # @param type [Symbol, String] options: [group, friend]
     # @param target_id [Integer] target qq/group id
     # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @param quote [NilClass, Integer] the message id to quote, nil for not quote
     # @return [Integer] message id
-    def send_msg(type, target_id, *msgs)
+    def send_msg(type, target_id, *msgs, quote: nil)
       self.class.ensure_type_in type, 'group', 'friend'
       chain = Rubirai::MessageChain.make(*msgs, bot: self)
       resp = call :post, "/send#{type.to_s.snake_to_camel}Message", json: {
         sessionKey: @session,
         target: target_id.to_i,
+        quote: quote,
         messageChain: chain.to_a
-      }
+      }.compact
       resp['messageId']
     end
 
@@ -43,25 +47,28 @@ module Rubirai
     #
     # @param target_qq [Integer] target qq id
     # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @param quote [NilClass, Integer] the message id to quote, nil for not quote
     # @return [Integer] message id
-    def send_friend_msg(target_qq, *msgs)
-      send_msg :friend, target_qq, *msgs
+    def send_friend_msg(target_qq, *msgs, quote: nil)
+      send_msg :friend, target_qq, *msgs, quote: quote
     end
 
     # Send group message
     #
     # @param target_group_id [Integer] group id
     # @param msgs [Array<Rubirai::Message, Hash, String, Object>] messages to form a chain, can be any type
+    # @param quote [NilClass, Integer] the message id to quote, nil for not quote
     # @return [Integer] message id
-    def send_group_msg(target_group_id, *msgs)
-      send_msg :group, target_group_id, *msgs
+    def send_group_msg(target_group_id, *msgs, quote: nil)
+      send_msg :group, target_group_id, *msgs, quote: quote
     end
 
     # Recall a message
     #
-    # @param msg_id [Integer] message id
+    # @param msg_id [Integer, Rubirai::MessageChain] message id
     # @return [void]
     def recall(msg_id)
+      msg_id = msg_id.id if msg_id.is_a? Rubirai::MessageChain
       call :post, '/recall', json: {
         sessionKey: @session,
         target: msg_id
@@ -117,31 +124,17 @@ module Rubirai
     # @return [Integer] message id
     def respond(*msgs, quote: false)
       check_bot
-      msgs.prepend(gen_quote) if quote
+      quote_id = quote ? (@message_chain.id || nil) : nil
       case self
       when FriendMessageEvent
-        @bot.send_friend_msg(@sender.id, *msgs)
+        @bot.send_friend_msg(@sender.id, *msgs, quote: quote_id)
       when GroupMessageEvent
-        @bot.send_group_msg(@sender.group.id, *msgs)
+        @bot.send_group_msg(@sender.group.id, *msgs, quote: quote_id)
       when TempMessageEvent
-        @bot.send_temp_msg(@sender.id, @sender.group.id, *msgs)
+        @bot.send_temp_msg(@sender.id, @sender.group.id, *msgs, quote: quote_id)
       else
         raise 'undefined error'
       end
-    end
-
-    # Generates a quote message from this event
-    #
-    # @return [QuoteMessage] the quote message
-    def gen_quote
-      QuoteMessage.from(
-        id: @message_chain.id,
-        group_id: @sender.is_a?(GroupUser) ? @sender.group.id : 0,
-        sender_id: @sender.id,
-        target_id: @sender.is_a?(GroupUser) ? @sender.group.id : @bot.qq,
-        origin: @message_chain.raw,
-        bot: @bot
-      )
     end
 
     private
